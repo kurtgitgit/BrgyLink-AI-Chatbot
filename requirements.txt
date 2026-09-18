@@ -1,0 +1,9 @@
+Flask
+Flask-Cors
+numpy
+tensorflow
+nltk
+torch
+transformers
+peft
+# smart_classifier.py uses only the Python standard library

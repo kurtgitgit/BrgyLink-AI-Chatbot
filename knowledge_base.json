@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "barangay_name": "Barangay Bagong Pag-asa, San Jacinto",
+    "status": "draft_for_barangay_staff_review",
+    "last_updated": "2026-09-17",
+    "important": "Do not publish entries marked needs_staff_verification until an authorized barangay representative has confirmed them."
+  },
+  "services": [
+    {
+      "intent": "clearance",
+      "title": "Barangay Clearance",
+      "needs_staff_verification": true,
+      "requirements": ["Submit through BrgyLink Document Requests", "Enter the request purpose", "Attach a photo of a valid ID"],
+      "fee_php": null,
+      "processing_time": null,
+      "answer": "In BrgyLink, open Document Requests, select Barangay Clearance, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current fees, extra requirements, and pickup instructions through Announcements or the official barangay office.",
+      "answer_fil": "Sa BrgyLink, buksan ang Document Requests, piliin ang Barangay Clearance, ilagay ang layunin, mag-attach ng larawan ng balidong ID, at isumite ang request. Subaybayan ang status sa app. Para sa kasalukuyang bayad, karagdagang requirements, at pagkuha, tingnan ang Announcements o magtanong sa opisyal na barangay office."
+    },
+    {
+      "intent": "indigency",
+      "title": "Certificate of Indigency",
+      "needs_staff_verification": true,
+      "requirements": ["Submit through BrgyLink Document Requests", "Enter the request purpose", "Attach a photo of a valid ID"],
+      "fee_php": null,
+      "processing_time": null,
+      "answer": "In BrgyLink, open Document Requests, select Certificate of Indigency, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current eligibility, fees, and pickup instructions through Announcements or the official barangay office.",
+      "answer_fil": "Sa BrgyLink, buksan ang Document Requests, piliin ang Certificate of Indigency, ilagay ang layunin, mag-attach ng larawan ng balidong ID, at isumite ang request. Subaybayan ang status sa app. Kumpirmahin ang eligibility, bayad, at pagkuha sa Announcements o opisyal na barangay office."
+    },
+    {
+      "intent": "residency",
+      "title": "Certificate of Residency",
+      "needs_staff_verification": true,
+      "requirements": ["Submit through BrgyLink Document Requests", "Enter the request purpose", "Attach a photo of a valid ID"],
+      "fee_php": null,
+      "processing_time": null,
+      "answer": "In BrgyLink, open Document Requests, select Certificate of Residency, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current fees, extra requirements, and pickup instructions through Announcements or the official barangay office.",
+      "answer_fil": "Sa BrgyLink, buksan ang Document Requests, piliin ang Certificate of Residency, ilagay ang layunin, mag-attach ng larawan ng balidong ID, at isumite ang request. Subaybayan ang status sa app. Para sa kasalukuyang bayad, karagdagang requirements, at pagkuha, tingnan ang Announcements o magtanong sa opisyal na barangay office."
+    },
+    {
+      "intent": "business_permit",
+      "title": "Barangay Business Clearance",
+      "needs_staff_verification": true,
+      "requirements": ["Submit through BrgyLink Document Requests", "Enter the request purpose", "Attach a photo of a valid ID"],
+      "fee_php": null,
+      "processing_time": null,
+      "answer": "In BrgyLink, open Document Requests, select Business Clearance, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current fees, extra requirements, and pickup instructions through Announcements or the official barangay office.",
+      "answer_fil": "Sa BrgyLink, buksan ang Document Requests, piliin ang Business Clearance, ilagay ang layunin, mag-attach ng larawan ng balidong ID, at isumite ang request. Subaybayan ang status sa app. Para sa kasalukuyang bayad, karagdagang requirements, at pagkuha, tingnan ang Announcements o magtanong sa opisyal na barangay office."
+    },
+    {
+      "intent": "office_hours",
+      "title": "Office Hours and Location",
+      "needs_staff_verification": true,
+      "office_hours": null,
+      "office_address": null,
+      "contact": null,
+      "answer": "Please contact or visit the barangay office to confirm today’s office hours, address, and available services.",
+      "answer_fil": "Makipag-ugnayan o bumisita sa tanggapan ng barangay upang makumpirma ang oras ng opisina, address, at mga serbisyong available ngayon."
+    },
+    {
+      "intent": "fees",
+      "title": "Service Fees",
+      "needs_staff_verification": true,
+      "answer": "Fees depend on the current barangay ordinance and requested document. Please confirm the current amount and payment method with the barangay office before applying.",
+      "answer_fil": "Ang bayad ay nakadepende sa kasalukuyang ordinansa at sa dokumentong hinihingi. Kumpirmahin muna sa barangay ang halaga at paraan ng pagbabayad."
+    },
+    {
+      "intent": "report_incident",
+      "title": "Complaint or Blotter",
+      "needs_staff_verification": true,
+      "answer": "In BrgyLink, open Blotter Reports and select File New Report. Choose the incident type, enter the location and narrative, optionally submit anonymously, attach photo evidence if appropriate, and submit. Track the report in the app. For an emergency, contact the appropriate emergency service now.",
+      "answer_fil": "Sa BrgyLink, buksan ang Blotter Reports at piliin ang File New Report. Piliin ang uri ng insidente, ilagay ang lokasyon at salaysay, maaaring piliing anonymous, mag-attach ng photo evidence kung naaangkop, at isumite. Subaybayan ang report sa app. Kung emergency, tawagan agad ang naaangkop na emergency service."
+    },
+    {
+      "intent": "emergency",
+      "title": "Emergency",
+      "needs_staff_verification": true,
+      "emergency_contacts": {"national_emergency": "911", "barangay_tanod": null, "fire": null, "ambulance": null},
+      "answer": "If there is immediate danger or an emergency, call 911 now. For local assistance, use the verified barangay emergency contacts once they are added here.",
+      "answer_fil": "Kung may agarang panganib o emergency, tumawag agad sa 911. Para sa lokal na tulong, gamitin ang beripikadong emergency contacts ng barangay kapag naidagdag na rito."
+    },
+    {
+      "intent": "garbage",
+      "title": "Garbage Collection",
+      "needs_staff_verification": true,
+      "schedule": null,
+      "answer": "Please check the Announcements screen in BrgyLink for the current garbage collection schedule, or contact the official barangay office.",
+      "answer_fil": "Magkakaiba ang schedule ng koleksyon ng basura ayon sa kalsada o purok. Tingnan ang opisyal na anunsyo ng barangay o makipag-ugnayan sa opisina para sa kasalukuyang schedule."
+    }
+  ]
+}

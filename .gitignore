@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.pkl
+*.h5
+*.keras
+*.safetensors
+train_local.log
+local_model_lora/
+data/alpaca_*.json
