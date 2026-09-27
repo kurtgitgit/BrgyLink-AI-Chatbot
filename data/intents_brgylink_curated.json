@@ -1,26 +1,784 @@
 {
   "intents": [
-    {"tag":"greeting","patterns":["Hello","Hi","Magandang araw","Kamusta","Naimbag nga aldaw","Maabig ya agew"],"responses":["Hello! I am BrgyLink AI. How can I help with barangay services today?"]},
-    {"tag":"goodbye","patterns":["Goodbye","Bye","Paalam","Sige","Agyamanak"],"responses":["Thank you for using BrgyLink AI. Have a good day!"]},
-    {"tag":"thanks","patterns":["Thank you","Thanks","Salamat","Maraming salamat","Agyamanak","Salamat, malaking tulong"],"responses":["You are welcome. I am happy to help."]},
-    {"tag":"clearance","patterns":["How do I get barangay clearance?","Barangay clearance requirements","Kailangan ko ng barangay clearance","Paano kumuha ng barangay clearance","Kasano ti agala ti barangay clearance","Panon so onala na barangay clearance","Where can I request a barangay clearance in the app?","Gagamitin ko sa trabaho ang clearance ko, saan ako magre-request?","Mabalin ba nga agkiddaw iti clearance iti BrgyLink?"],"responses":["In BrgyLink, open Document Requests, select Barangay Clearance, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current fees, extra requirements, and pickup instructions through Announcements or the official barangay office."]},
-    {"tag":"indigency","patterns":["Certificate of indigency requirements","I need an indigency certificate","Paano kumuha ng certificate of indigency","Kailangan ko ng indigency","Kasano ti agala ti certificate of indigency","Panon so onala na certificate of indigency"],"responses":["In BrgyLink, open Document Requests, select Certificate of Indigency, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current eligibility, fees, and pickup instructions through Announcements or the official barangay office."]},
-    {"tag":"residency","patterns":["Certificate of residency requirements","Proof of residency","Paano kumuha ng certificate of residency","Kasano ti agala ti certificate of residency","Panon so onala na certificate of residency","Kailangan ko ng patunay na residente ako","Saan ako magre-request ng residency certificate?","I need proof that I live in the barangay","Nais ko ng katibayan na ako ay residente","Katibayan ng tirahan ko sa barangay"],"responses":["In BrgyLink, open Document Requests, select Certificate of Residency, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current fees, extra requirements, and pickup instructions through Announcements or the official barangay office."]},
-    {"tag":"business_permit","patterns":["Business clearance requirements","Barangay business clearance","Paano kumuha ng business permit","Kasano ti agala ti business permit","Panon so onala na business permit","I need a clearance for my shop","Saan mag-aapply ng business clearance?","Permit para sa maliit kong negosyo"],"responses":["In BrgyLink, open Document Requests, select Business Clearance, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current fees, extra requirements, and pickup instructions through Announcements or the official barangay office."]},
-    {"tag":"office_hours","patterns":["Office hours","When is the barangay hall open?","Anong oras kayo bukas?","Ania ti oras ti opisina","Antoy oras na opisina","What time does the office close?","Bukas ba ang barangay hall ngayon?","Hanggang anong oras ang opisina?","Operasyon ba ang opisina ngayong araw?"],"responses":["Please contact or visit the barangay office to confirm today’s office hours, address, and available services."]},
-    {"tag":"fees","patterns":["How much is the clearance?","What are the fees?","Magkano ang bayad?","May bayad ba?","Mano ti bayad?","Panpiga?","May singil ba sa certificate?","Ano ang kasalukuyang halaga ng clearance?"],"responses":["Fees depend on the current barangay ordinance and requested document. Please confirm the current amount and payment method with the barangay office before applying."]},
-    {"tag":"report_incident","patterns":["How do I report an incident?","File a blotter","Complaint","Gusto ko magreklamo","Paano magpa-blotter","Kayatko ti agreport","May kapitbahay akong maingay, gusto kong mag-report","Nangyari ang insidente kagabi, paano ako magsasampa ng reklamo?","May gusto akong ireport sa barangay","May ingay sa aming lugar at kailangan ko ng blotter","Paano ako gagawa ng incident report?"],"responses":["In BrgyLink, open Blotter Reports and select File New Report. Choose the incident type, enter the location and narrative, optionally submit anonymously, attach photo evidence if appropriate, and submit. Track the report in the app. For an emergency, contact the appropriate emergency service now."]},
-    {"tag":"emergency","patterns":["Emergency","I need police","Fire emergency","Ambulance","Tulong","Sunog","Ikasapulak ti pulis","Sunog ed barangay"],"responses":["If there is immediate danger or an emergency, call 911 now. For local assistance, use the verified barangay emergency contacts once they are added here."]},
-    {"tag":"garbage","patterns":["Garbage collection schedule","Garbage schedule","Kailan ang hakot ng basura?","Skedyul ng basura","Kaano ti panaghakot ti basura?","Kapigan so hakot na basura?"],"responses":["Garbage collection schedules differ by street or purok. Please check the official barangay announcement or contact the office for the current schedule."]},
-    {"tag":"good_moral","patterns":["How do I request a Certificate of Good Moral Character?","Good Moral Certificate","Ano ang requirements para sa Good Moral Certificate?","Saan ako mag-aapply ng good moral?","Kailangan ko ng good moral certificate"],"responses":["In BrgyLink, open Document Requests, select Certificate of Good Moral Character, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current requirements, fees, and pickup instructions through Announcements or the official barangay office."]},
-    {"tag":"barangay_id","patterns":["How do I apply for a Barangay ID?","Barangay ID request","Paano kumuha ng Barangay ID?","Kailangan ko ng barangay identification card","Saan magre-request ng Barangay ID?"],"responses":["In BrgyLink, open Document Requests, select Barangay ID, enter your purpose, attach a photo of your valid ID if requested, and submit. Track its status in the app." ]},
-    {"tag":"document_status","patterns":["How do I check my document request?","Track my clearance request","Nasaan na ang request ko?","Paano makita ang status ng dokumento?","Ready for pickup na ba ang certificate ko?"],"responses":["Open your Document Requests in BrgyLink to check the request status. The app can show Pending, Processing, Ready for Pickup, Completed, or Rejected." ]},
-    {"tag":"document_request","patterns":["How do I file a document request?","Paano mag file ng document?","Paano humiling ng dokumento?","Submit a certificate request","Gusto kong mag request ng document"],"responses":["Which document do you need? Choose Barangay Clearance, Certificate of Indigency, Certificate of Residency, Business Clearance, Certificate of Good Moral Character, or Barangay ID." ]},
-    {"tag":"announcements","patterns":["Where are barangay announcements?","Latest barangay announcement","Saan makikita ang announcements?","May bagong anunsyo ba?","Check barangay updates"],"responses":["Open the Announcements screen in BrgyLink for verified barangay updates, schedules, and urgent notices." ]},
-    {"tag":"account_help","patterns":["I did not receive my OTP","Cannot log in to BrgyLink","Paano mag-register sa app?","Hindi ko ma-access ang account ko","Email verification help"],"responses":["For account help, check your registered email for the six-digit OTP and make sure your account details are correct. If the problem continues, contact the official barangay office or app administrator." ]},
-    {"tag":"sdg_mission","patterns":["What are SDG missions?","Community initiatives","Paano sumali sa civic task?","Tree planting mission","Waste drive submission"],"responses":["Open Community Initiatives in BrgyLink to view active SDG missions, follow the activity instructions, and submit the required proof." ]},
-    {"tag":"suggestion","patterns":["How do I send a suggestion?","Submit feedback to barangay","May nais akong sabihin sa barangay","Paano magbigay ng feedback?","Anonymous suggestion"],"responses":["Use the Suggestions or Feedback feature in BrgyLink to send a concern or suggestion to the barangay. Use the official form for sensitive concerns." ]},
-    {"tag":"fallback","patterns":["Tell me a joke","Who won the basketball game?","How do I renew my passport?","What is the capital of France?","Recommend a movie","Solve my math homework","What is the weather tomorrow?","How do I cook adobo?","I want to buy a phone","Play some music"],"responses":["I can help with BrgyLink and Barangay Bagong Pag-asa services. Please check Announcements or contact the official barangay office for other concerns." ]},
-    {"tag":"language_support","patterns":["Naiintindihan mo ba ang Tagalog?","Marunong ka ba mag Tagalog?","Nakakaintindi ka ba ng Tagalog?","Can you understand Tagalog?","Do you speak Ilocano?","Makatalos ka ba ng Pangasinan?","What languages can you speak?"],"responses":["Oo. Nakakaunawa ako ng Tagalog, English, Pangasinan, at Ilocano. Maaari kang magtanong tungkol sa BrgyLink at mga serbisyo ng Barangay Bagong Pag-asa."]}
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hello", "Hi", "Hey", "Good morning", "Good afternoon", "Good evening",
+        "Hi there", "Greetings", "Is anyone there?", "Hello BrgyLink", "Hi BrgyLink",
+        "Good day", "Hey there", "Howdy", "Yo", "Sup", "What's up",
+        "Start", "Begin", "Help me", "I need help", "Hello there",
+        "Magandang araw", "Kamusta", "Kamusta po", "Kumusta ka", "Kumusta po",
+        "Uy hello", "Hoy", "Magandang umaga", "Magandang hapon", "Magandang gabi",
+        "Magandang tanghali", "Musta", "Musta po", "Kumusta na",
+        "Naimbag nga aldaw", "Naimbag a bigat", "Naimbag a malem", "Naimbag a rabii",
+        "Anya ti maitulong ko", "Hello po", "Hi po", "Good morning po",
+        "Maabig ya agew", "Maabig a kabuasan", "Maabig a labi",
+        "Antoy nitulong ko ed sika", "Akin ka?"
+      ],
+      "responses": [
+        "Hello! I am BrgyLink AI, your virtual barangay assistant. How can I help you with Barangay Bagong Pag-asa services today?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye", "Goodbye", "See you later", "Thanks bye", "Take care", "I'm done",
+        "That's all", "No more questions", "Done na", "Signing off", "Later",
+        "Good bye", "Bye bye", "See ya", "Cheerio", "Exit", "Quit", "End",
+        "Done na ko", "Ok done", "Salamat sige", "Ayos na sige",
+        "Paalam", "Sige na", "Sige", "Ayos na", "Salamat, sige",
+        "Hanggang sa muli", "Ingat", "Paalam na po", "Ok na po",
+        "Agpakada akon", "Kasta pa", "Innakon", "Makaalis ak la", "Sige la",
+        "Salamat sige la", "Agyamanak sige"
+      ],
+      "responses": [
+        "Thank you for using BrgyLink AI! Have a wonderful day. / Salamat! Magandang araw!"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks", "Thank you", "Thanks a lot", "That was helpful", "Much appreciated",
+        "Thank you so much", "Okay thanks", "Thanks for the info", "Got it thanks",
+        "Perfect thanks", "Great thanks", "Awesome thanks", "Noted thank you",
+        "Very helpful", "That helps", "I see thanks", "Understood thanks",
+        "Salamat", "Maraming salamat", "Salamat po", "Salamat, malaking tulong",
+        "Salamat, naintindihan ko na", "Nakuha ko na ang info", "Ok salamat",
+        "Salamat ha", "Oks salamat", "Salamat boss", "Salamat ate", "Salamat kuya",
+        "Agyamanak", "Dios ti agngina", "Balbaleg a salamat",
+        "Salamat balbaleg", "Agyaman", "Agyamanak unay", "Salalamaten ka"
+      ],
+      "responses": [
+        "You're welcome! Feel free to ask if you need anything else. / Walang anuman!"
+      ]
+    },
+    {
+      "tag": "clearance",
+      "patterns": [
+        "How do I get barangay clearance?", "Barangay clearance requirements",
+        "I need a barangay clearance", "How to apply for barangay clearance?",
+        "Where can I request barangay clearance?", "Request clearance online",
+        "Clearance application", "Barangay clearance process",
+        "Clearance for employment", "Clearance for work", "Clearance for job",
+        "Clearance for NBI application", "Clearance for visa application",
+        "Clearance for bank loan", "Clearance for school enrollment",
+        "Clearance for travel abroad", "Clearance for government transaction",
+        "Clearance for police clearance", "I need barangay clearance for work",
+        "Barangay clearance for job application", "How to submit clearance in BrgyLink",
+        "Where to get clearance?", "Clearance processing time",
+        "Clearance requirements list", "Step by step clearance application",
+        "Paano makuha ng barangay clearance", "Paano kumuha ng clearance",
+        "Kailangan ko ng barangay clearance", "Kailangan ko ng clearance para sa trabaho",
+        "Kailangan ng clearance para sa visa", "Mag-request ng clearance",
+        "Saan kukuha ng clearance?", "Paano mag-apply ng clearance?",
+        "Gagamitin ko sa trabaho ang clearance ko", "Clearance ko para sa trabaho",
+        "Ang clearance ko ba ay ready na?", "Bayad ba sa clearance?",
+        "Paano i-submit ang clearance request sa BrgyLink?",
+        "Clearance para sa loan sa bangko", "Clearance para sa SSS",
+        "Clearance para sa Pag-IBIG", "Clearance para sa PhilHealth",
+        "Clearance para sa passport", "Clearance para sa PRC",
+        "Mabalin ba nga agkiddaw iti clearance iti BrgyLink?",
+        "Kasano ti agala ti barangay clearance", "Ania dagiti kasapulan para clearance",
+        "Panon so onala na barangay clearance", "Anto ray kailangan ed barangay clearance",
+        "Barangay clearance para ed trabaho", "Clearance para ed visa",
+        "Clearance para sa sari-sari store", "Need ko ng clearance",
+        "Paano ang proseso ng clearance?", "Clearance certificate"
+      ],
+      "responses": [
+        "In BrgyLink, open Document Requests, select Barangay Clearance, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current fees, extra requirements, and pickup instructions through Announcements or the official barangay office."
+      ]
+    },
+    {
+      "tag": "indigency",
+      "patterns": [
+        "Certificate of indigency requirements", "I need an indigency certificate",
+        "How to get indigency certificate?", "Indigency application",
+        "Indigency for hospital bills", "Indigency for medical expenses",
+        "Indigency for scholarship application", "Indigency for free medicine",
+        "Indigency for DSWD benefits", "Indigency for government assistance",
+        "Indigency for tuition fee waiver", "Indigency for burial assistance",
+        "Indigency for educational financial aid", "Indigency for senior benefits",
+        "Indigency for Malasakit Center", "Certificate of indigency para sa ospital",
+        "Indigency certificate for free hospitalization",
+        "Certificate of indigency para sa ayuda",
+        "Paano kumuha ng certificate of indigency",
+        "Kailangan ko ng indigency", "Kailangan ko ng indigency para sa gamot",
+        "Kailangan ko ng indigency para sa ospital",
+        "Saan magre-request ng indigency?",
+        "Ano ang requirements ng indigency certificate?",
+        "Indigency para sa scholarship", "Libre ba ang indigency?",
+        "May bayad ba ang certificate of indigency?",
+        "Paano mag-apply ng indigency sa BrgyLink?",
+        "Saan ko isusumite ang indigency request?",
+        "Indigency para sa PhilHealth indigent member",
+        "Kasano ti agala ti certificate of indigency",
+        "Panon so onala na certificate of indigency",
+        "Indigency certificate ed hospital", "Libre so indigency?",
+        "Indigency para sa benepisyo", "Indigency para sa ayuda",
+        "Malapit na mag-operasyon kaya kailangan ng indigency",
+        "Indigency para sa 4Ps", "Indigency requirements list"
+      ],
+      "responses": [
+        "In BrgyLink, open Document Requests, select Certificate of Indigency, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current eligibility, fees, and pickup instructions through Announcements or the official barangay office."
+      ]
+    },
+    {
+      "tag": "residency",
+      "patterns": [
+        "Certificate of residency requirements", "Proof of residency",
+        "I need proof that I live in the barangay", "How to get certificate of residency?",
+        "Residency certificate application", "Residency certificate process",
+        "Proof of address from barangay", "Certificate of residence",
+        "Residency certificate for school", "Residency certificate for voter registration",
+        "Residency certificate for NBI", "Residency certificate for land titling",
+        "Residency certificate for passport", "Residency for court purposes",
+        "Residency certificate for bank account opening",
+        "Proof I am a resident of the barangay", "I live in this barangay",
+        "Paano kumuha ng certificate of residency",
+        "Kailangan ko ng patunay na residente ako",
+        "Saan magre-request ng residency certificate?",
+        "Nais ko ng katibayan na ako ay residente",
+        "Katibayan ng tirahan ko sa barangay",
+        "Paano makakuha ng residency certificate sa app?",
+        "Kailangan ko ng katibayan na nakatira ako sa barangay",
+        "Residency proof para sa school", "Residency para sa voter",
+        "Kailangan ng patunay ng address ko",
+        "Residency certificate online", "Residente ako dito",
+        "Kasano ti agala ti certificate of residency",
+        "Panon so onala na certificate of residency",
+        "Certificate na nakatira dito", "Proof na nakatira ako",
+        "Kailangan ko ng residency para sa trabaho",
+        "Sertipiko ng paninirahan", "Katibayan ng tirahan"
+      ],
+      "responses": [
+        "In BrgyLink, open Document Requests, select Certificate of Residency, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current fees, extra requirements, and pickup instructions through Announcements or the official barangay office."
+      ]
+    },
+    {
+      "tag": "business_permit",
+      "patterns": [
+        "Business clearance requirements", "Barangay business clearance",
+        "I need a clearance for my shop", "I need a clearance for my store",
+        "I need a barangay permit for my sari-sari store",
+        "Business permit for small business", "Barangay clearance for my business",
+        "Clearance for online selling business", "Clearance for food business",
+        "Clearance for food stall", "Business permit application",
+        "Annual business permit renewal", "New business permit",
+        "How to apply for business permit?", "Business clearance process",
+        "What requirements do I need to open a business?",
+        "Barangay clearance for DTI registration",
+        "Barangay clearance for business registration",
+        "Paano kumuha ng business permit",
+        "Saan mag-aapply ng business clearance?",
+        "Permit para sa maliit kong negosyo",
+        "Paano mag-submit ng business clearance request?",
+        "Business permit renewal", "Renew ng business permit",
+        "Business clearance para sa food cart",
+        "Business clearance para sa online shop",
+        "Kailangan ng clearance para sa negosyo ko",
+        "Sari-sari store permit", "Tindahan permit",
+        "I have a small store, what permit do I need?",
+        "Kasano ti agala ti business permit",
+        "Panon so onala na business permit",
+        "Business permit para sa food stall",
+        "Annual business clearance renewal",
+        "Barangay clearance for my BBQ stand",
+        "Street food vendor clearance", "Online store barangay clearance",
+        "Requirements for business registration in barangay"
+      ],
+      "responses": [
+        "In BrgyLink, open Document Requests, select Business Clearance, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current fees, extra requirements, and pickup instructions through Announcements or the official barangay office."
+      ]
+    },
+    {
+      "tag": "good_moral",
+      "patterns": [
+        "How do I request a Certificate of Good Moral Character?",
+        "Good Moral Certificate", "I need a good moral certificate",
+        "Good moral for employment", "Good moral for school application",
+        "Good moral for abroad application", "Good moral for scholarship",
+        "Good moral for immigration", "Good moral for PRC application",
+        "Good moral for board exam", "Good moral for master's application",
+        "Good moral for university", "Good moral for civil service",
+        "Certificate of good standing from barangay",
+        "Character reference from barangay", "Moral character certificate",
+        "Ano ang requirements para sa Good Moral Certificate?",
+        "Saan ako mag-aapply ng good moral?",
+        "Kailangan ko ng good moral certificate",
+        "I require a Certificate of Good Moral Character",
+        "Paano kumuha ng good moral sa BrgyLink?",
+        "Good moral para sa abroad", "Good moral para sa trabaho",
+        "Good moral para sa scholarship", "Good moral para sa PRC",
+        "Good moral sa BrgyLink", "Good moral certificate app",
+        "Kailangan ng good moral character certificate"
+      ],
+      "responses": [
+        "In BrgyLink, open Document Requests, select Certificate of Good Moral Character, enter your purpose, attach a photo of your valid ID, and submit the request. Track its status in the app. Confirm current requirements, fees, and pickup instructions through Announcements or the official barangay office."
+      ]
+    },
+    {
+      "tag": "barangay_id",
+      "patterns": [
+        "How do I apply for a Barangay ID?", "Barangay ID request",
+        "Barangay ID application", "I need a barangay ID",
+        "Barangay ID requirements", "How to get a Barangay ID?",
+        "Barangay identification card", "Barangay issued ID",
+        "ID from barangay", "Barangay resident ID",
+        "Paano kumuha ng Barangay ID?", "Kailangan ko ng barangay identification card",
+        "Saan magre-request ng Barangay ID?", "Paano mag-apply ng barangay ID?",
+        "I need ID from barangay", "Kailangan ko ng barangay ID",
+        "Saan makakuha ng barangay ID?", "Barangay ID para sa identification",
+        "May barangay ID ba kayo?", "Meron bang ID ang barangay?",
+        "Bgy ID application", "Bgy ID requirements"
+      ],
+      "responses": [
+        "In BrgyLink, open Document Requests, select Barangay ID, enter your purpose, attach a photo of your valid ID if requested, and submit. Track its status in the app."
+      ]
+    },
+    {
+      "tag": "solo_parent",
+      "patterns": [
+        "Solo parent ID", "Solo parent certificate", "How to get solo parent ID?",
+        "Solo parent benefits", "Solo parent application", "Solo parent card",
+        "Solo parent privileges", "Solo parent discount", "Solo parent leave",
+        "Solo parent registration", "Solo parent requirements",
+        "Single parent ID", "Single parent benefits", "Single parent certificate",
+        "Single parent assistance", "Nag-iisang magulang", "Isa lang ang nagpapalaki",
+        "Walang asawa nagiisa sa pagpapalaki", "Single mom ID", "Single dad ID",
+        "Paano makakuha ng solo parent ID?", "Saan mag-apply ng solo parent?",
+        "Kailangan ko ng solo parent ID", "Ano ang benepisyo ng solo parent?",
+        "Requirements for solo parent certificate", "Solo parent DSWD",
+        "Solo parent barangay registration", "Mag-apply ng solo parent card"
+      ],
+      "responses": [
+        "For a Solo Parent ID or certificate, please visit the barangay office or check the Announcements in BrgyLink for the current requirements, schedule, and supporting documents. The barangay coordinates with DSWD for this service."
+      ]
+    },
+    {
+      "tag": "senior_citizen",
+      "patterns": [
+        "Senior citizen ID", "How to get senior citizen ID?",
+        "Senior citizen benefits", "OSCA ID application", "OSCA registration",
+        "Senior citizen card", "Senior citizen discount", "Senior citizen registration",
+        "Senior citizen privileges", "Senior citizen requirements",
+        "60 years old ID", "65 years old ID", "Elderly ID",
+        "Senior citizen registration in barangay", "OSCA in barangay",
+        "PWD ID", "PWD registration", "Person with disability ID",
+        "Persons with disability benefits", "PWD discount card",
+        "Paano makakuha ng senior citizen ID?",
+        "Saan mag-apply ng senior ID?",
+        "Kailangan ko ng senior citizen ID", "Senior ID requirements",
+        "Matanda na, paano mag-apply ng ID?", "Lola ko kailangan ng senior ID",
+        "Lolo ko kailangan ng senior ID",
+        "Senior citizen application requirements"
+      ],
+      "responses": [
+        "Senior Citizen IDs are processed through the Office for Senior Citizens Affairs (OSCA). Please visit the barangay office or check the Announcements in BrgyLink for the current schedule and requirements."
+      ]
+    },
+    {
+      "tag": "office_hours",
+      "patterns": [
+        "Office hours", "When is the barangay hall open?",
+        "What time does the office open?", "What time does the office close?",
+        "Until what hour is the barangay office available?",
+        "Is the office open today?", "Barangay hall schedule",
+        "Is the barangay hall open on weekends?",
+        "Is barangay hall open on Saturdays?", "Is barangay hall open on holidays?",
+        "Where is the barangay hall?", "Barangay office location",
+        "Barangay office address", "How to contact the barangay office?",
+        "Barangay contact number", "Telephone number ng barangay",
+        "Contact information barangay",
+        "May serbisyo ba sa barangay hall ngayong araw?",
+        "Anong oras kayo bukas?", "Bukas ba ang barangay hall ngayon?",
+        "Hanggang anong oras ang opisina?", "Operasyon ba ang opisina ngayong araw?",
+        "Bukas ba kayo ngayon?", "Bukas ba kayo ng Sabado?",
+        "Anong oras bukas ang opisina?", "Saan ang barangay hall?",
+        "Tanggapan ng barangay", "Opisina ng barangay",
+        "Ania ti oras ti opisina", "Akapukas kayo ni?",
+        "Antoy oras na opisina", "Nakabukas kayo natan?",
+        "Oras ng barangay", "Schedule ng barangay office"
+      ],
+      "responses": [
+        "Please contact or visit the barangay office to confirm today's office hours, address, and available services."
+      ]
+    },
+    {
+      "tag": "fees",
+      "patterns": [
+        "How much is the clearance?", "What are the fees?",
+        "How much does a certificate cost?", "Is there a payment required?",
+        "How much for the certificate?", "How much for barangay services?",
+        "Do I need to pay?", "Fee schedule barangay",
+        "How much is indigency?", "How much is residency?",
+        "How much is good moral certificate?", "How much is barangay ID?",
+        "How much is business clearance?", "Processing fee",
+        "May singil ba sa certificate?", "Ano ang kasalukuyang halaga ng clearance?",
+        "Magkano ang bayad?", "May bayad ba?", "Magkano ang certificate?",
+        "May bayad ba sa pagkuha ng clearance?", "Magkano ang iba-ibang sertipiko?",
+        "Libre ba ito?", "Kailangan ba magbayad?", "Anong bayad?",
+        "Magkano po?", "Bayad po?", "Pera pera ba ito?",
+        "Mano ti bayad?", "Panpiga?", "Sagmamano?",
+        "May charge ba?", "Payment method barangay", "Paano magbayad?"
+      ],
+      "responses": [
+        "Fees depend on the current barangay ordinance and the requested document. Please confirm the current amount and payment method with the barangay office before applying."
+      ]
+    },
+    {
+      "tag": "report_incident",
+      "patterns": [
+        "How do I report an incident?", "File a blotter",
+        "How to file a complaint?", "How to file a blotter report?",
+        "I want to file a complaint", "I want to report my neighbor",
+        "I want to report a problem in our area",
+        "Noise complaint", "Noise disturbance report",
+        "Domestic dispute report", "Trespassing report",
+        "Vandalism report", "Theft report to barangay",
+        "How to submit a blotter?", "Anonymous complaint",
+        "Submit anonymous complaint barangay", "Confidential report",
+        "I want to file an incident report", "Incident report form",
+        "How to report illegal activity?", "How to report illegal drugs?",
+        "Drug related complaint", "Gambling complaint",
+        "Stray dog complaint", "Noise pollution complaint",
+        "Boundary dispute complaint", "Property dispute report",
+        "May kapitbahay akong maingay, gusto kong mag-report",
+        "Nangyari ang insidente kagabi, paano ako magsasampa ng reklamo?",
+        "May gusto akong ireport sa barangay",
+        "May ingay sa aming lugar at kailangan ko ng blotter",
+        "Paano ako gagawa ng incident report?",
+        "Gusto kong magreklamo", "Paano magpa-blotter",
+        "Saan ako magrereport?", "Mayroon akong reklamo",
+        "May reklamo ako sa kapitbahay ko", "May maingay sa labas",
+        "Gusto ko mag-report ng ingay", "Ingay sa kapitbahay",
+        "Kayatko ti agreport", "Ireklamo ko daytoy",
+        "Reklamo ko", "May reklamo ako", "Ireport ko ito",
+        "Paano mag-file ng blotter?", "Report ng insidente",
+        "Paano mag-submit ng reklamo?", "Gusto ko anonymous na ireport",
+        "Ireklamo ko ang maingay na kapitbahay",
+        "Maingay sa gabi ang kapitbahay ko", "Disturbing the peace"
+      ],
+      "responses": [
+        "In BrgyLink, open Blotter Reports and select File New Report. Choose the incident type, enter the location and narrative, optionally submit anonymously, attach photo evidence if appropriate, and submit. Track the report in the app. For an emergency, contact the appropriate emergency service now."
+      ]
+    },
+    {
+      "tag": "emergency",
+      "patterns": [
+        "Emergency", "I need police", "Fire emergency", "There's a fire",
+        "Someone needs an ambulance", "Medical emergency", "Call ambulance",
+        "Someone is hurt badly", "There is a crime happening",
+        "Help me now", "Robbery", "I need help urgently",
+        "There's a fight", "Someone is unconscious",
+        "There's been an accident", "Car accident near barangay",
+        "Flood emergency", "Drowning", "Heart attack",
+        "Someone collapsed", "Building collapse",
+        "Tulong", "Sunog", "May sunog", "May away", "May nananakit",
+        "May sunog sa malapit", "Kailangan ng pulis", "Inatake",
+        "Tulong tulong", "Saklolo", "Masakit", "Aksidente",
+        "Ikasapulak ti pulis", "Sunog ed barangay", "Seryosong emergency",
+        "Call 911", "Dial 911", "Barangay tanod help",
+        "I need the tanod", "Tanod help"
+      ],
+      "responses": [
+        "If there is immediate danger or an emergency, call 911 now. For local barangay assistance, check the Announcements screen in BrgyLink for verified emergency contacts."
+      ]
+    },
+    {
+      "tag": "garbage",
+      "patterns": [
+        "Garbage collection schedule", "When is garbage day?",
+        "Trash pickup schedule", "When does the garbage truck come?",
+        "Solid waste collection schedule", "Waste collection schedule",
+        "Biodegradable waste collection day", "Non-biodegradable collection day",
+        "Recyclable waste schedule", "Segregation schedule",
+        "Garbage schedule per purok", "Basura schedule sa aming lugar",
+        "When to put out trash?", "Where to dispose garbage?",
+        "Special waste disposal", "Bulk waste collection",
+        "Anong araw kinukuha ang nabubulok na basura?",
+        "Kailan darating ang truck ng basura?",
+        "Kailan ang hakot ng basura?", "Skedyul ng basura",
+        "Basurang hindi pa nakukuha", "Saan ko ilalagay ang basura?",
+        "Kaano ti panaghakot ti basura?", "Kapigan so hakot na basura?",
+        "Biodegradable collection", "Segregation day barangay",
+        "Garbage not collected", "Miss ang hakot ng basura",
+        "Kalat sa daan hindi pa nililinis", "Waste management barangay"
+      ],
+      "responses": [
+        "Garbage collection schedules differ by street or purok. Please check the Announcements screen in BrgyLink for the current schedule, or contact the official barangay office."
+      ]
+    },
+    {
+      "tag": "lupon",
+      "patterns": [
+        "Lupon Tagapamayapa", "Barangay mediation", "Barangay conciliation",
+        "I have a land dispute", "I have a property dispute",
+        "Neighbor dispute settlement", "Katarungang pambarangay",
+        "KP case", "Barangay justice system", "Lupon hearing",
+        "Pangkat conciliation", "How to settle dispute at barangay?",
+        "How to file a civil dispute?", "How to file a complaint with Lupon?",
+        "I want to resolve a dispute through the barangay",
+        "Dispute with neighbor about noise", "Dispute about property line",
+        "Dispute about unpaid debt", "Small claims through barangay",
+        "Barangay dispute resolution", "Mediation hearing schedule",
+        "Lupon chairperson", "Lupon secretary",
+        "Paano mag-file ng kaso sa barangay?",
+        "Lupon hearing", "KP proceeding",
+        "Saan ako mag-file ng civil dispute?",
+        "May patungkol na usapan kami ng kapitbahay",
+        "Hindi kami magkakasundo ng kapitbahay ko",
+        "Alitan sa lupa", "Kasong pangbarangay",
+        "Pano maaayos ang alitan sa kapitbahay?",
+        "Usapin tungkol sa lupa", "Utang ng kapitbahay",
+        "Gustong magkasundo kami ng kapitbahay",
+        "Barangay settlement hearing", "Civil complaint barangay"
+      ],
+      "responses": [
+        "The Lupon Tagapamayapa handles barangay-level disputes and mediation. Please visit the barangay office to file a complaint or request a mediation hearing. You may also check the Announcements in BrgyLink for updates on Lupon schedules."
+      ]
+    },
+    {
+      "tag": "aics_assistance",
+      "patterns": [
+        "AICS", "AICS assistance", "Ayuda", "Cash assistance from barangay",
+        "Financial assistance barangay", "Social amelioration",
+        "SAP assistance", "4Ps beneficiary", "4Ps registration",
+        "Pantawid Pamilya", "Conditional cash transfer",
+        "Livelihood assistance", "Livelihood program",
+        "Relief goods", "Food pack", "Food assistance",
+        "Emergency assistance", "Crisis intervention",
+        "Medical assistance barangay", "Burial assistance",
+        "Educational assistance", "DSWD assistance",
+        "Paano mag-avail ng ayuda?", "May ayuda ba ang barangay?",
+        "Social assistance program", "Tulong pinansyal ng barangay",
+        "Tulong sa DSWD", "Kailangan ko ng tulong sa barangay",
+        "How to apply for assistance?", "Pambi-biyahe sa ospital",
+        "Medical financial aid barangay", "Walang pera pang-ospital",
+        "Kailangan ko ng tulong para sa ospital",
+        "Palagi walang makain", "Hirap sa buhay",
+        "Saan makakakuha ng ayuda?", "Ibibigay ba ng barangay ng tulong?",
+        "Gustong magtanggap ng ayuda", "Benepisyaryo ng barangay"
+      ],
+      "responses": [
+        "For financial aid, relief goods, AICS, or DSWD-related assistance, please visit the barangay office or check the Announcements in BrgyLink. Requirements and availability depend on current programs and eligibility."
+      ]
+    },
+    {
+      "tag": "document_status",
+      "patterns": [
+        "How do I check my document request?", "Track my clearance request",
+        "What is the status of my request?", "Check request status",
+        "Is my document done?", "When will my certificate be ready?",
+        "How long does it take?", "Processing time for certificate",
+        "Ready for pickup ba ang clearance ko?",
+        "Approved na ba ang application ko?", "Pending pa ba ang request ko?",
+        "How do I know when to pick up my document?",
+        "When can I get my certificate?",
+        "Nasaan na ang request ko?", "Paano makita ang status ng dokumento?",
+        "Ready for pickup na ba ang certificate ko?",
+        "Paano ko malalaman kung approved na ang request ko?",
+        "Approved na ba ang clearance ko?", "Status ng application ko",
+        "Kailan maaayos ang request ko?", "Track document request",
+        "Check my request status", "Pending pa ba ang clearance ko?",
+        "Naka-submit na ako ng request, kailan makukuha?",
+        "Processing na ba?", "Under review ba ang clearance ko?",
+        "Rejected ba ang application ko?", "Bakit rejected ang clearance ko?"
+      ],
+      "responses": [
+        "Open your Document Requests in BrgyLink to check the request status. The app shows Pending, Processing, Ready for Pickup, Completed, or Rejected."
+      ]
+    },
+    {
+      "tag": "document_request",
+      "patterns": [
+        "How do I file a document request?", "Submit a certificate request",
+        "Request a document from barangay", "I need a document from the barangay",
+        "How to request a barangay document?", "What documents can I request?",
+        "List of available barangay documents", "Available certificates from barangay",
+        "Paano mag-file ng document?", "Paano humiling ng dokumento?",
+        "Gusto kong mag-request ng document", "Kailangan ko ng dokumento",
+        "Anong mga dokumento ang available sa barangay?",
+        "Anong sertipiko ang mayroon ang barangay?",
+        "Paano humiling ng sertipiko sa BrgyLink?",
+        "Saan ako mag-request ng dokumento?",
+        "Gusto ko ng certificate mula sa barangay",
+        "What barangay documents are available?",
+        "I need a barangay certificate", "Barangay document types"
+      ],
+      "responses": [
+        "Which document do you need? Choose Barangay Clearance, Certificate of Indigency, Certificate of Residency, Business Clearance, Certificate of Good Moral Character, or Barangay ID."
+      ]
+    },
+    {
+      "tag": "announcements",
+      "patterns": [
+        "Where are barangay announcements?", "Latest barangay announcement",
+        "May bagong anunsyo ba?", "Saan makikita ang announcements?",
+        "Check barangay updates", "Barangay news today",
+        "Barangay events and updates", "Upcoming barangay activity",
+        "Latest news from barangay", "Barangay programs and activities",
+        "Community event this week", "Barangay program schedule",
+        "May kaganapan ba sa barangay?", "Balita ng barangay",
+        "Anong programa ng barangay?", "Mga aktibidad ng barangay",
+        "See barangay notices", "Barangay bulletin board",
+        "Official barangay announcements", "Emergency notices barangay"
+      ],
+      "responses": [
+        "Open the Announcements screen in BrgyLink for verified barangay updates, schedules, and urgent notices."
+      ]
+    },
+    {
+      "tag": "account_help",
+      "patterns": [
+        "I did not receive my OTP", "Cannot log in to BrgyLink",
+        "Email verification help", "Where is my six digit code?",
+        "OTP not received", "OTP expired", "Verification code expired",
+        "My OTP is not working", "Cannot verify my email",
+        "Forgot password", "Can't log in", "Login issue",
+        "Account locked", "Account access problem",
+        "I can't access my BrgyLink account", "Account recovery",
+        "How to reset password?", "Change password BrgyLink",
+        "Email not verified", "Registration not completing",
+        "Stuck on OTP screen", "OTP keeps failing",
+        "Hindi ko ma-access ang account ko",
+        "Walang dumating na OTP sa email", "Nakalimutan ko ang login ko",
+        "Ayaw tanggapin ang OTP ko",
+        "My verification code is not working",
+        "Hindi dumating ang code sa email ko",
+        "Naka-lock ang account ko", "Password reset BrgyLink",
+        "Paano mag-recover ng account?", "Account ko ay naka-lock",
+        "OTP wala sa inbox ko", "OTP wala sa spam",
+        "Email OTP problem", "I need to reset my password"
+      ],
+      "responses": [
+        "For account help, check your registered email and spam folder for the six-digit OTP. Never share the OTP in chat. If the problem continues, contact the official barangay office or app administrator."
+      ]
+    },
+    {
+      "tag": "registration",
+      "patterns": [
+        "How do I create a BrgyLink account?", "Paano mag-register sa app?",
+        "Create resident account", "Gusto kong gumawa ng account",
+        "What information is needed for registration?", "Saan mag-sign up?",
+        "Register ako sa BrgyLink", "New user registration",
+        "How do I sign up for BrgyLink?", "Create account in BrgyLink",
+        "How to register in BrgyLink?", "Paano mag-sign up sa BrgyLink?",
+        "I want to create an account in BrgyLink", "Can I register online?",
+        "Bagong account sa BrgyLink", "Registration requirements BrgyLink",
+        "What details do I need to register?", "Sign up process BrgyLink",
+        "First time user BrgyLink", "New resident registration BrgyLink",
+        "Create new account", "Register as resident",
+        "Paano gamitin ang BrgyLink?", "Bago ako sa app, paano mag-register?",
+        "First time ko gamitin ang BrgyLink"
+      ],
+      "responses": [
+        "Open BrgyLink, tap Create Account, enter your full name, email, username, phone number, and home address, then complete email verification."
+      ]
+    },
+    {
+      "tag": "sdg_mission",
+      "patterns": [
+        "What are SDG missions?", "Community initiatives",
+        "Paano sumali sa civic task?", "Tree planting mission",
+        "Coastal clean-up program", "Waste drive submission",
+        "How do I upload mission proof?", "Community program participation",
+        "Submit proof of activity", "Upload photo for mission",
+        "Barangay clean-up drive", "Environment program barangay",
+        "Community service program", "Civic duty program",
+        "Community health program", "Livelihood program barangay",
+        "Nutrition program barangay", "Blood donation program",
+        "Feeding program", "Brigada Eskwela",
+        "Na-flag na duplicate ang photo ko",
+        "Unclear ang submission ko sa community initiative",
+        "Paano mag-submit ng tree planting picture?",
+        "Where can I see active community programs?",
+        "How do I join a community initiative?",
+        "My proof was flagged as duplicate",
+        "Photo not accepted sa community mission",
+        "Live photo requirement sa mission"
+      ],
+      "responses": [
+        "Open Community Initiatives, select an active program, tap Upload Proof, capture live photographic proof, then tap Analyze & Submit. Duplicate or unclear proof is flagged for administrator review."
+      ]
+    },
+    {
+      "tag": "suggestion",
+      "patterns": [
+        "How do I send a suggestion?", "Submit feedback to barangay",
+        "May nais akong sabihin sa barangay", "Paano magbigay ng feedback?",
+        "Anonymous suggestion", "Saan magbigay ng suhestiyon?",
+        "I want to send private feedback", "Concern para sa barangay captain",
+        "I have a suggestion for the barangay",
+        "Submit concern to barangay", "Report a concern to barangay",
+        "Send feedback to barangay", "Barangay suggestion box",
+        "Gusto ko magbigay ng ideya sa barangay",
+        "Mungkahi sa barangay", "Paano mag-report ng concern?",
+        "I want to suggest something for the barangay",
+        "How to send a private message to barangay?",
+        "Complaint suggestion box barangay",
+        "May suhestiyon ako para mapabuti ang barangay",
+        "Feedback form barangay", "I want to give feedback"
+      ],
+      "responses": [
+        "Use the Suggestions or Feedback feature in BrgyLink to send a concern or suggestion to the barangay. Use Blotter Reports for incidents that require an official report."
+      ]
+    },
+    {
+      "tag": "blotter_status",
+      "patterns": [
+        "How do I track my blotter report?", "Status of my blotter",
+        "Did my blotter get recorded?", "Blotter report history",
+        "My blotter tracking", "Saan makikita ang submitted complaint?",
+        "Track my complaint status", "Status of my incident report",
+        "Naitala na ba ang reklamo ko?", "Nasaan na ang blotter ko?",
+        "Status ng incident report ko", "My blotter report history",
+        "Paano makita ang blotter ko?", "Status ng case ko",
+        "Complaint tracking BrgyLink",
+        "Anong nangyari sa reklamo ko?", "In-process na ba ang blotter ko?"
+      ],
+      "responses": [
+        "Open My Blotter Reports in BrgyLink to track a submitted report. I cannot access or claim the report's actual status on your behalf."
+      ]
+    },
+    {
+      "tag": "notifications",
+      "patterns": [
+        "Why am I not receiving notifications?", "Turn on BrgyLink notifications",
+        "Walang notification sa phone ko", "Document update notification",
+        "Push notification help", "Hindi ako na-notify na ready na",
+        "Enable notifications", "I'm not getting alerts",
+        "BrgyLink alerts not working", "Notification settings",
+        "How to get notified about my request?",
+        "Paano mag-enable ng notification?",
+        "Bakit walang notification?", "Hindi lumalabas ang notification",
+        "Notification not showing", "Missed notification BrgyLink",
+        "How to turn on push notifications?",
+        "I want to receive alerts about my document request"
+      ],
+      "responses": [
+        "BrgyLink can send in-app and push notifications for document-request and blotter updates. Check the device notification permission settings and make sure you are logged in to your account."
+      ]
+    },
+    {
+      "tag": "officials",
+      "patterns": [
+        "Who are the barangay officials?", "List of barangay officials",
+        "Sino ang barangay captain?", "Saan makikita ang mga opisyal?",
+        "Barangay kagawad list", "Current elected officials",
+        "Who is the barangay captain?", "Barangay captain name",
+        "Barangay councilor list", "SK officers", "SK officials",
+        "Barangay health worker contact", "BHW contact",
+        "Tanod contact number", "Sinong opisyal ng barangay?",
+        "Barangay secretary contact", "Barangay treasurer",
+        "Barangay kagawad names", "Elected officials barangay",
+        "Barangay officials list 2024", "Barangay officials list 2025",
+        "Barangay officials list 2026", "Who is the current captain?"
+      ],
+      "responses": [
+        "Open the Barangay Officials section in BrgyLink for the current verified list. I should not provide specific names unless they are available in verified current app content."
+      ]
+    },
+    {
+      "tag": "language_support",
+      "patterns": [
+        "Naiintindihan mo ba ang Tagalog?", "Marunong ka ba mag-Tagalog?",
+        "Nakakaintindi ka ba ng Tagalog?", "Can you understand Tagalog?",
+        "Do you speak Ilocano?", "Makatalos ka ba ng Pangasinan?",
+        "What languages can you speak?", "Sumasagot ka ba ng Tagalog?",
+        "Can you reply in Filipino?", "Do you understand Ilocano?",
+        "Can you speak Pangasinan?", "Multilingual chatbot",
+        "What language do you support?",
+        "Nakakapagsalita ka ba ng Tagalog?",
+        "Can you understand Filipino?", "Bilingual support BrgyLink",
+        "Sagot ka ba sa Ilocano?", "Marunong kang Pangasinan?",
+        "Ilang wika ang alam mo?", "Languages supported"
+      ],
+      "responses": [
+        "Yes! I can understand and respond in English, Tagalog, Ilocano, and Pangasinan. Feel free to ask about BrgyLink or Barangay Bagong Pag-asa services in your preferred language."
+      ]
+    },
+    {
+      "tag": "about_app",
+      "patterns": [
+        "What is BrgyLink?", "What can BrgyLink do?", "About BrgyLink app",
+        "How does BrgyLink work?", "Tell me about BrgyLink",
+        "BrgyLink features", "BrgyLink app description",
+        "What services are in BrgyLink?", "BrgyLink services list",
+        "Is BrgyLink an official app?", "BrgyLink overview",
+        "How to use BrgyLink?", "BrgyLink tutorial",
+        "Paano gamitin ang BrgyLink?", "Ano ang BrgyLink?",
+        "Para saan ang BrgyLink?", "Mga serbisyo ng BrgyLink",
+        "Paano mag-navigate sa BrgyLink?", "Ano-ano ang features ng BrgyLink?",
+        "Opisyal ba ang BrgyLink?", "Download BrgyLink",
+        "Where to download BrgyLink?", "BrgyLink app store"
+      ],
+      "responses": [
+        "BrgyLink is a barangay mobile application for Barangay Bagong Pag-asa that lets residents request documents, file blotter reports, submit community initiative proofs, view announcements, and connect with barangay services — all from their smartphone."
+      ]
+    },
+    {
+      "tag": "voter_registration",
+      "patterns": [
+        "How to register as a voter?", "Voter registration", "COMELEC registration",
+        "Where to register for voting?", "Voter ID application", "Voter's ID",
+        "How do I register to vote?", "Voter registration requirements",
+        "Election registration", "Voter list", "Am I registered to vote?",
+        "How to check voter registration?", "Voter registration deadline",
+        "Can the barangay help with voter registration?",
+        "Voter transfer of residency", "Transfer voter registration",
+        "Paano mag-register sa COMELEC?", "Voter's ID application",
+        "Kailangan ng voter registration", "Saan mag-register sa COMELEC?",
+        "Voter registration sa barangay",
+        "Deregistration ng botante", "First time voter"
+      ],
+      "responses": [
+        "Voter registration is handled by the COMELEC (Commission on Elections). The barangay office can provide a Certificate of Residency to support your application. Check the Announcements in BrgyLink for any barangay-assisted voter registration drives."
+      ]
+    },
+    {
+      "tag": "health_services",
+      "patterns": [
+        "Barangay health center", "BHC services", "Barangay health services",
+        "Free medicine from barangay", "Prenatal checkup barangay",
+        "Health program in barangay", "Immunization schedule",
+        "Vaccination schedule barangay", "Free consultation barangay",
+        "Barangay doctor schedule", "Botika ng Barangay",
+        "Free vitamins barangay", "Family planning barangay",
+        "Health card barangay", "PhilHealth enrollment barangay",
+        "Maternal care barangay", "Nutrition program schedule",
+        "Child health program", "Dengue prevention barangay",
+        "TB program barangay", "Hypertension program",
+        "Diabetes program barangay", "Mental health barangay",
+        "Deworming program barangay", "Micronutrient supplementation",
+        "Baby checkup schedule", "Immunization card",
+        "Bakuna sa barangay", "Libreng gamot sa barangay",
+        "Konsultasyon sa barangay health center",
+        "Oras ng BHC", "Schedule ng BHC", "Barangay nurse contact"
+      ],
+      "responses": [
+        "Barangay health services are coordinated through the Barangay Health Center (BHC). Please check the Announcements screen in BrgyLink for schedules on free medicine, consultations, vaccination, and nutrition programs."
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [
+        "Tell me a joke", "Who won the basketball game?",
+        "How do I renew my passport?", "What is the capital of France?",
+        "Recommend a movie", "Solve my math homework",
+        "What is the weather tomorrow?", "How do I cook adobo?",
+        "I want to buy a phone", "Play some music",
+        "What is the time?", "Tell me a story",
+        "Are you a robot?", "What is 2+2?",
+        "Sino ang presidente?", "Anong oras na?",
+        "Lottery results", "Stock market today", "Sports news",
+        "Recipe for sinigang", "Latest movie",
+        "Basketball score", "Football results",
+        "Currency exchange rate", "Train schedule MRT",
+        "Bus schedule", "Flight schedule"
+      ],
+      "responses": [
+        "I can help with BrgyLink and Barangay Bagong Pag-asa services. Please check the Announcements screen or contact the official barangay office for other concerns."
+      ]
+    }
   ]
 }

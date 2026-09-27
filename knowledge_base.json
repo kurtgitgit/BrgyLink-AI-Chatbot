@@ -2,7 +2,7 @@
   "metadata": {
     "barangay_name": "Barangay Bagong Pag-asa, San Jacinto",
     "status": "draft_for_barangay_staff_review",
-    "last_updated": "2026-09-17",
+    "last_updated": "2026-09-21",
     "important": "Do not publish entries marked needs_staff_verification until an authorized barangay representative has confirmed them."
   },
   "services": [
@@ -85,6 +85,77 @@
       "schedule": null,
       "answer": "Please check the Announcements screen in BrgyLink for the current garbage collection schedule, or contact the official barangay office.",
       "answer_fil": "Magkakaiba ang schedule ng koleksyon ng basura ayon sa kalsada o purok. Tingnan ang opisyal na anunsyo ng barangay o makipag-ugnayan sa opisina para sa kasalukuyang schedule."
+    },
+    {
+      "intent": "good_moral",
+      "title": "Certificate of Good Moral Character",
+      "needs_staff_verification": true,
+      "requirements": ["Submit through BrgyLink Document Requests", "Enter the request purpose", "Attach a photo of a valid ID"],
+      "answer": "Open Document Requests, select Certificate of Good Moral Character, enter the purpose, attach a valid ID photo, and submit. Track the status in the app."
+    },
+    {
+      "intent": "barangay_id",
+      "title": "Barangay ID",
+      "needs_staff_verification": true,
+      "requirements": ["Submit through BrgyLink Document Requests", "Enter the request purpose", "Attach a photo of a valid ID when requested"],
+      "answer": "Open Document Requests, select Barangay ID, complete the request, and monitor its status in the app."
+    },
+    {
+      "intent": "document_status",
+      "title": "Document Request Status",
+      "needs_staff_verification": false,
+      "statuses": ["Pending", "Processing", "Ready for Pickup", "Completed", "Rejected"],
+      "answer": "Open Document Requests in BrgyLink to view the status. The chatbot cannot access or claim a resident's personal request status."
+    },
+    {
+      "intent": "registration",
+      "title": "Resident Registration",
+      "needs_staff_verification": false,
+      "steps": ["Tap Create Account", "Enter full name, email, username, phone number, and home address", "Complete email verification"],
+      "answer": "Open BrgyLink, tap Create Account, enter the requested resident details, and complete email verification."
+    },
+    {
+      "intent": "account_help",
+      "title": "Login and Email OTP",
+      "needs_staff_verification": false,
+      "answer": "BrgyLink sends a six-digit OTP to the registered email during verification. Check the email address and spam folder; contact the app administrator if the problem continues. Never share the OTP in chat."
+    },
+    {
+      "intent": "announcements",
+      "title": "Barangay Announcements",
+      "needs_staff_verification": false,
+      "answer": "Open Announcements in BrgyLink for verified barangay updates, schedules, and urgent notices."
+    },
+    {
+      "intent": "sdg_mission",
+      "title": "Community Initiatives and SDG Missions",
+      "needs_staff_verification": false,
+      "steps": ["Open Community Initiatives", "Select an active program", "Tap Upload Proof", "Capture live photo evidence", "Tap Analyze & Submit"],
+      "answer": "Use Community Initiatives to join active programs and submit live photo proof. Valid proof is logged; duplicate or unclear proof is sent for administrator review."
+    },
+    {
+      "intent": "suggestion",
+      "title": "Suggestions and Feedback",
+      "needs_staff_verification": false,
+      "answer": "Use the Suggestions or Feedback feature to send a concern to the barangay. Use Blotter Reports instead for incidents that require an official report."
+    },
+    {
+      "intent": "blotter_status",
+      "title": "Blotter Report Tracking",
+      "needs_staff_verification": false,
+      "answer": "Open My Blotter Reports in BrgyLink to track a submitted report. The chatbot cannot access or claim the report's actual status."
+    },
+    {
+      "intent": "notifications",
+      "title": "BrgyLink Notifications",
+      "needs_staff_verification": false,
+      "answer": "BrgyLink can send in-app and push notifications for document-request and blotter updates. Device notification permission and a valid account session may be required."
+    },
+    {
+      "intent": "officials",
+      "title": "Barangay Officials",
+      "needs_staff_verification": true,
+      "answer": "Use the Barangay Officials section for the current official list. Do not rely on names supplied by the chatbot unless they come from verified current app content."
     }
   ]
 }

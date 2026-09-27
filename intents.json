@@ -1,0 +1,1565 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hello",
+                "Hey",
+                "Good morning",
+                "Good afternoon",
+                "Is anyone there?",
+                "Hi there",
+                "Magandang araw",
+                "Uy",
+                "Kamusta",
+                "Naimbag a bigat",
+                "Naimbag a malem",
+                "Naimbag nga aldaw",
+                "Anya ti maitulong ko",
+                "Maabig a kabuasan",
+                "Maabig ya agew",
+                "Antoy nitulong ko ed sika"
+            ],
+            "responses": [
+                "Hello! I am BrgyLink AI, your virtual assistant. How can I help you today? / Naimbag nga aldaw! / Maabig ya agew!",
+                "Hi there! I am BrgyLink AI. What assistance do you need from the barangay?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Thanks bye",
+                "Paalam",
+                "Sige",
+                "Agpakada akon",
+                "Kasta pa",
+                "Innakon",
+                "Makaalis ak la",
+                "Sige la"
+            ],
+            "responses": [
+                "Goodbye! Have a great day.",
+                "Thank you for using the Barangay Portal! / Agyamanak! / Salamat!"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "That's helpful",
+                "Thanks a lot",
+                "Salamat",
+                "Maraming salamat",
+                "Agyamanak",
+                "Dios ti agngina",
+                "Balbaleg a salamat"
+            ],
+            "responses": [
+                "You're welcome!",
+                "Happy to help! / Walang anuman! / Awan ti anuman!"
+            ]
+        },
+        {
+            "tag": "clearance",
+            "patterns": [
+                "How to get barangay clearance?",
+                "What are the requirements for barangay clearance?",
+                "I need a barangay clearance",
+                "Paano kumuha ng barangay clearance",
+                "Ano ang kailangan sa clearance",
+                "Kasano ti agala ti barangay clearance",
+                "Anya dagiti kasapulan para barangay clearance",
+                "Panon so onala na barangay clearance",
+                "Anto ray kailangan ed barangay clearance"
+            ],
+            "responses": [
+                "To get a Barangay Clearance, you need to bring: 1. Valid Government ID, 2. Proof of Residency (Utility bill or Lease contract), 3. Community Tax Certificate (Cedula), 4. Application fee."
+            ]
+        },
+        {
+            "tag": "indigency",
+            "patterns": [
+                "How to get certificate of indigency?",
+                "Requirements for indigency",
+                "I need an indigency certificate",
+                "Paano kumuha ng certificate of indigency",
+                "Kailangan ko ng indigency",
+                "Kasano ti agala ti certificate of indigency",
+                "Kasapulan para indigency",
+                "Panon so onala na certificate of indigency"
+            ],
+            "responses": [
+                "For a Certificate of Indigency, please prepare: 1. Valid ID, 2. Proof of residency (or voter's ID). This certificate is issued free of charge for valid social welfare purposes."
+            ]
+        },
+        {
+            "tag": "residency",
+            "patterns": [
+                "How to get certificate of residency?",
+                "Requirements for certificate of residency",
+                "Proof of residency",
+                "Paano kumuha ng certificate of residency",
+                "Kasano ti agala ti certificate of residency",
+                "Panon so onala na certificate of residency"
+            ],
+            "responses": [
+                "To get a Certificate of Residency, bring a valid ID and a recent utility bill (water, electricity, internet) under your name, or a formal statement from your landlord/homeowner."
+            ]
+        },
+        {
+            "tag": "business_permit",
+            "patterns": [
+                "How to apply for business permit?",
+                "Barangay business clearance",
+                "Requirements for business clearance",
+                "Paano kumuha ng business permit",
+                "Kasano ti agala ti business permit",
+                "Panon so onala na business permit"
+            ],
+            "responses": [
+                "For a Barangay Business Clearance, please submit: 1. DTI or SEC Registration, 2. Lease Contract or Proof of Ownership, 3. Community Tax Certificate (Cedula), 4. Valid ID."
+            ]
+        },
+        {
+            "tag": "office_hours",
+            "patterns": [
+                "What time are you open?",
+                "Office hours",
+                "When is the barangay hall open?",
+                "Anong oras kayo bukas?",
+                "Bukas ba kayo ng sabado?",
+                "Ania nga oras kayo a silulukat?",
+                "Ania ti oras ti opisina",
+                "Antoy oras na opisina",
+                "Akapukas kayo ni?"
+            ],
+            "responses": [
+                "Our barangay hall is open Monday to Friday, from 8:00 AM to 5:00 PM. We are closed on weekends and public holidays."
+            ]
+        },
+        {
+            "tag": "fees",
+            "patterns": [
+                "How much is the clearance?",
+                "How much does it cost?",
+                "What are the fees?",
+                "Magkano bayad",
+                "May bayad ba",
+                "Sagmamano",
+                "Mano ti bayad",
+                "Panpiga",
+                "Magkano bayad ed clearance"
+            ],
+            "responses": [
+                "Fees vary: Certificate of Indigency is free. Barangay Clearance and Residency usually have a minimal fee (Php 50 - 150) depending on our local ordinance."
+            ]
+        },
+        {
+            "tag": "report_incident",
+            "patterns": [
+                "How to report an incident?",
+                "I want to report a problem",
+                "Complaint",
+                "File a blotter",
+                "Gusto ko magreklamo",
+                "Paano magpa blotter",
+                "Kayatko ti agreport",
+                "Ireklamo",
+                "Ireport ko",
+                "Reklamo"
+            ],
+            "responses": [
+                "You can report an incident or file a complaint (blotter) directly through our BrgyLink mobile app under the 'Report Issue' section. For disputes, you can approach the Lupon Tagapamayapa."
+            ]
+        },
+        {
+            "tag": "emergency",
+            "patterns": [
+                "Emergency",
+                "Help",
+                "I need police",
+                "Fire emergency",
+                "Ambulance",
+                "Tulong",
+                "Sunog",
+                "Ikasapulak ti pulis",
+                "Adda uram",
+                "Tulungan dak",
+                "Sunog ed barangay"
+            ],
+            "responses": [
+                "For emergencies, please immediately contact the local hotlines: Police (117 / 911), Fire Department, or our Barangay Tanod hotline. You can also press the Emergency button in the mobile app!"
+            ]
+        },
+        {
+            "tag": "garbage",
+            "patterns": [
+                "When is garbage collection?",
+                "Garbage schedule",
+                "Trash schedule",
+                "Kailan ang hakot ng basura?",
+                "Skedyul ng basura",
+                "Kaano ti panaghakot ti basura?",
+                "Kapigan so hakot na basura?"
+            ],
+            "responses": [
+                "Garbage collection schedules vary per street/purok. Biodegradable waste is usually collected on MWF, and non-biodegradable on TThS. Please check the BrgyLink app's announcement board."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_0",
+            "patterns": [
+                "Parad ontumbok ya pelikula, antoy manunan moral ya kablian to? Pelikula: Say Prinsesa ya Nobya"
+            ],
+            "responses": [
+                "Say manunan moralidad na pelikula, The Princess Bride, et say tuan panangaro so sankabiskegan a puersa ed mundo tan sarag ton talonaan so amin ya babeng. Diad interon pelikula, idadanet na saray karakter so ideya na aro tan say pakayari ton manggawa na milagro. Say laki ya bida, si Westley, so mangipapanengneng ed saya nen paulit-ulit ton ibabaga so taloran bantog a salita, \"As you wish,\" ya pakapatnagan na ag-onsaew ya panangaro to ed si Buttercup. Niarum ni, say impanbiahe to pian iliktar si Buttercup, anggano sumpad sikato so posibilidad, so mangipapatnag na biskeg na tuan aro."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_1",
+            "patterns": [
+                "Antoy manunan tema na The Great Gatsby nen F. Scott Fitzgerald?"
+            ],
+            "responses": [
+                "Say manunan tema na The Great Gatsby nen F. Scott Fitzgerald et say inkagba na American Dream nen dekada 20. Say nobela et mansasalita ed ideyan say pananap na kayamanan tan pakayari, anggan panon lay kagalangan na inmunan getma, so amawala na orihinal a puron kugip. Saray karakter et adismaya ed bilay da tan sasalien dan takasan so inkadismaya ra diad panamegley na alablabas a panag-party, pan-affair, tan panagtipon na kayamanan. Balet, saray sagpot da so mamaarap labat ed sikara manlapud pakadampot na saray pilalek da. Diad kaunoran, insuheri nen Fitzgerald ya say inkabulok na American Dream et nanlapud imoralidad tan inkaandi-gagala na saray mayaman ya elite."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_2",
+            "patterns": [
+                "Ipatalos so \"green growth\" ed Ingles."
+            ],
+            "responses": [
+                "Say berdin itatakken."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_3",
+            "patterns": [
+                "Ipaliwawa iray manunan prinsipyo na App Design."
+            ],
+            "responses": [
+                "Say app design et say proseso na panagdesinyo na saray mobile application ya mainomay ya usaren, mainomay ya usaren, tan makapaliket ed itsura. Saray onggendan so manunan prinsipyo na panagdesinyo na app:\n\n1. **Simplic**: Say desinyo na app et nepeg ya simpli tan mainomay ya talosan. Say interface na app et nepeg ya aliwan magulo, tan saray function to et nepeg ya diretsaan.\n\n2. **Mainomay ya usaren**: Say app et nepeg ya mainomay ya usaren tan navigate. Saray manguusar et nepeg ya maples dan naromog so aanapen da, tan nagawaan da ray kimey ya anggapoy ag nakaukolan iran kundang odino pakawetwet.\n\n3. **Consistency**: Say app et nepeg ya parepareho so desinyo to, ya mipadparan elemento tan function so nipresenta ed pareparehon paraan. Saya so ontulong ed saray manguusar pian mas maples dan naaralan tan natalosan so app.\n\n4. **Intuitiveness**: Say app et nepeg ya intuitive, kabaliksan to ya saray manguusar et nepeg ya natalosan no panon itan ya mankikimey ya agla kaukolan so detalyadon instruksion o eksplinasyon.\n\n5. **Engagement**: Say app et nepeg ya makapasagyat tan makaala na imano na manguusar. Say maong ya desinyo na app et walaan na saray elemento a singa say makapasagyat iran biswal, saray interactive features, tan personalized iran eksperiensya.\n\n6. **Accessibility**: Say app et nepeg ya accessible na amin ya manguusar, kaiba la ray walay deperensya ed laman. Kaiba ed saya iray features a singa say high-contrast mode, adjustable text size, tan voice commands.\n\n7. **Feedback**: Say app et nepeg ya mangiter na malinew ya feedback ed user, ya mangipapanengneng ya saray ginawa ra et abidbir tan naproseso. Nayarin kaiba ed saya iray pakanengnengan odino pakadngel a singa saray animasyon na buton, epekto na tanol, odino yegyeg.\n\n8. **Performance**: Say app et nepeg ya maples tan napanmatalkan so performance to, maples so load to tan daiset so lag o crash to.\n\nDiad inkalapagan, saray manunan prinsipyo na app design et akasentro ed panggawa na user-friendly, makapasagyat, tan intuitive ya eksperiensya, ya akasentro ed accessibility, consistency, tan performance."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_4",
+            "patterns": [
+                "Usisaen so kaligenan na limaran-piye-karukey ya takayan. 5-piye-an-karukey ya takayan"
+            ],
+            "responses": [
+                "Say 5-piye-a-karukey ya takayan et medyo ligtas ya usaren, basta walay kondisyon to. Nia so pigaran bengatla ya nayarin mangapekta ed kaligenan na takayan:\n\n1. Materyal tan Kondisyon: Say takayan et nepeg ya gawad malet a materyales tan walad maong a kondisyon, anggapoy bitak, malukak iran tornilyo, odino onkukurong iran parte. Nepeg met ya walay kapasidad na belat to ya matukoy ed manguusar.\n\n2. Iyan: Say takayan et nepeg ya iiyan ed patatdang, malet, tan ag-onkukupas. Importante ya sigpot ya lukas so takayan no natiklop itan ya takayan, tan saray sali to et malet ya akapeket ed dalin. Nepeg ya ag-itan akayurong ed sakey a diking odino aka-anggulo.\n\n3. Pangusar: Say takayan et nepeg ya usaren unong ed saray totontonen na manggagawa, tan nepeg ya gawaen iray suston paraan pian naseguro. Importante ya say manguusar et lanang ya mantinien toy taloran punto na pidedeneng to ed takayan, salanti, duaran sali tan sakey a lima, odino duaran lima tan sakey a sali. Nepeg met ya paliisan na manguusar so onyurong odino onlampas legan ya walad takayan tan nepeg ya ontatdang tan onleksab ed takayan ya akaarap ed satan.\n\nDiad inkalapagan, say 5-piyen-karukey ya takayan et medyo ligtas ya usaren no walad maong a kondisyon, susto so pangiyan, tan duga so pangusar."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_5",
+            "patterns": [
+                "Isulat iray manunan kundang pian makapanggawa na website."
+            ],
+            "responses": [
+                "Nia ray manunan kundang pian makapanggawa na website:\n\n1. **Panagplano**: Diad sayan yugtan, isulat mo so gagala tan manunan kalat na website, naamtaan mo no siopa ray target ya dumerengel, tan mandesisyon ka no antoy klase na website, balanglan e-commerce platform, blog, odino website na kompanya.\n\n2. **Design**: Sayan yugtan et mangilaktip ed panggawa na layout, kolor, tan estilo na website. Sarag mon usaren iray wireframe, mockup, tan prototype pian mandesisyon no antoy sankaabigan ya desinyo. Say eksperiensya na manguusar tan say inkausar to et importantin ikonsidera legan na sayan yugtan.\n\n3. **Development**: No asumpal lay desinyo, onggapo lay mismon panag-code tan panagpaalagey na website. Saray developer et manguusar na programming language a singa say HTML, CSS, tan JavaScript pian makapanggawa na website. Saray nanduruman plataporma tan kagawaan so uusaren met pian makapanggawa na istruktura na website, naasikaso so karga, tan nasuportaan so pidedeneng na saray manguusar.\n\n4. **Panggawa na Lugan**: Say karga et importante ed antokaman ya website. Sayan yugtan et mangilalanor ed panggawa na teksto, graphics, video, tan arum niran materyales ya usaren ed website. Say karga to et nepeg ya makapasagyat, makapangiter na impormasyon tan parad saray search engine.\n\n5. **Testing**: Antis ya ilukas so website, importante ya suboken so inkausar tan inkausar to. Kaiba ed saya so pan-test ed nanduruman device, operating system, tan browser, pan-check ed saray link tan navigation, tan panseguro ya amin ya form tan features et mankikimey a maong.\n\n6. **Launch**: No nasubok lan maong so website, akaparaan lan man-live. Say proseso na pangilukas et mangilaktip ed pangiletneg na ngaran na domain tan hosting, pangi-configure ed server, tan panggawa ed website ya accessible ed publiko.\n\n7. **Panangmintina**: Say sakey a website et agbalot talagan ‘nasumpal,’ kaukolan ya regular ya i-update tan mantinien. Kaiba ed saya so pamasiansia ed software tan plugins ya up-to-date, pangiyarum na balon content, tan panggawa na antokaman ya nakaukolan ya pananguman ed desinyo odino functionality. Say regular ya panagbantay tan panagsukimat et makatulong met pian naamtaan so antokaman ya isyu tan napaaligwas so performance na site."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_6",
+            "patterns": [
+                "Manggawa na checklist parad panggawa na A/B test"
+            ],
+            "responses": [
+                "1) Mangiter na malinew ya hypothesis tan obhetibo parad test.\n2) Amtaen iray manunan sukat ya subaybayan mo, tan manggawa na baseline parad panangikompara.\n3) Pilien iray pandurumaan ya suboken, tan manggawa na saray materyales ya suboken.\n4) Amtaen so kabaleg na sample na populasyon na test mo tan no panon mon pilien iray mibibiang.\n5) Mandesisyon ed karukey na test, tan seguroen ya magenap so panaon pian makapangiter na makabaliksan ya datos.\n6) Manpili na paraan na panagsukimat, singa say split test, multivariate test, odino multi-page test.\n7) Gawaen so test, seguroen ya saray mibibiang et random ya niasain ed test tan control groups.\n8) Bantayan so test legan ya onkukurang, tan nengnengen no wala ray iregularidad o isyu.\n9) Analisaen so datos, tan kalkulaen so estadistikal ya kabaliksan na saray resulta.\n10) Repasoen iray resulta tan amtaen no kasin susuportaan o ag da labay so hypothesis mo.\n11) Manggawa na desisyon base ed resulta na test, tan iplano iray ontumbok ya kundang parad pangipaakseb odino kaaruman ya test."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_7",
+            "patterns": [
+                "Iklasipika so niiter ya input sentence ed 4 a klase. Nansaliw ak na balon telepono"
+            ],
+            "responses": [
+                "Say niiter a sentence et nayarin iklasipika ed onggendan ya apatiran klase:\n\n1. Transaksion - Sayan sentence et mangipapanengneng ya walay transaksion ya agawa manlapu nen imbaga na mansasalita ya akasaliw ira na balon telepono. \n\n2. Panagkayarian - Sayan sentence et nayarin iklasipika bilang Panagkayarian lapud ipapasabi na mansasalita ya walay balon telepono to kayari ton sinaliw itan.\n\n3. Produkto - Sayan sentence et nayarin iklasipika met ed silong na klase na Produkto lapud walay abitla ton sakey a bengatla, say telepono, bilang say aytem ya sinaliw.\n\n4. Komersyo - Sayan sentence et nayarin i-categorize ed Komersyo lapud nipaakar iya ed aktibidad na panagsaliw tan panaglako, diad sayan kaso, say panagsaliw na telepono."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_8",
+            "patterns": [
+                "Ikompara tan ikompara so paraan nen Aristotle ed etika tan say paraan na estudyante ton si Plato."
+            ],
+            "responses": [
+                "Si Aristotle tan Plato so duaran sankaimpluensyaan a pilosopo ed lawak na etika. Pareho iran estudyante nen Socrates, tan maslak ed saray kimey da et naimpluensyaan na saray bangat to. Balet, saray paraan da ed etika et mandumaan tan mangiyoopresi na nanduruman panmoria ed inkagawa na moralidad tan birtud.\n\nSay paraan nen Aristotle ed etika, unong ed nidatak ed kimey ton Nicomachean Ethics, et akasentro ed konsepto na eudaimonia, ya mankabaliksan na “manbilay a maong” odino “onaligwas.” Manisia si Aristotle ya say getma na bilay na too et say pakagamor na eudaimonia tan saya so nagamoran diad pambilay a maong. Inrason to ya saray birtud et ugali odino disposisyon ya makatulong ed saray indibidual ya onkiwas unong ed rason tan manggawa na duga iran desisyon ed bilay. Saray birtud et nabayuboan panamegley na panagpraktis, tan manisia si Aristotle ya saray indibidual et nepeg ya mansagpot pian nabayuboan iray birtud a singa say pakpel, panagtepel, tan inkahustisya pian manbilay na makapenek tan maong ed moral.\n\nSi Plato balet et mas metapisikal so paraan to ed etika. Diad kimey ton The Republic, inkuan ton say uniberso et naapag ed duaran lawak: say lawak na itsura tan say lawak na katuaan. Say mundo na realidad et napno na andi-anggaan iran Porma o Ideya, ya lapuan na amin a kamaongan, katuaan, tan karakpan. Manisia si Plato ya say gagala na kiwawala na too et say pansagpot ya ondampot ed ideyal na Maong, ya sikato so sankatageyan a Porma tan lapuan na amin ya arum nin birtud. Inkuan to ya say Maong et natalosan labat panamegley na panagkatunongan, tan say makatunongan a kabiangan na kamarerwa so nepeg a manuley ed agmakatunongan a kabiangan pian nadampot na saray indibidual so tuan birtud.\n\nDiad inkalapagan, bangta parehon manisia si Aristotle tan Plato ed kaimportantian na pambilay a maong, say paraan da ed etika et mandumaan a tuloy. Say etika nen Aristotle et nibase ed saray praktikal a bengatla ed inagew-agew a bilay, tan idadanet to so kaimportantian na ugali tan kagagawa ed pamayubo na saray birtud. Say etika nen Plato, diad biek a dapag, et mas abstract tan akasentro ed saray ideyal a Porma bilang lapuan na amin a kamaongan. Balet, anggaman ed sarayan pandumaan, saray kontribusyon da ed lawak na etika so walaan na baleg tan manbayag ya epekto, tan mantutultuloy a manmoldi ed pilosopikon diskurso natan."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_9",
+            "patterns": [
+                "Mangiyan na koma ed manepeg a pasen. Inusilan na aso so pusa ed biek na sular"
+            ],
+            "responses": [
+                "Inusilan na aso so pusa, diad biek na sular."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_10",
+            "patterns": [
+                "Manggawa na panangikompara ed balikas: \"Say cloud et singa computer a singa bookshelf et singa libro\"."
+            ],
+            "responses": [
+                "No panon ya say bookshelf et sakey a pasen ya pangisimpenan tan pangi-access ed saray librom, say cloud et sakey a sentro na pasen ya pangisimpenan tan pangi-access ed data na computer mo. No panon ya agmo kaukolan ya awiten so amin ya librom balet sarag mo nin siansia ya awiten iratan manlapud bookshelf mo no nakaukolan, agmo met kaukolan ya awiten so amin ya computer data mo balet sarag mo nin siansia ya awiten iratan manlapud cloud no nakaukolan."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_11",
+            "patterns": [
+                "I-convert iyan sentence manlapud passive ya magmaliw ya active -\nSay puerta so nilukasan to"
+            ],
+            "responses": [
+                "Inlukas to so puerta."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_12",
+            "patterns": [
+                "I-kategorya iray onggendan ya klase na pelikula:\nAction, Rom-com, Thriller"
+            ],
+            "responses": [
+                "1. Action - Sayan genre et kaslakan ya mangilalanor na saray situasyon ya atagey so peligro, maples iran eksena, tan sakey a mabiskeg ya karakter na bayani ya kaukolan ya milaban tan talonaan iray babeng pian nisalba so agew. Saray alimbawa na action movies et say \"Die Hard,\" \"Lethal Weapon,\" tan \"The Bourne Identity.\"\n\n2. Rom-com - Sayan genre et nanlaok ya romansa tan komedya, tan kaslakan et mangibabagay istorya na sanasawa ya nan-inaroan ed makapaliket tan ag-iilaloan iran paraan. Saray alimbawa na rom-com et say \"When Harry Met Sally,\" \"Sleepless in Seattle,\" tan \"Pretty Woman.\"\n\n3. Thriller - Sayan genre et kabkabat ed graben suspense, twists, tan turns ya mamapaermen ed saray manbabantay. Saray thriller et nayarin psychological, action-based, odino antokaman ya klase na pelikula ya manguusar na tensyon pian nawalaan na eksaytment iray manbabantay. Saray alimbawa na thriller et say \"The Silence of the Lambs,\" \"The Sixth Sense,\" tan \"Gone Girl.\""
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_13",
+            "patterns": [
+                "Akin et walay 367 ya agew na saray leap year?"
+            ],
+            "responses": [
+                "Say leap year et walaan na 366 ya agew, aliwan 367. Say rason no akin et walay leap year ya nagagawa kada 4 taon pian mansiansian mipara so taon na kalendaryo ed solar year, ya manga 365.25 ya agew so karukey to. Pian natalosan iya, sakey ya agew (Pebrero 29) so iyarum ed taon, kanian say dagup na bilang na agew ed sakey a leap year et 366."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_14",
+            "patterns": [
+                "Iparaan irayan salita unong ed sekso ra. aso – aso"
+            ],
+            "responses": [
+                "Say \"Chien\" et sakey a maskulinon noun ed Pranses."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_15",
+            "patterns": [
+                "Antoy apatiran paraan pian makatipid?"
+            ],
+            "responses": [
+                "Nia so apatiran paraan pian makatipid:\n\n1. **Manggawa na budget tan mansiansia ed satan:** Diad panggawa na budget tan panbantay ed gagastosan mo, napaliisan so sobran panaggastos tan manpokus ka ed pangiyan na kuarta parad saray kalat mo ed panagtipon.\n\n2. **Manluto ed abung imbes ya mangan ed paway:** Say mabetbet ya pangan ed paway et maples ya ondarakel. No manparaan kay naakan ed abung, makatipid kay baleg a kantidad na kuarta tan makapangan ka met na mas masustansia.\n\n3. **Mansaliw ka parad saray presyo:** Antis kan mansaliw na antokaman, maabig no ikompara mo ray presyo ed nanduruman tindaan pian naseguro ya sankaabigan so presyo. Sarag mo met ya anamoten so panlako tan mangusar na kupon pian makatipid.\n\n4. **Bawasan so ag nakaukolan iran gastos:** Amtaen iray lugar ya nayarin nabawasan so gastos, singa saray subscription odino membership ya agmo mabetbet ya uusaren. I-redirect mo itan ya kuarta ed savings account mo imbes."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_16",
+            "patterns": [
+                "Mangisuheri na balon tropikal a prutas parad tindaan."
+            ],
+            "responses": [
+                "Sakey a tropikal a prutas ya nepeg mon ikonsidera ed tindaan mo et say Mangosteen. Saya so masamit tan maasim a prutas ya nanlapud sakey ya evergreen ya kiew ed Abalaten-bukig ya Asia. Walay malet tan maimpis ya kolor-ube ya paway ya shell to, balet no nalukasan et nanengneng toy amputi tan mataba ya laman to ya singa kahel. Say mangosteen et mayaman ed antioxidants, bitamina, tan mineral tan nayarin makatulong ed saray prutas ed tindaan yo."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_17",
+            "patterns": [
+                "Ipaliwawa no antoy marketing funnel."
+            ],
+            "responses": [
+                "Say marketing funnel et sakey a modelo ya uusaren pian nanengneng tan natalosan so biahe na sakey a kustomer legan ya midedeneng ed sakey a negosyo. Deneskribe na saya so nanduruman yugtan ya dadalanen na saray kustomer legan iran onaaligwas manlapud inmunan pakaaral da nipaakar ed sakey a kompanya odino produkto, anggad pansaliw tan diad kaunoran, pagmaliw dan matoor a kustomer.\n\nSay funnel metaphor et mangirerepresenta ed ibabawas na bilang na saray posiblin kustomer legan iran onkukurang ed nanduruman yugtan na proseso. Say toktok na funnel et malapar, ya mangirerepresenta na baleg a grupo na saray posiblin kustomer ya walad yugtan na pakaamta. No onkukurang irayan kustomer ed funnel tan onaaligwas ed saray yugtan na interes, konsiderasyon, tan desisyon/pansaliw, say bilang na kustomer et onbabawas, ya onkupas ed leksab na funnel, a ditan mo naromog iray matoor a kustomer ya akasumpal la ed biahe.\n\nUusaren na saray grupo na marketing iyan modelo pian mandesinyo, mangipatupad tan manbantay na saray estratehiya ra ed marketing, ya say getma et mangigiya ed saray posiblin kustomer ed kada yugtan na funnel, tan diad kaunoran et magmaliw iran matoor a kustomer."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_18",
+            "patterns": [
+                "Ipaliwawa so pandumaan na sakey a klase tan sakey ya object ed object-oriented programming (OOP)."
+            ],
+            "responses": [
+                "Diad konteksto na object-oriented programming (OOP), say klase et sakey a blueprint odino template parad panggawa na saray bengatla. Isipen so sakey a klase bilang sakey a konsepto, odino sakey a kategorya, ya mangiiter na kabaliksan ed sakey a set na saray features ya mangibiig ed antokaman a bengatla ya kayarian to. Saray klase et mangilaktip ed saray paraan (functions) tan properties (attributes) ya mankikimey o mangidedeskribe ed data ed loob na saray bengatla na satan a klase.\n\nDiad biek a dapag, say sakey a bengatla et sakey ya instance odino indibidual a membro na sakey a klase. Saya so konkreton pakatebek ed template na klase, tan walaan itan na dilin set na balor parad saray kablian ya adeskribe ed klase. Say sakey a bengatla et nayarin mitongtong ed arum a bengatla diad pangusar ed saray paraan na klase ya kawalaan to.\n\nDiad mas simplin panangibaga, nayarin isipen tayon say sakey a klase et sakey a resipe tan say sakey a bengatla et sakey a resulta na putahe. Say sakey a resipe (klase) et nayarin usaren pian makapanggawa na dakel a putahe (bengatla) ya parehoy ingredients (properties) tan kundang (methods), balet kada putahe (bengatla) et nayarin manduruma na daiset base ed labay na indibidual a chef."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_19",
+            "patterns": [
+                "I-edit so onggendan ya sentence pian mas makatulong: \"Sakey ya isyu so global climate change.\""
+            ],
+            "responses": [
+                "Say global climate change, ya nanengneng ed itatagey na temperatura, manguuman so uran, tan ondarakel ya grabe iran ebento na panaon, et sakey a importantin isyu ed kaliberliber ya mamepeligro ed saray ecosystem, ekonomya, tan populasyon ed interon mundo."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_20",
+            "patterns": [
+                "Isulat lamet so balikas pian nibaga so parehon bengatla ed sananey a paraan. Si John et sakey ya eksperiensyadon software developer."
+            ],
+            "responses": [
+                "Si John et walaan na kakabatan bilang sakey a software developer."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_21",
+            "patterns": [
+                "Manggawa na anunsyo na promosyon ed trabaho parad onggendan ya kandidato. Ngaran: Elizabeth King \nPosisyon: Sales Manager \nKompanya: ABC Corp"
+            ],
+            "responses": [
+                "Pinablin Empleyado na ABC Corp, \n\nMalikeliket min i-anunsyo so inka-promote nen Elizabeth King ed posisyon na Sales Manager. Si Elizabeth et sakey a dedikado tan makanakanan membro na grupo mi, ya naynay ton ipapanengneng so determinasyon tan determinasyon ya nakaukolan pian ontalona ed industriya mi ya dakel so kompetisyon to. \n\nDiad balon posisyon to, si Elizabeth so mangidaulo ed Sales department mi, ya mikimey a maapit ed grupo to pian manggawa tan mangipatupad na saray estratehiya ya mamaaligwas tan mamarakep ed tubo. Say inkadunong, dunong, tan inkamabulos to ed itatalona et importante legan tayon itutuloy so ibabaleg tan pamalaknab na negosyo tayo. \n\nMila kayod sikami ed pangibano ed si Elizabeth ed kanepegan ton promosyon. Aalagaren mi so positibon epekto to ed balon posisyon to tan ed interon kompanya.\n\nMasimoon, \nSay ABC Corp Leadership Team."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_22",
+            "patterns": [
+                "Say sumaryo na teksto na ontumbok ya artikulo ed kulang ya 10 ya sentence. Say kaplesan ya pandemya so angitarok na agnaparaan ya inkadisturbo ed ekonomya, ya nanresulta ed biglan impanguman ed e-commerce tan ontan met ed mas baleg a pankaukolan parad digital iran serbisyo. Pian nasumpal so ondarakel a pankaukolan, saray negosyo et manmamatalek ed saray serbisyo ya akabase ed cloud pian napalaknab so operasyon, naasikaso so karga na trabaho, tan napaaligwas so eksperiensya na saray kustomer. Niarum ni, say artificial intelligence (AI) tan saray kagawaan ed automation so amawala na pankanawnawa ed saray kompanya ya mansiansian maples tan magmaliw ya produktibo legan na baleg ya disturbo. Bangta say cloud computing tan AI et popular la antis na 2020, say kaplesan ya kipapasen so nanggawa ed pangusar ed saratan ya lalon importante ed itatalona na saray negosyo diad arapen."
+            ],
+            "responses": [
+                "Say pandemya na COVID-19 so sengegan na baleg a pakadisturbo ed ekonomya tan angitonton ed pananguman ed e-commerce tan digital iran serbisyo. Lapud idarakel na pankaukolan, saray negosyo et ginmapon nandepende ed saray serbisyo ya walad cloud parad panangasikaso na trabaho tan saray operasyon ed panag-scale. Saray AI tan automation tools so tinmulong ed saray kompanya pian mansiansian produktibo legan na disturbo. Say cloud computing tan AI et nagmaliw ya mas importante parad itatalona na saray negosyo diad arapen lapud pandemya."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_23",
+            "patterns": [
+                "Pilien so nikadkaduman sakey ed niiter a listaan Mansanas, Mangga, Kahel, Karot"
+            ],
+            "responses": [
+                "Say carrot so nikadkaduman walad listaan ​​ta sakey itan a pisipising, bangta saray arum et prutas."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_24",
+            "patterns": [
+                "Diad sayan kimey, kaukolan mon i-classify so onggendan ya sentence no tua o aliwa. Saray tanaman et makagalaw."
+            ],
+            "responses": [
+                "Tua. Bangta saray tanaman et anggapoy pakayari ran onalis manlapud sakey a pasen ya anggad sananey a pasen a singa saray ayayep, sarag day onalis ed loob na dilin istruktura ra. Singa bilang, saray tanaman et sarag dan igalaw iray bulong, sanga tan rosas da ed direksion na sinag na agew diad panamegley na proseson tatawagen ya phototropism, tan sarag da met ya lukasan tan isara iray rosas da bilang ebat ed saray stimuli na kaliberliber diad panamegley na proseson tatawagen ya nyctinasty."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_25",
+            "patterns": [
+                "Mangibaga na kaslakan ya uusaren ed panaggawa na tabla."
+            ],
+            "responses": [
+                "Say sakey a kaslakan ya uusaren ed panaggawa na tabla et say lagari."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_26",
+            "patterns": [
+                "Kuentaen so karakel na sakey a globo Radius = 3"
+            ],
+            "responses": [
+                "Say karakel na sakey a globo et nayarin kalkulaen ya usaren so pormula:\n(4/3) x π x (radius)^3 \n\nNo say radius na sphere et 3, sarag tayon kalkulaen so volume to unong ed onggendan:\n\nVolume = (4/3) x π x (3)^3\nVolume = 113.0973 cubic units (bilog ed 4 decimal places)\n\nKanian, say karakel na globo ya walay radius ton 3 et ngalngalin 113.0973 cubic units."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_27",
+            "patterns": [
+                "Manggawa na 10-kundang a programa parad pangibangat ed sakey ya kindergarten no panon so pangitali na sarili ton sapatos."
+            ],
+            "responses": [
+                "1. Igapo diad pananap na mareen a pasen ya pangiyurongan na ugaw tan pangitali na sapatos to, seguroen ya parepareho so sintas ed duaran dapag. \n\n2. Manbemben na sakey a lace ed kada lima tan ipanengneng so unonan kundang, manggawa na simplin knot diad pangikrus ed duaran lace ed sakey tan sakey, insan isaksak so sakey a lace ed silong na sananey tan guyoren a malet. Ipanengneng ed sikara iyan kundang tan kerewen ed sikara ya uliten da so proseso. \n\n3. No akabisado da lay unonan buhol, onla rad komaduan kundang: say panggawa na \"layag na kuneho.\" Mangala kay sakey a lace ed limam tan manggawa kay loop, ya ipaliwawam ed ugaw ya saya et sakey ya \"bunny ear.\" Ontan met so gawaen ed biek a dapag ed sananey a lace. \n\n4. Onla ed komatlon kundang ya pangikrus ed duaran \"layag na kuneho\" ed balang sakey. Pasesegen so ugaw ya uliten to iyan kundang. \n\n5. Insan, ipanengneng ed ugaw no panon ya isuksok so sakey ya \"bunny ear\" ed benegan na sananey, a singa ginawa ra nen inmunan kundang. Kerewen ed sikara ya uliten da so kundang anggad nagawaan da itan ya anggapoy ontulong. \n\n6. Diad koma-anem a kundang, ipanengneng ed ugaw no panon ton erelen so kada \"layag\" tan iguygoy ton malet pian makagawa na pana. Ipanengneng iya tan pasesegen so ugaw ya salien itan. \n\n7. Uliten so interon proseso manlapud gapo, ya deskribien a maksil so kada kundang pian natulongan ya napabiskeg so teknik. Abuloyan so ugaw ya sumpalen to so kada kundang a bukor to, ya mangiter na giya tan suporta no nakaukolan. \n\n8. Ipanonot ed ugaw ya kaukolan so panagpraktis pian naaralan toy mantali na sapatos tan magmaliw ya maanos ed sarili to. Pasesegen mo ran mantultuloy ya mansagpot, anggano ag da nagawaan so duga ed primeron pankanawnawa. \n\n9. No naaralan la na ugaw so proseso, pasesegen iran manpraktis na pangitali na sapatos da ed inagew-agew. Ikdan mo ray maaron panonot tan panangidayew no matalona ran igalut iray sapatos da. \n\n10. Kaunoran, selebraan so itatalona na ugaw tan pasesegen iran ipanengneng so balon dunong da ed pamilya tan kakaaro ra. Ipanonot ed sikara ya sarag da la natan ya itali so sarili dan sapatos tan sakey a kundang so asingger la ran magmaliw ya mas independente."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_28",
+            "patterns": [
+                "Anto ni ray naisip mon ideya ya mipara ed tema ya “Kareenan”"
+            ],
+            "responses": [
+                "1. Pankakasakey - sayan konsepto et misiglaotan ed kareenan lapud saya et misiglaotan ed balansin tan maapit a siglaotan na indibidual, grupo odino sosyedad.\n\n2. Pankakareenan – saya so pangipawil na makaaron siglaotan na duaran partido ya nanlalaban. Misiglaotan met iya ed kareenan lapud say getma to et pian naresolbe iray abuyak a relasyon tan natambal iray sugat.\n\n3. Ag-panagpauges – saya so kagagawa na panresolbe na saray kolkolan tan pakadampot na saray kalat ya ag-onsasalet ed pisikal odino sikolohikal a pakasakitan. Sayan konsepto so walaan na baleg a betang ed pangisulong na kareenan.\n\n4. Diplomasya – say arte na panangasikaso ed relasyon na bansa, ya kaslakan et gagawaen na saray representante na bansa ed arum a bansa. Saya so mareen a paraan pian nadampot so pankakasakey tan pankakasakey na duara odino masulok nin partido.\n\n5. Panag-anos – saya so importantin birtud pian napansiansia so kareenan. Lalanoren na satan so abilidad ya awaten tan respetoen so pandumaan na saray indibidual, kultura, tan relihyon.\n\n6. Mediation – saya et mangilalanor na pibiang na neutral a komatlon partido pian naresolbe iray agpantatalosan tan nawalaan na solusyon ya naabobonan na balang sakey. Singa say diplomasya, mangiyoopresi itan na mareen tan makaaron paraan pian naresolbe iray kolkolan.\n\n7. Panangabagey – saya so pakalikna na aralem a simpatya tan ermen ed sananey ya apektado na kairapan, a kaiba so mabiskeg a pilalek a mamalemew ed paniirap. Saray maabagey a gawa tan salita so makatulong pian nawalaan na kareenan tan ligliwa iray nagogonigon a kapusoan tan kanonotan."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_29",
+            "patterns": [
+                "Ibiig iray karakter tan say betang da ed niiter a parapo: Linma iray agagin bibii ed masiken da pian onkerew na tulong.  Linma so masiken ed apo to. \"Anak, antoy problema?\" inkuan to.\n\nInmeyag so Melag a Sirena, \"Lola, ag ak lan balot magmaliw a maliket lamet!\" Insalaysay to so nipaakar ed impakapinengnengan to ed prinsipe tan impangiliktar tod sikato.  Insan kaukolan kon taynanan. \"No agko nayarian so manakar ed dalin tan nakaiba itan a kalangweran a laki, manermen ak ed nakekeraan iran agew ko!\"  \n\n\"Inad-arok,\" inkuan na masiken, \"amtam a singa siak ya ag nayarin manakar so sakey a sirena ya walay duaran sali to! Akin, say makagawa labat na ontan et say Sea Witch. Balet siempre mapeligro so onla ed sikato.\"\n\nSay Sea Witch!  Antis ton naamtaan, say Melag a Sirena et amaarap lad arawin suyok na dayat, a panaayaman na Sea Witch.\n\n\"Anggapoy problema to,\" inkuan na Sea Witch nen imbaga na Little Mermaid ed sikato no antoy kaukolan to. \"Mas mairap kon ayosen iray problema nen say saya. Akin, pian nawalaan ka na sali say kaukolan mon gawaen et oninum ka na tambal ko.\" Insan to inmarap ed samay ugaw a bii. \"Balet agko labat itan iter, natatalosan mo.\""
+            ],
+            "responses": [
+                "Karakter:\n1. Say Melag a Sirena - Bida, ya manaanap na tulong pian nakaiba toy prinsipe ya insalba to\n2. Lola - Mangiiter na simbawa tan giya ed Melag a Sirena \n3. Sea Witch - Antagonist, et mangiyoopresi ya tulongan so Little Mermaid balet ta posiblin mapeligro so nagastos to."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_30",
+            "patterns": [
+                "Mangibaga na taloran nanduruman bengatla ya kaslakan ya naromog ed kusina"
+            ],
+            "responses": [
+                "Pigaran bengatla ya kaslakan ya naromog ed kusina et say refrigerator, lutoan, tan lababo ed kusina."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_31",
+            "patterns": [
+                "I-edit so onggendan ya sentence pian mas malinew:\n\n\"Say sakey a klase na mammal et samay walaan na ambetel a dala tan mananak na mabilay iran ogogaw\" Say sakey a klase na mammal et samay walaan na ambetel a dala tan mananak na mabilay iran ogogaw"
+            ],
+            "responses": [
+                "\"Say mammal et kabaliksan toy sakey a klase na ayep ya walaay ambetel a dala ya mananak na mabilay iran anak.\""
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_32",
+            "patterns": [
+                "Ilista so 5 popular ya libro ed genre na pantasya."
+            ],
+            "responses": [
+                "1. Say Katawan na saray Singsing nen J.R.R. Tolkien\n2. Harry Potter tan say Bato na Pilosopo nen J.K. Rowling\n3. Say Game of Thrones nen George R.R. Martin\n4. Say Hobbit nen J.R.R. Tolkien\n5. Say Ngaran na Dagem nen Patrick Rothfuss."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_33",
+            "patterns": [
+                "Ibalikas lamet so onggendan ya balikas pian say idanet et say salitan \"singer\": Say popular ya kumakanta so linmoob ed entablado nen imbeneg a labi."
+            ],
+            "responses": [
+                "Nen imbeneg a labi, say singer, ya sikat a tuloy, so linmoob ed entablado."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_34",
+            "patterns": [
+                "Isumaryo iyan parapo ed 2 a balikas. Say Venus et walaan na makapal ya atmospera, ya manunan tugyopen na carbon dioxide. Say makapal a lurem to et manunan tugyopen na saray tedter na sulfuric acid. Saya so sengegan na sakey a bengatla ya tatawagen ya 'super-greenhouse effect', ya sengegan na intagey na temperatura na planeta ya anggad masulok ya 400 degrees Celsius."
+            ],
+            "responses": [
+                "Makapal so atmospera na Venus, ya maslak et carbon dioxide, tan saray lurem to et gawad saray tedter na sulfuric acid. Say super-greenhouse effect so sengegan na intagey na temperatura na planeta ya masulok ya 400 degrees Celsius."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_35",
+            "patterns": [
+                "No walay bloke na Teksto, i-edit so teksto pian mas natural so pambasa. Say abung et walaan na nilibon bintana ya mankirlap tan manpapaknol ed dagem."
+            ],
+            "responses": [
+                "Say abung et walaan na nilibon bintana ya mankikiskis tan manpapaknol ed dagem."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_36",
+            "patterns": [
+                "Ikdan mo ak na 3 matukoy ya alimbawa na metapora."
+            ],
+            "responses": [
+                "1. \"Say boses to et singa musika ed saray layag ko\" - Sayan metapora et mangikokompara ed boses na sakey a too ed musika, ya mangipapabitar ya makapaliket tan makapaliket itan ya dengelen.\n\n2. \"Say mundo et sakey ya entablado\" - Sayan metapora et mangikokompara ed mundo ed sakey ya entablado, ya mangipapabitar ya balang sakey et walay papel to tan say bilay et sakey a palabas.\n\n3. \"Wala so puso ton balitok\" - Sayan metapora et mangikokompara ed puso na sakey a too ed balitok, ya mangipapabitar ya sikaray walaan na maomaong tan mabunlok a inkatoo."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_37",
+            "patterns": [
+                "No walay naitdan ya teksto, amtaen no dinan ya salita so mabetbet ya usaren. Saya so random a sentence parad panagsukimat ed sankabetbetan a salita ed sakey a sentence."
+            ],
+            "responses": [
+                "Say sankabetbetan a salita ed sentence \"Saya so random a sentence parad panagsukimat ed sankabetbetan a salita ed sakey a sentence.\" et \"sentence\", ya pinmatnag na 2 danay."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_38",
+            "patterns": [
+                "Isulat lamet so balikas ya walay niiter ya salita. Nankibalatar iray bago na manok ed dagem. (niiter a salita: dagem)"
+            ],
+            "responses": [
+                "Nankibalatar iray bago na manok ed dagem."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_39",
+            "patterns": [
+                "Deskribien so sakey a rota na negosyo ed baetan na Asia tan Europa."
+            ],
+            "responses": [
+                "Say rota na negosyo ed baetan na Asia tan Europe et say maawaran ya Silk Road ya nanlapud kadaanan ya China, ya angikokonekta ed saray dalan na negosyo ya kinmayat ed Central Asia, Middle East, tan Europe. \n\nSay biahe et kaslakan ya onggapo ed saray syudad ed Bukig na China a singa say Xi'an tan Luoyang, insan saray caravan na negosyante et onla ed sagur ya anggad Desierto na Taklamakan, ya ondalan ed saray syudad na oasis na Kashgar, Turpan tan Khotan. Manlapud saman, say rota et naapag ed duara: say mamabukig a rota et ondalan ed saray syudad na Samarkand tan Bokhara diad modernon Uzbekistan bangta say mamasagur a rota et ondalan ed amianen na Afghanistan tan Iran antis ya onla ed syudad na Baghdad diad modernon Iraq.\n\nManlapud Baghdad, saray negosyante et nayarin mantultuloy ed sagur balanglan mamaarap ed Mediterranean Coast diad saray syudad na Damascus tan Antioch, odino nayarin mamaarap ira ed abalaten ya anggad Arabian Peninsula tan diad Bukig ya Aprika. Saramay manpili ya onla ed sagur et diad kaunoran et onsabi ed Europa, ya onloob ira ed saray pasen a singa say Byzantine Empire odino say syudad na Venice ed Italya.\n\nDakel so lakoan ed Silk Road a singa say seda, tsa, rekado, balitok, tan mablin bato, balet saray ideya, teknolohiya, kultura, tan relihyon so nansasalatan met legan ya mankakasakey tan mankakasakey iray totoon nanlapud nanduruman rehyon diad rota.\n\nLapud inmaligwas so teknolohiya ed dayat tan indaak na saray rota ed dayat nen koma-15 siglo, kalkalnan dinmaak so negosyo ed gilig na Silk Road. Anggaman ontan, saya so mansiansian sakey a bantog a trade network ya walaan na baleg a betang ed impamalsa na mundon kabat tayo natan."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_40",
+            "patterns": [
+                "No walay text, manggawa na 10 nanduruman tepet ya nayarin itepet nipaakar ed satan. Si Jason et sakey a kusinero ed sakey a restawran na Italyano."
+            ],
+            "responses": [
+                "1. Antoy propesyon nen Jason?\n2. Anton klase na restawran so pantratrabahoan nen Jason?\n3. Anton klase na luto so espisyalisado na restawran?\n4. Panon kabayag lan mantratrabaho si Jason bilang chef?\n5. Iner so kawalaan na restawran na Italyano?\n6. Wala kasi so espesyalidad nen Jason ed luto na Italyano?\n7. Si Jason et naynay lan mantratrabaho ed restawran ya Italyano?\n8. Antoy amakiwas ed si Jason ya magmaliw ya chef?\n9. Antoy rating na saray kustomer to ed Italian restaurant?\n10. Wala kasi so naawat nen Jason ya premyo o pakabidbiran ed dunong tod panagluto?"
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_41",
+            "patterns": [
+                "Manggawa na argumento ya mangipaliwawa no akin ya importante iyan konsepto. Pansiansia na kaliberliber"
+            ],
+            "responses": [
+                "Say environmental sustainability et say konsepto na pangipreserba ed natural iran kayamanan tan ecosystem parad ontumbok iran henerasyon diad pangibalanse ed saray pankaukolan na too tan say bunigas na planeta. Sayan konsepto et importante lapud pigaran rason.\n\nUnona, say pansiansia na kaliberliber et mamaseguro ya say planeta tayo et mansiansian nayarin panayaman na ontumbok iran kailalakan. Diad pangipreserba ed saray kayamanan a singa say danum, dagem, tan dalin, tan pangiprotekta ed saray ecosystem, napansiansia tayon balanse so kaliberliber, ya naamper iray kalamidad a singa say kelang, eras, tan pakaandi na biodiversity. Makatulong iya pian naseguro so arapen na planeta tayo parad amin ya manaayam ditan.\n\nKumadwa, say pansiansia na kaliberliber et importante parad iyaaligwas na ekonomya. Saray natural a kayamanan so pundasyon na ekonomya tayo, ya mangiiter na saray materyales, enerhiya, tan naakan. No naupot tayo irayan kayamanan, napeligro so pakaderal na ekonomya. Diad panggawa na sustainable development, napansiansia tayo so idakel na ekonomya ya agtayo naderal so bunigas na planeta tayo.\n\nKomatlo, say pansiansia na kaliberliber et nisiglaot ed hustisya sosyal. No mairap so kaykayarian, saray totoon mainomay ya naapektoan so mansasakit. Say pangprotekta ed kaliberliber et ontulong pian naseguro ya balang sakey et nawalaan na saray rekursos ya kaukolan da pian makapambilay na mabunigas tan mabunga.\n\nDiad konklusyon, say pansiansia na kaliberliber et sakey a kritikal a konsepto ya nepeg ya iprayuridad no labay tayon naseguro so arapen na planeta tayo tan saray manaayam ditan. Balanglan parad ekolohiya, ekonomya, odino sosyal iran rason, importante ya mankimey itayo parad sustinable ya arapen."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_42",
+            "patterns": [
+                "Amtaen so pandumaan na laptop tan desktop computer."
+            ],
+            "responses": [
+                "Saray laptop tan desktop computer et parehon personal computer, balet wala ray pigaran pandumaan da:\n\n1. Inkakarga - Say sankapatnagan ya pandumaan na laptop tan desktop computer et say inkaawit. Saray laptop et adesinyo pian magaan tan mainomay ya awiten. Mainomay iran awiten, kanian perpekto iratan parad totoon lanang ya manbiabiahe. Balet, saray desktop computer et mas angkakabaleg, mas angkakabaleg, tan parad sakey a pasen.\n\n2. Kabaleg tan Belat - Saray desktop computer et kaslakan ya mas baleg tan mas ambelat nen saray laptop. Walay nikaduman monitor, keyboard, mouse tan CPU (Central Processing Unit) ya mangaala na baleg ya espasyo ed lamisaan. Diad biek a dapag, saray laptop et walaan na amin na saratan a kabiangan ya intipon ed sakey a melag a kagawaan ya adesinyo pian agtanton mangala na espasyo tan magmaliw ya magaan.\n\n3. Performance - Saray desktop computer et kaslakan ya mas mabiskeg so processor da tan mas baleg so storage capacity da nen saray laptop lapud mas baleg so kabaleg da. Saya so manggagawa ed sikara ya mas labay ya pilien parad saray aktibidad ya mankaukolan na baleg a pakayari na panag-compute, a singa say panag-game odino high-end video tan panag-edit na imahen. Saray laptop et abayag lan maong no nipaakar ed performance, balet saray top-end ya desktop et maslak et mas maong nen saray top-end ya laptop.\n\n4. Upgradeability - Saray desktop computer et mas mainomay ya i-upgrade nen saray laptop. Mas dakel so espasyo ra ed loob na kahon parad kaaruman iran kabiangan, tan dakel ed saray parte ra et nayarin isalet odino i-upgrade ya mainomay. Diad pidumaan, saray laptop et kaslakan ya limitado so opsyon dan i-upgrade, ya dakel ed saray kabiangan da (singa say CPU, GPU tan RAM) et i-solder ed motherboard.\n\n5. Input Devices - Saray desktop computer et walay nikaduman keyboard tan mouse da, ya mas mainomay tan komportablen usaren ed andukey a panaon. Saray laptop et kaslakan ya walay keyboard tan touchpad ya mas melag tan mas kompakto. Saray manguusar et nayarin mangikonekta na nikaduman keyboard tan mouse ed laptop da no labay da.\n\nDiad sumaryo, saray laptop et adesinyo parad mainomay ya awiten tan kombeniente, bangta saray desktop computer et mas dakel so pakayari tan mainomay ya i-upgrade. Balang sakey et walay sarili ton bentaha tan disbentaha, tan say sankaabigan ya pilien et mandedepende ed pankaukolan tan panlabayan na balang sakey."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_43",
+            "patterns": [
+                "Ipaliwawa so pandumaan na cell phone tan smartphone"
+            ],
+            "responses": [
+                "Say cell phone, ya tatawagen met ya mobile phone, et sakey a handheld ya kagawaan ya nayarin makatawag tan makaawat na tawag, tan diad arum a kaso, makapangipawit tan makaawat na text messages. Nagawaan iya panamegley na wireless network connection. Saray manunan cell phone et kaslakan ya limitado so nagagawaan da tan sarag da labat so manggawa na manunan kimey, singa say pantawag tan pan-text.\n\nSay smartphone balet et sakey a klase na cell phone ya walaan na maaligwas iran abilidad tan features, a mipara ed computer. Nilikud ed panggawa tan pakaawat na tawag tan pangipapawit na text messages, say smartphone et makapangiter na internet access, email, GPS navigation, tan say abilidad ya man-download tan man-run na apps. Saray smartphone et walaan met na de-kalidad iran kamera, touchscreen, tan arum niran advanced features. \n\nDiad antikey, say manunan pandumaan na cell phone tan smartphone et say smartphone et walaan na maaligwas iran abilidad tan features ya onlampas ed manunan panagtawag tan panag-text."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_44",
+            "patterns": [
+                "Isulat lamet so balikas pian nanengneng so metapora. Say agew et sakey a balitok a sinsilyo ed tawen."
+            ],
+            "responses": [
+                "Say agew et sinminag a singa sinsilyo a gawad balitok ed tagey na tawen."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_45",
+            "patterns": [
+                "Mannonot na ideya no panon ya usaren so sakey a bote na tinta."
+            ],
+            "responses": [
+                "1. Calligraphy: Usaren so tinta pian makagawa na mararakep ya insulat na lima odino imbitasyon ya walay tradisyonal ya liknaan.\n\n2. Art: Mangusar na tinta ed panagpinta, panagdrowing, panag-sketch, tan pian nawalaan na kolor so antokaman a papel odino canvas.\n\n3. Selyo: Manggawa kay personal ya selyo odino mangusar na saray sinaliw ed tindaan pian makagawa na nikadkaduman desinyo o logo ed papel tan tela.\n\n4. Pansulat: Panoen na tinta so fountain pen tan mansulat na sulat, journal entries, odino anlong ed daan lan paraan.\n\n5. Saray tattoo ya gawad abung: Usaren so tinta pian makagawa na temporaryon tattoo ya nayarin ipelag ed baog mo.\n\n6. Ink wash painting: Salien ya usaren so tinta pian makagawa na monochromatic ink wash paintings, sakey a tradisyonal a teknik na East Asia.\n\n7. Handprints: Manggawa na nikadkaduman handprint art ya uusaren so tinta diad pangilusob ed limam ed tinta tan pangi-press ed papel o canvas.\n\n8. Marbling: Usaren so tinta pian makagawa na marbled iran desinyo ed papel, tela, odino anggan diad saray teknik na nail art.\n\n9. Mixed media art: Ilaktip so tinta ed mixed media artwork, ya usaren itan bilang sakey ya elemento ed dakel pian makapanggawa na makapasagyat iran komposisyon.\n\n10. Saray klase ed kaligrapiya: Mangiter na kurso ed kaligrapiya odino panagdrowing ya uusaren so tinta, ya ipasa ed arum so dunong tan abilidad."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_46",
+            "patterns": [
+                "Anton salita so duga ed ontumbok ya balikas? Nen koma-18 a siglo, say importasyon na saray taga-Europa ed US et __ baleg."
+            ],
+            "responses": [
+                "Say suston panangitipon na salita ed ontumbok a balikas et \"inmatagey\": \nNen koma-18 a siglo, dinmaak a maong so importasyon na saray taga-Europa ed US."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_47",
+            "patterns": [
+                "Isulat so kurti na sakey ya oktagon ed sakey a papel."
+            ],
+            "responses": [
+                "Pian na-trace so kurti na octagon ed sakey a papel, kaukolan moy lapis, ruler, tan sakey a papel odino nayarin sakey ya octagon template. Nia so paraan pian nagawaan mo itan: \n \n1. Igapo diad pangidrowing na bertikal a linya ed sentro na papel mo. Diad ruler odino straightedge mo, sukaten so manga 2 anggad 3 pulgada \n2. Manga 2/3rds na dalan ya ontatdang ed linya, mangidrowing na pabitay ya linya ya parehoy karukey to, ya onsasalet ed pabitay ya linya diad sentro to. Walaan ka la natan na kurti na krus.\n3. Insan, mangidrowing na diagonal ya linya ya parehoy karukey manlapud sampot na vertical tan horizontal ya linya. Sarayan linya et nepeg ya mankokonekta ed sampot na pabitay tan pabitay pian magmaliw ya “X” so kurti na papel. \n4. Usaren lamet so ruler, ikonekta iray sampot na kada linya ed sampot na saray asingger a linya. \n5. Say kurti na octagon mo et asumpal la natan! Sarag mon i-trace iray linya na lapis mo panamegley na pluma odino marker pian mas nanengneng so kurti.\n\nNo naiirapan kan mangidrowing na octagon, nayarin mangusar kay template odino man-trace na octagon ya bengatla ya walad abung mo."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_48",
+            "patterns": [
+                "Deskribien no panon ya nausar so renewable energy pian nawalaan na kuryente iray kaabungan."
+            ],
+            "responses": [
+                "Saray renewable energy sources a singa say solar, dagem, hydro, geothermal, tan biomass et nayarin usaren pian makagawa na kuryente ya mamaandar ed kaabungan. Nagawaan iya diad pangipuesto na saray sistema na renewable energy, balanglan diad melag a sukat parad indibidual iran kaabungan odino diad baleg a sukat parad saray komunidad odino saray kompanya na kuryente.\n\nSakey ed saray kaslakan ya paraan pian nausar so renewable energy ed kaabungan et diad panamegley na solar panel. Sarayan panel et mankokolekta na enerhiya manlapud banwa tan pagmaliwen dan kuryente ya nayarin usaren ed saray kagawaan tan liwawa. Saray akan-abung et nayarin mangiyan na solar panel ed atep da odino diad likud na kaabungan da, tan antokaman ya sobran enerhiya ya naala et nayarin ipawil ed grid.\n\nSaray turbina na dagem et nayarin usaren met pian makapawala na kuryente parad kaabungan, anggaman ag tanton kaslakan itan lapud kaukolan so espasyo parad saratan. Saray melag a wind turbine et nayarin ipuesto ed saray kaabungan diad saray lugar ya magenap so kapeles na dagem, tan say kuryente ya napapawala et nayarin usaren pian napaandar so abung.\n\nSay hydroelectric power et nayarin usaren met pian makagawa na kuryente parad kaabungan, anggaman saya so kaslakan ya gagawaen ed mas baleg a sukat. No say akan-abung et manaayam ya asingger ed onaagus a lapuan na danum, nayarin mangikabit na melag a hydroelectric turbine pian makagawa na kuryente.\n\nSay geothermal energy et nayarin usaren pian napainit tan napalemew iray kaabungan diad pangusar ed natural ya petang ya natipon ed dalin. Nagawaan iya diad pangiyan na geothermal heat pump, ya mangipaliber na danum odino refrigerant panamegley na saray tubo ya akaamot ed dalin.\n\nSay enerhiya na biomass et nayarin usaren pian napainit iray kaabungan diad panamegley na poolan na saray organikon materyales a singa say kiew, basura ed agrikultura, odino saray pellets. Nayarin gawaen iya ed sakey a pugon odino sakey ya espisyal a biomass boiler.\n\nDiad inkalapagan, say pangusar na renewable energy sources pian nawalaan na kuryente iray kaabungan et makatulong pian nabawasan so pandepende ed fossil fuels, nabawasan so emissions, tan makatipid ed gastos ed enerhiya."
+            ]
+        },
+        {
+            "tag": "alpaca_pangasinan_49",
+            "patterns": [
+                "Ipaliwawa so konsepto na Virtual Reality"
+            ],
+            "responses": [
+                "Say Virtual Reality (VR) et sakey a simulation ya ginawa na computer na taloran dimension ya kaliberliber ya mangiiter na pankanawnawa ed saray manguusar ya mitongtong ed singa peteg odino pisikal a paraan, kaslakan et diad pangusar na saray espisyal ya headset odino wearable devices. Say ideya et say panggawa na makapasagyat ya eksperiensya ya sigpot ya makaakit ed manguusar, tan mamalikdo ed kanonotan pian manisia ya say naeeksperiensya to et tua. Isipen ya sakey itan a paraan pian makaloob ed digital a mundo tan makapitongtong ed saray bengatla ditan a singa tua iratan.\n\nSay teknolohiya na VR et mankikimey diad pangipresenta na saray stereoscopic display, sakey parad kada mata, ya no nengnengen panamegley na saray espisyal ya headset, makagawa na 3D ya imahen ya walay pakatebek ed kaaralem ya mipara ed natural ya paraan na panagkimey na mata tayo. Saray akapeket ya sensor et mansusubaybay ed galaw na manguusar, tan say Virtual ya kaliberliber et man-adjust tan manguuman unong ed satan, mabetbet ya diad mismon panaon, ya mangiiter na impresyon ya manggagalaw ed loob na mundon ginawa.\n\nDakel tan nanduruma so aplikasyon na VR, manlapud panag-game tan panagligliwaan anggad edukasyon, panagpasal, tan panagtambal. Dakel lan industriya so angawat la ed sayan teknolohiya pian napaaligwas so eksperiensya na saray kustomer da, napaaligwas so workflow odino na-simulate iray peteg a situasyon ed bilay diad maligen a kaliberliber. Baleg so potensyal na Virtual Reality, ta wala ray balo tan makabayon usar ya onlelesa legan ya tuloytuloy ya onaaligwas so teknolohiya."
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_0",
+            "patterns": [
+                " Ania dagiti pagimbagan ti panangusar iti Augmented Reality iti edukasion? nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  What are the benefits of using Augmented Reality in education? \n.\n                            Response in English: Augmented Reality (AR) is a technology that enhances real-world environments with computer-generated graphics, images, and sounds, providing an interactive and immersive learning experience. The use of AR in education has several benefits, including:\n\n- Improved engagement and motivation: AR makes learning more interactive, dynamic and engaging, which can increase students' motivation, enthusiasm and participation in class.\n\n- Enhanced visualization and understanding: AR can help students to better visualize and understand abstract or complex concepts, by bringing them to life in 3D models that can be explored in detail and from all angles.\n\n- Increased creativity and imagination: AR enables students to create, explore and interact with virtual worlds and characters, stimulating their creativity and imagination in the process.\n\n- Interactive and hands-on learning: Through the use of AR, students can interact with virtual objects in a way that simulates real-life scenarios, allowing them to learn through hands-on experiences.\n\n- Easy access to learning materials: AR can also provide students with instant access to information and educational content in a way that is fun, engaging and instructive.\n\nOverall, the use of Augmented Reality in education can provide students with a richer, more immersive and engaging learning experience, while also enhancing their understanding, creativity and imagination. \n. \n                            Response in Ilocano: Ti Augmented Reality (AR) ket maysa a teknolohia a mangpasayaat kadagiti pudno a lubong nga aglawlaw babaen kadagiti pinartuat ti kompiuter a graphics, ladawan, ken uni, a mangipaay iti interaktibo ken makailumlom a padas ti panagsursuro. Ti panagusar ti AR iti edukasion ket addaan iti sumagmamano a pagimbagan, a pakairamanan: - Napasayaat a pannakipaset ken motibo: Ti AR ket mangaramid iti panagsursuro nga ad-adda nga interaktibo, dinamiko ken makaawis, a mabalin a mangpaadu iti motibo, kinagagar ken pannakipaset dagiti estudiante iti klase. - Naparang-ay a panagbuya ken pannakaawat: Makatulong ti AR kadagiti estudiante a nasaysayaat a mangiladawan ken mangtarus kadagiti abstrakto wenno komplikado a konsepto, babaen ti panangyeg kadagitoy iti biag kadagiti 3D a modelo a mabalin a sukimaten a detalyado ken manipud iti amin nga anggulo. - Nayonan ti panagparnuay ken imahinasion: Ti AR ket mangpabalin kadagiti estudiante a mangparnuay, agsukisok ken makilangen kadagiti birtual a lubong ken karakter, a mangtignay iti panagparnuay ken imahinasionda iti proseso. - Interaktibo ken hands-on learning: Babaen ti panagusar ti AR, makalangen dagiti estudiante kadagiti virtual objects iti wagas a mangtulad kadagiti real-life scenarios, a mangipalubos kadakuada nga agsursuro babaen kadagiti hands-on experiences. - Nalaka a pannakagun-od kadagiti materiales a pagadalan: Mabalin met nga ipaay ti AR dagiti estudiante iti dagus a pannakagun-od iti impormasion ken linaon ti edukasion iti wagas a makaay-ayo, makaawis ken makaisuro. Iti pakabuklan, ti pannakausar ti Augmented Reality iti edukasion ket makaipaay kadagiti estudiante iti nabakbaknang, ad-adda a makailumlom ken makaawis a padas iti panagsursuro, bayat a mapasayaat pay ti pannakaawat, panagparnuay ken imahinasionda. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_1",
+            "patterns": [
+                " Iladawan no ania ti data science. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Describe what data science is. \n.\n                            Response in English: Data Science is a multi-disciplinary field focusing on the utilization of scientific methods, processes, algorithms, and systems to analyze, interpret and extract knowledge from structured and unstructured data. It is the process of using mathematical, statistical and computational techniques to uncover insights and create predictive models from large datasets. Data Science also involves identifying trends, discovering hidden relationships, and making informed decisions based on available data. Applications of data science span across multiple industries including healthcare, finance, business, transportation, and others, to help make strategic decisions and improve overall performance. \n. \n                            Response in Ilocano: Ti Siensia ti Datos ket maysa a multi-disiplina a tay-ak a naipangpangruna iti panagusar kadagiti sientipiko a pamay-an, proseso, algoritmo, ken sistema tapno analisaen, ipatarus ken makaala ti pannakaammo manipud kadagiti naistruktura ken saan nga estrukturado a datos. Daytoy ket proseso ti panagusar kadagiti matematiko, estadistikal ken komputasional a tekniko tapno maibuksilan dagiti pannakaammo ken mangpartuat kadagiti prediktib a modelo manipud kadagiti dadakkel a dataset. Ti Siensia ti Datos ket mairaman pay ti panangilasin kadagiti uso, panangtakuat kadagiti nailemmeng a relasion, ken panagaramid kadagiti nasayaat ti pannakaammona a pangngeddeng a naibatay kadagiti magun-od a datos. Dagiti aplikasion ti siensia ti datos ket mangsaklaw kadagiti adu nga industria a mairaman ti panangtaripato ti salun-at, pinansia, negosio, transportasion, ken dadduma pay, tapno makatulong a mangaramid kadagiti estratehiko a pangngeddeng ken mangpasayaat ti sapasap a panagaramid. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_2",
+            "patterns": [
+                " Gupgopen ti parapo iti baba iti maysa a sentensia.  Ni Joseph Thompson ket maysa a dedikado a kameng ti komunidad; masansan nga iboluntariona ti panawenna a tumulong kadagidiay agkasapulan. Nauneg ti panagayat ken panagayatna a tumulong iti sabsabali, ket uray iti sango ti rigat intultuloyna nga inaramid dayta."
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Summarize the paragraph below in one sentence. \n.\n                            Response in English: Joseph Thompson was a committed community member known for volunteering, helping others and continuing to do so passionately even during tough times. \n. \n                            Response in Ilocano:  Ni Joseph Thompson ket maysa a naikumit a kameng ti komunidad a pagaammo gapu iti panagboluntario, panangtulong kadagiti dadduma ken agtultuloy a sipapasnek nga aramidenna uray bayat dagiti narigat a panawen. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_3",
+            "patterns": [
+                "Mangaramid iti listaan dagiti banag a kitaen no sukimaten ti nausar a kotse. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Create a list of items to check when inspecting a used car. \n.\n                            Response in English: 1. Exterior body condition: Check for dents, scratches, rust, or evidence of repairs\n2. Tires: Check the tread, wear, and age of the tires\n3. Under the hood: Inspect the engine, battery, and fluid levels\n4. Lights and electronics: Test all lights, including headlights, brake lights, and turn signals, as well as the radio, air conditioning, and any other electronic features\n5. Interior condition: Check the upholstery, carpets, and dashboard for any wear and tear or signs of damage\n6. Brakes: Test the brakes during a test drive and listen for any unusual noises\n7. Suspension: Take the car for a test drive to assess the suspension and the overall handling of the car\n8. Odometer reading: Check the mileage and compare it to the age and condition of the car\n9. Service records: Request to see the service records to ensure the car has been maintained regularly\n10. Vehicle history report: Obtain a vehicle history report to check for any past accidents or issues with the title. \n. \n                            Response in Ilocano: 1. Kasasaad ti bagi iti ruar: Kitaen no adda dagiti dents, garaw, rust, wenno ebidensia ti pannakatarimaan 2. Goma: Kitaen ti tread, pannakasuot, ken edad dagiti goma 3. Iti sirok ti hood: Sukimaten ti lebel ti makina, bateria, ken pluido 4. Silaw ken elektroniko: Suboken amin a silaw, agraman dagiti silaw ti lugan, silaw ti preno, ken turn signal, kasta met ti radio, air conditioning, ken aniaman a dadduma pay nga elektroniko a tampok 5. Kasasaad ti uneg: Kitaen ti upholstery, alpombra, ken dashboard no adda aniaman a pannakasuot ken pannakalukot wenno pagilasinan ti pannakadadael 6. Preno: Suboken ti preno bayat ti test drive ken dumngeg iti aniaman a naisangsangayan nga arimbangaw 7. Suspension: Alaen ti kotse para iti test drive tapno matingiting ti suspension ken ti pakabuklan a panangtaming ti kotse 8. Odometer reading: Kitaen ti mileage ken idilig daytoy iti edad ken kasasaad ti kotse 9. Dagiti rekord ti serbisio: Agkiddaw a makita dagiti rekord ti serbisio tapno masigurado a regular a namantener ti kotse 10. Report ti pakasaritaan ti lugan: Mangala iti report ti pakasaritaan ti lugan tapno maammuan no adda aniaman a napalabas nga aksidente wenno isyu nga addaan iti paulo. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_4",
+            "patterns": [
+                " Klasipikaren daytoy a datos \"mansanas, kahel, kotse, kayo\". nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Classify this data \"apple, orange, car, tree\". \n.\n                            Response in English: Here's a classification of the data: \"apple, orange\" can be classified as fruits, \"car\" can be classified as a mode of transportation, and \"tree\" can be classified as a type of plant. \n. \n                            Response in Ilocano:  Adtoy ti pannakaidasig ti datos: ti \"mansanas, kahel\" ket mabalin a mailasin a kas dagiti prutas, ti \"kotse\" ket mabalin a mailasin a kas maysa a wagas ti transportasion, ken ti \"kayo\" ket mabalin a mailasin a kas maysa a kita ti mula. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_5",
+            "patterns": [
+                "Generate 5 questions from the following essay. The pandemic has created a wave of unprecedented challenges for us as a global community, from a medical crisis and health risks to economic and social impacts."
+            ],
+            "responses": [
+                "1. What are some of the unprecedented challenges that have arisen globally due to the pandemic?\n2. How has the medical crisis caused by the pandemic affected the global community?\n3. What are some of the health risks associated with the pandemic?\n4. How has the pandemic impacted the global economy?\n5. In what ways have social dynamics been affected by the pandemic?"
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_6",
+            "patterns": [
+                " Klasipikaren ti sentimiento ti tweet.  Naaddaan iti kasayaatan a tiempo iti biagko iti dayta a konsierto ken naragsakak unay ita!"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Classify the sentiment of the tweet. \n.\n                            Response in English: The sentiment of the tweet is positive. \n. \n                            Response in Ilocano:  Positibo ti sentimiento ti tweet. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_7",
+            "patterns": [
+                " Analisaren ti sentensia a \"Naturog ni John iti tengnga ti saritaan.\"  Naturog ni John iti tengnga ti panagsasarita."
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Analyze the sentence \"John dozed off in the middle of a conversation.\" \n.\n                            Response in English: The given sentence is in the past tense, and it talks about an action that John performed. The subject of the sentence is \"John\" and the verb phrase is \"dozed off,\" meaning that he accidentally fell asleep. The location where the action happened is described by the prepositional phrase \"in the middle of a conversation,\" which indicates that he was engaged in talking with someone when he fell asleep. This sentence suggests that John may have been tired or uninterested in the conversation. \n. \n                            Response in Ilocano: Ti naited a sentensia ket adda iti past tense, ken pagsasaritaanna ti maysa nga aramid nga inaramid ni Juan. Ti suheto ti sentensia ket \"Juan\" ken ti berbo a ragup ti sasao ket \"dozed off,\" kayatna a sawen nga aksidente a naturog. Ti lokasion a nakapasamakan ti tignay ket nailadawan babaen ti preposisional a ragup ti sasao nga \"iti tengnga ti maysa a saritaan,\" a mangipakpakita nga isu ket nakiraman a makisarsarita iti maysa a tao idi isu ket nakaturog. Ipasimudaag daytoy a sentensia a mabalin a nabannog wenno saan nga interesado ni Juan iti saritaan. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_8",
+            "patterns": [
+                "Ilista dagiti pagimbagan ti Machine Learning no idilig iti tradisional a panagprograma. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  List the advantages of Machine Learning compared to traditional programming. \n.\n                            Response in English: 1. Adaptability: One of the biggest advantages of machine learning is its ability to adapt to changing circumstances. Traditional programming involves specifying a set of rules for the computer to follow. If the rules or circumstances change, the programmer must modify the code. Machine learning systems, on the other hand, can learn from new data and adjust their behavior.\n\n2. Better Results with large amount of data: Machine Learning algorithms are ideal for dealing with large data sets. The more data a machine learning system can process, the more accurate its predictions will be. Traditional programming, in contrast, can struggle to deal with large data sets and may require a programmer to manually modify the code to handle new data.\n\n3. Performance Improvement: Machine Learning allows systems to improve over time. As the system processes data, it “learns” and can make better decisions. Traditional programming relies on the programmer to update and improve the system.\n\n4. Automation: Machine Learning makes it possible to automate tasks that are difficult or impossible to automate using traditional programming techniques. For example, identifying objects in images, transcribing speech to text, and recommending products to customers.\n\n5. Complex Decision Making: Machine Learning algorithms can process a large amount of data and make complex decisions based on that data. Traditional programming techniques would require the programmer to specify each step that the system should take to make a decision. This can be difficult or impossible for complex problems.\n\n6. Better Predictions: Machine Learning algorithms can analyze data to identify patterns and make predictions based on those patterns. This allows systems to make predictions that would be difficult or impossible for a human programmer to make. This makes machine learning ideal for forecasting, anomaly detection, and recommendation systems. \n. \n                            Response in Ilocano: 1. Panagbagay: Maysa kadagiti kadakkelan a pagimbagan ti machine learning ket ti abilidadna a makibagay kadagiti agbaliwbaliw a kasasaad. Ti tradisional a panagprograma ramanenna ti panangikeddeng iti maysa a grupo dagiti pagannurotan a suroten ti kompiuter. No agbaliw dagiti pagannurotan wenno kasasaad, masapul a baliwan ti programmer ti kodigo. Iti sabali a bangir, dagiti sistema ti panagsursuro ti makina ket makasursuro manipud kadagiti baro a datos ken baliwanda ti kababalinda. 2. Nasaysayaat a Resulta nga addaan iti dakkel a kaadu ti datos: Dagiti algorithm ti Machine Learning ket nasayaat para iti panangtaming kadagiti dadakkel a data set. No ad-adu ti datos a maproseso ti sistema ti panagsursuro iti makina, ad-adda nga umiso dagiti padtona. Ti tradisional a panagprograma, iti kasumbangirna, ket mabalin a makiranget a mangtaming kadagiti dadakkel a grupo ti datos ken mabalin a kasapulan ti maysa a programmer a manual a mangbalbaliw ti kodigo tapno mangasikaso kadagiti baro a datos. 3. Panagpasayaat ti Panagaramid: Ti Machine Learning ket mangipalubos kadagiti sistema a sumayaat bayat ti panaglabas ti panawen. Bayat nga iproseso ti sistema ti datos, “makasursuro” ken makaaramid kadagiti nasaysayaat a pangngeddeng. Ti tradisional a panagprograma ket agpannuray iti programmer tapno mapabaro ken mapasayaat ti sistema. 4. Automation: Ti Machine Learning ket pagbalinenna a posible ti panang-automate kadagiti trabaho a narigat wenno imposible nga automate babaen ti panangusar kadagiti tradisional a teknik ti panagprograma. Kas pagarigan, panangilasin kadagiti banag kadagiti ladawan, panangisurat iti panagsao iti teksto, ken panangirekomenda kadagiti produkto kadagiti kustomer. 5. Komplikado a Panagaramid ti Desision: Dagiti algorithm ti Machine Learning ket makaproseso iti dakkel a kaadu ti datos ken mangaramid kadagiti komplikado a pangngeddeng a naibatay iti dayta a datos. Dagiti tradisional a tekniko ti panagprograma ket kasapulan ti programmer a mangibaga ti tunggal maysa nga addang a rumbeng nga aramiden ti sistema tapno makaaramid ti pangngeddeng. Mabalin a narigat wenno imposible daytoy para kadagiti narikut a parikut. 6. Nasaysayaat a Padto: Dagiti algorithm ti Machine Learning ket mabalinda nga analisaren ti datos tapno mailasin dagiti padron ken mangaramid kadagiti padto a naibatay kadagita a padron. Daytoy ket mangipalubos kadagiti sistema a mangaramid kadagiti padto a narigat wenno imposible koma nga aramiden ti maysa a tao a programmer. Daytoy ket mangaramid ti panagsursuro ti makina a nasayaat para iti panagpakpakauna, panagduktal ti anomalia, ken dagiti sistema ti rekomendasion. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_9",
+            "patterns": [
+                " Idiligyo ti kapaut ti biag ti tao ken aso. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Compare the lifespan of a human and a dog. \n.\n                            Response in English: The average lifespan of a human varies significantly from country to country and is influenced by factors such as genetics, socio-economic status, and lifestyle, but on average, humans live to be around 72 years old. On the other hand, the average lifespan of a domesticated dog depends on its breed, size, and overall health, but on average, they live to be around 10-13 years old. This means that, on average, humans live significantly longer than dogs. Factors such as access to medical care, nutrition, physical activity, and environment play a role in the longevity of both humans and dogs. \n. \n                            Response in Ilocano:  Ti promedio a kapaut ti panagbiag ti tao ket agdumaduma unay iti tunggal pagilian ken maimpluensiaan babaen dagiti banag a kas ti genetika, sosio-ekonomiko a kasasaad, ken estilo ti panagbiag, ngem iti promedio, agbiag dagiti tao aginggana iti agarup a 72 ti tawenda. Iti sabali a bangir, ti promedio a panagbiag ti naamo nga aso ket agpannuray iti puli, kadakkel, ken pakabuklan a salun-atna, ngem iti promedio, agbiagda agingga iti agarup 10-13 ti tawenda. Kaipapanan daytoy a, iti promedio, napapaut nga amang ti panagbiag dagiti tattao ngem kadagiti aso. Dagiti banag a kas iti pannakagun-od iti medikal a pannakaaywan, nutrision, pisikal nga aktibidad, ken aglawlaw ket addaan iti paset iti napaut a panagbiag agpadpada dagiti tattao ken aso. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_10",
+            "patterns": [
+                " Mangaramid iti estoria ti Mad Lib. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Create a Mad Lib story. \n.\n                            Response in English: Once upon a time, in a land far, far away, there was a brave (NOUN) named (NAME). (HE/SHE) lived in a small village on the edge of a vast (ADJECTIVE) forest. Everyday, (NAME) would venture into the forest to gather firewood, hunt for food, or explore the hidden corners of the woods. But one day, while on a(n) (ADJECTIVE) adventure, (NAME) stumbled upon a (ADJECTIVE) (NOUN) that would change (HIS/HER) life forever.\n\nThe (NOUN) was a magical (ADJECTIVE) (NOUN), and it granted (NAME) (NUMBER) wishes. With a wave of the (NOUN), (NAME) wished for (NOUN), (NOUN), and (ADJECTIVE) (NOUN) to help the village. But, as the saying goes, be careful what you wish for.\n\nThe village was overjoyed at first, but then strange things began to happen. The (NOUN) began to (VERB), the (NOUN) turned (ADJECTIVE), and the (ADJECTIVE) (NOUN) started to cause more problems than it solved. (NAME) realized that (HE/SHE) had made a grave mistake.\n\nDetermined to make things right, (NAME) returned to the magical (NOUN) and wished for everything to return to the way it was before. The village was restored to its peaceful, (ADJECTIVE) state, and (NAME) learned a valuable lesson: that sometimes the simplest things in life are the most (ADJECTIVE) of all. From that day on, (HE/SHE) never took the beauty of the little village or the (ADJECTIVE) forest for granted again.\n\nThe end. \n. \n                            Response in Ilocano: Naminsan, iti daga nga adayo, adayo, adda natured (NOUN) a napanaganan iti (NAME). (ISUNA/ISUNA) ket nagnaed iti bassit a purok iti igid ti nalawa (ADJECTIVE) a kabakiran. Inaldaw nga ag-venture (NAME) iti kabakiran tapno agurnong iti kayo, aganup iti taraon, wenno agsukisok kadagiti nailemmeng a suli ti kabakiran. Ngem maysa nga aldaw, bayat ti(n) (ADJECTIVE) adventure, naitibkol ni (NAGAN) iti (ADJECTIVE) (NOUN) a mangbalbaliw iti biag (NA) iti agnanayon. Ti (NOUN) ket maysa a mahika (ADJECTIVE) (NOUN), ken pinatayna ti (NAME) (NUMBER) a tarigagay. Buyogen ti dalluyon ti (NOUN), (NAME) tinarigagayanna ti (NOUN), (NOUN), ken (ADJECTIVE) (NOUN) a tumulong iti purok. Ngem, kas kunada, agannadka no ania ti tarigagayam. Napalalo ti ragsak ti purok idi damo, ngem kalpasanna nangrugin a napasamak dagiti karkarna a banag. Ti (NOUN) ket nangrugi a (BERB), ti (NOUN) ket nagturong (ADJECTIVE), ken ti (ADJECTIVE) (NOUN) ket nangrugi a mangpataud iti ad-adu a parikut ngem ti narisutna. (NAGAN) naamirisna a nakaro ti biddut (ISU/ISUNA). Gapu ta determinado a manglinteg kadagiti bambanag, nagsubli ni (NAGAN) iti mahika (NOUN) ket tinarigagayanna nga agsubli ti amin iti wagas idi. Naisubli ti purok iti natalna, (ADJECTIVE) a kasasaadna, ket (NAGAN) nakasursuro iti napateg a leksion: a no dadduma dagiti kasimplean a banag iti biag ti kaaduan (ADJECTIVE) iti amin. Manipud iti dayta nga aldaw, saanen a pulos nga imbilang (ISUNA/ISUNA) ti kinapintas ti bassit a purok wenno ti (ADJECTIVE) a kabakiran. Ti panungpalan. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_11",
+            "patterns": [
+                "Classify the following statement as either a Definition or Opinion. Pollution is a major threat to the health of people around the world."
+            ],
+            "responses": [
+                "Opinion"
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_12",
+            "patterns": [
+                " No maited ti lamisaan, i-extract ti numero a naipakita iti kolum ti PORTIA  TUXA nga | PORTIA TI PANAGBALIN | 12187 nga | 225 nga | 16922 nga | 238 nga | 12899 nga | 440 nga |"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Given the table, extract the number shown in the PORTIA column \n.\n                            Response in English: The numbers shown in the PORTIA column are 225, 238, and 440. \n. \n                            Response in Ilocano: Dagiti numero a naipakita iti kolum ti PORTIA ket 225, 238, ken 440. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_13",
+            "patterns": [
+                "Mangted iti ababa a panangiladawan iti The Turing Test. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Provide a brief description of the The Turing Test. \n.\n                            Response in English: The Turing Test is an evaluation method for determining whether a machine or computer program can exhibit intelligent behavior that is indistinguishable from a human being. It was proposed by the mathematician and computer scientist Alan Turing in 1950, and it involves a human evaluator who engages in a natural language conversation with a machine and a human, without knowing which is which. If the evaluator is unable to reliably tell the difference between the machine and the human responses, the machine is said to have passed the Turing Test. The test has been widely debated and discussed in the field of artificial intelligence, as it provides a measure of a machine's ability to exhibit intelligent behavior that is similar to, or indistinguishable from, a human being. \n. \n                            Response in Ilocano:  Ti Turing Test ket maysa a pamay-an ti panangtingiting para iti panangikeddeng no ti makina wenno programa ti kompiuter ket mabalin a mangipakita ti nasaririt a kababalin a saan a mailasin manipud iti tao. Daytoy ket insingasing babaen ti matematiko ken sientista ti kompiuter a ni Alan Turing idi 1950, ken daytoy ket mairaman ti maysa a tao nga evaluator a makipaset iti natural a pagsasao a panagsasarita iti maysa a makina ken maysa a tao, a dina ammo no ania ti ania. No ti evaluator ket saan a mapagtalkan a mailasin ti nagdumaan ti makina ken dagiti sungbat ti tao, ti makina ket naikuna a nakapasa iti Turing Test. Ti panagsubok ket nasaknap a napagdedebatean ken napagsasaritaan iti tay-ak ti artipisial a kinasaririt, gapu ta daytoy ket mangipaay ti rukod ti abilidad ti makina a mangipakita ti nasaririt a kababalin a kapada, wenno saan a mailasin manipud iti, maysa a tao. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_14",
+            "patterns": [
+                " Mangaramidka iti listaan ti 10 a banag a mabalin nga aramiden dagiti tattao tapno makasalbar iti enerhia. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Come up with a list of 10 things people can do to conserve energy. \n.\n                            Response in English: Here are 10 things people can do to conserve energy:\n\n1. Turn off lights, electronics and appliances when not in use.\n2. Upgrade to energy-efficient appliances and light bulbs.\n3. Install a programmable thermostat and set it to regulate temperature based on times when there is no one in the house.\n4. Unplug chargers and devices when not in use, as they consume energy even when not actively charging.\n5. Take shorter showers and fix any leaks to save on water heating costs.\n6. Seal and insulate your home, especially doors and windows, to prevent drafts and reduce heating costs.\n7. Carpool, use public transportation or bike instead of driving alone to reduce carbon emissions and save on gas.\n8. Use renewable energy sources such as solar or wind power to reduce dependence on non-renewable resources.\n9. Avoid using the oven during the hottest part of the day to reduce the need for air conditioning.\n10. Practice mindfulness to develop energy conservation habits. By giving more thought to how much energy we use daily, we can conserve energy and save money. \n. \n                            Response in Ilocano: Adtoy ti 10 a banag a mabalin nga aramiden dagiti tattao tapno makasalbar iti enerhia: 1. Iddepen dagiti silaw, elektroniko ken alikamen no saan nga usaren. 2. Ag-upgrade kadagiti episiente ti enerhia nga alikamen ken bombilia. 3. Mangikabil iti programmable thermostat ken i-set tapno ma-regulate ti temperatura maibatay kadagiti oras nga awan ti tao iti balay. 4. Ikkaten dagiti charger ken devices no saan a maus-usar, ta makabusbosda iti enerhia uray no saan nga aktibo a makarga. 5. Agdigus iti ab-ababa ken tarimaanen ti aniaman a panagruar tapno makaekonomia iti gastos iti water heating. 6. Selioan ken insulate ti pagtaenganyo, nangruna dagiti ridaw ken tawa, tapno malapdan ti panagayus ti angin ken maksayan ti gastos iti panagpapudot. 7. Ag-carpool, agusar iti transportasion publiko wenno bisikleta imbes nga agmaymaysa nga agmaneho tapno maksayan ti carbon emissions ken makaurnong iti gas. 8. Agusar kadagiti renewable energy sources kas iti solar wenno wind power tapno maksayan ti panagpannuray kadagiti non-renewable resources. 9. Liklikan ti agusar iti oven bayat ti kapudotan a paset ti aldaw tapno maksayan ti panagkasapulan iti air conditioning. 10. Sanayen ti mindfulness tapno mapadur-as dagiti ugali iti panangkonserba iti enerhia. Babaen ti ad-adda a panangpanunot no kasano kaadu ti enerhia nga inaldaw nga us-usarentayo, makasalbartayo iti enerhia ken makaurnongtayo iti kuarta. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_15",
+            "patterns": [
+                "Mangpataud iti daniw maipapan iti nakaparsuaan nga agusar laeng iti dua a nagduduma a balikas a balikas. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Generate a poem about nature that uses only two different rhyming words. \n.\n                            Response in English: The sky so open, wide, and bare,\nThe sight of it beyond compare. \n\nA mountain's face so tall, and rare, \nClad with trees here and there. \n\nIn the valley, by the lake,\nNature's beauty- so awake. \n\nAnd as we stop, stand, and stare, \nPeace surrounds us everywhere. \n. \n                            Response in Ilocano:  Ti langit a nakalukat, nalawa, ken lamolamo, Ti pannakakita iti dayta a di maipada. Rupa ti bantay a kasta ti katayagna, ken manmano, Nakawesan kadagiti kayo ditoy ken sadiay. Iti ginget, iti igid ti danaw, ti kinapintas ti Nakaparsuaan- kasta unay a siririing. Ket bayat ti panagsardeng, panagtakder, ken panagsiputtayo, ti Talna ti manglikmut kadatayo iti sadinoman. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_16",
+            "patterns": [
+                "Translate this sentence into French: \"I hope you have a pleasant day.\""
+            ],
+            "responses": [
+                "\"J'espère que vous passerez une bonne journée.\""
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_17",
+            "patterns": [
+                " Ikkaten dagiti balikas iti daytoy a sentensia ken isurat manen tapno agtalinaed nga umiso iti gramatika. Planomi ken dagiti gagayyemko ti agay-ayam iti tennis inton agangay nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Delete words from this sentence and rewrite it so that it remains grammatically correct.\n\nMy friends and I were planning to play tennis later \n.\n                            Response in English: We planned to play tennis later. \n. \n                            Response in Ilocano:  Implanomi ti agay-ayam iti tennis inton agangay. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_18",
+            "patterns": [
+                " Iladawan ti maysa a pasamak a ti maysa a tao ket mangipakita iti kinatarnaw. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Describe an event where a person shows integrity. \n.\n                            Response in English: Integrity is demonstrated when a person sticks to their moral and ethical values, even when facing difficult situations. An example of an event where a person shows integrity would be when they witness wrongdoing at their workplace, such as a coworker embezzling money. Instead of keeping quiet or looking the other way, the person with integrity chooses to report the misconduct to their supervisor, despite the possible consequences such as damaging relationships with their coworkers or risking their own job. They believe it is the right thing to do and stand unwaveringly in their values, which showcases their integrity. \n. \n                            Response in Ilocano: Maiparangarang ti kinatarnaw no agtalinaed ti maysa a tao kadagiti moral ken etika a pagalagadanna, uray no maipasango kadagiti narigat a kasasaad. Ti maysa a pagarigan ti pasamak a ti maysa a tao ket mangipakita iti kinatarnaw ket no masaksianna ti dakes nga aramid iti pagtrabahuanda, kas iti panagsamsam ti katrabahuanna iti kuarta. Imbes nga agulimek wenno kumita iti sabali a direksion, pilien ti tao nga addaan iti kinatarnaw nga ireport ti di umiso a kababalin iti superbisorda, iti laksid dagiti posible a pagbanagan a kas iti panangdadael iti relasion kadagiti katrabahuanda wenno panangirisgo iti bukodna a trabaho. Patienda nga umiso dayta nga aramiden ken agtakder a di agkupas kadagiti pagalagadanda, a mangipakpakita iti kinatarnawda. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_19",
+            "patterns": [
+                " Maibatay iti deskripsion, klasipikaren ti sumaganad a sentensia kas negatibo, positibo wenno neutral a sentimiento.  Naawatko ti orderko ita nga aldaw ket eksakto dayta a kayatko."
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Based on the description, classify the following sentence as negative, positive or neutral sentiment. \n.\n                            Response in English: The sentiment in this sentence is positive. \n. \n                            Response in Ilocano:  Positibo ti sentimiento iti daytoy a sentensia. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_20",
+            "patterns": [
+                " Mangpanunotka iti creative use para iti digital assistant. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Come up with a creative use for a digital assistant. \n.\n                            Response in English: One creative use for a digital assistant could be as a virtual party planner. Imagine being able to organize and plan events by simply talking to your digital assistant. Not only can it send invitations, track RSVPs, and organize catering, but it can also assist you in choosing a theme, decorations, and music. The digital assistant can also create shopping lists, set reminders to purchase specific items, and use voice-activated ordering options to save you time. And, on the day of the event, the digital assistant can help keep you on schedule by reminding you of all your to-dos while allowing you the freedom to enjoy yourself and entertain your guests. \n. \n                            Response in Ilocano: Maysa a creative use para iti digital assistant ket mabalin a kas virtual party planner. Panunotem a kabaelam ti mangorganisar ken mangiplano kadagiti pasamak babaen ti basta pannakisaritam iti digital assistant-mo. Saan laeng a makaipatulod iti imbitasion, masurot dagiti RSVP, ken mangorganisar iti catering, no di ket matulongannaka pay a mangpili iti tema, dekorasion, ken musika. Mabalin met ti digital assistant ti mangaramid kadagiti listaan ti panaggatang, mangikeddeng kadagiti palagip a gumatang kadagiti espesipiko a banag, ken agusar kadagiti pagpilian iti panagorder a naaktibo babaen ti boses tapno makasalbarka iti panawen. Ket, iti aldaw ti pasamak, makatulong ti digital assistant tapno agtalinaedka iti eskediul babaen ti panangipalagipna kenka iti amin nga aramidem bayat nga ipalubosna kenka ti wayawaya a mangtagiragsak ken manglinglingay kadagiti sangailim. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_21",
+            "patterns": [
+                "Ipatungpal ti panagsaludsod ti SQL tapno sapulen ti nagan dagiti kustomer a saan a nangikabil ti ania man nga order. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Execute a SQL query to find the names of the customers who have not placed any order. \n.\n                            Response in English: As an AI language model, I don't have database access, but I can provide you a sample SQL query that you could use to find the names of customers who haven't placed any orders. This query assumes that there are two tables: one named \"customers,\" with a column \"customer_name\" and a column \"customer_id,\" and another table named \"orders\" with a foreign key \"customer_id.\" Here's an example:\n\n```sql\nSELECT customer_name \nFROM customers \nWHERE customer_id NOT IN (SELECT DISTINCT customer_id FROM orders)\n```\n\nThis query selects the customer name from the customers table for customers whose customer IDs are not present in the orders table. Please note that for this query to work, you should have the database schema set up accordingly and the required data in it. \n. \n                            Response in Ilocano:  Kas maysa a modelo ti pagsasao nga AI, awan ti database access-ko, ngem mabalinko nga ipaay kenka ti pagarigan a panagsaludsod ti SQL a mabalinmo nga usaren a mangsapul kadagiti nagan dagiti kustomer a saan a nangikabil iti aniaman nga order. Daytoy a panagsaludsod ket mangipapan nga adda dagiti dua a lamisaan: maysa a napanaganan iti \"kustomer,\" nga addaan iti kolum a \"customer_name\" ken ti kolum a \"customer_id,\" ken ti sabali pay a lamisaan a napanaganan iti \"orders\" nga addaan iti ganggannaet a tulbek a \"customer_id.\" Adda ditoy ti pagarigan: ```sql SELECT customer_name FROM customers WHERE customer_id NOT IN (SELECT DISTINCT customer_id FROM orders) ``` Daytoy a saludsod ket mangpili ti nagan ti kustomer manipud iti lamisaan dagiti kustomer para kadagiti kustomer a dagiti ID ti kustomerda ket awan iti lamisaan dagiti order. Pangngaasi a laglagipen a para iti daytoy a panagsaludsod nga agtrabaho, rumbeng nga addaanka ti eskema ti database a naipasdek a maitunos ken ti kasapulan a datos iti daytoy. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_22",
+            "patterns": [
+                "Panunotem ti maysa a senario a maladawka iti maysa a napateg a gimong. Mangaramidka iti plano tapno maaramid dayta iti umiso a tiempo nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Imagine a scenario where you are running late for an important meeting. Create a plan to make it on time \n.\n                            Response in English: If you are running late for an important meeting, here are some steps you could take to make it on time:\n\n1. Prioritize: Quickly evaluate the situation and prioritize what's important, such as getting ready and making the journey to the meeting place.\n\n2. Get Ready Fast: Quickly finish getting ready to avoid any further delay. For example, wear something that you feel confident in yet does not require time-intensive prep.\n\n3. Find the Fastest Route: Use a GPS app or a mapping website to find the quickest route to your destination. If there is traffic, choose an alternate route. If you're taking public transportation, look up the schedule and plan accordingly.\n\n4. Inform Others: If you are running late, it is crucial to inform the people you are meeting about the delay. Send them a quick message or call to let them know that you are on your way and approximately how long it will take for you to get there.\n\n5. Be Safe: Don’t compromise on safety. While it is important to get to your meeting on time, make sure you drive safely and follow traffic rules.\n\n6. Stay Calm: Running late can be stressful, but it's important to remain calm and focused. Take deep breaths and focus on the present moment.\n\nBy following these steps, you can take control of the situation and do your best to make it to your meeting on time. \n. \n                            Response in Ilocano: No maladawka iti napateg a miting, adda sumagmamano nga addang a mabalinmo nga aramiden tapno maaramidmo dayta iti umiso a tiempo: 1. Ipangpangruna: Dagus a sukimatem ti kasasaad ken ipangpangrunam no ania ti napateg, kas iti panagsagana ken panagdaliasat nga agturong iti lugar a paggigimongan. 2. Agsagana a Napartak: Alisto a leppasenna ti agsagana tapno maliklikan ti aniaman pay a pannakataktak. Kas pagarigan, agusarka iti banag a mariknam a kompiansam ngem saan a kasapulan ti nainget a panawen a panagsagana. 3. Sapulen ti Kapartak a Ruta: Agusarka iti GPS app wenno mapping website tapno mabirokam ti kapartakan a ruta nga agturong iti destinasionmo. No adda trapiko, agpili iti sabali a ruta. No aglugluganka iti transportasion publiko, kitaem ti eskediul ket agplanoka maitunos iti dayta. 4. Ipakaammom Kadagiti Dadduma: No maladawka, napateg unay nga ipakaammom kadagiti tattao a maam-ammom ti pannakataktak. Mangipatulodka kadakuada iti napardas a mensahe wenno tawagam tapno ipakaammom kadakuada nga addaka iti dalanmo ken agarup no kasano kabayag ti pannakadanonmo sadiay. 5. Agbalin a Natalged: Dika agkompromiso iti kinatalged. Nupay napateg ti makadanon iti gimongyo iti umiso a tiempo, siguraduenyo a natalged ti panagmanehoyo ken surotenyo dagiti pagannurotan iti trapiko. 6. Agtalinaedka a Kalmado: Mabalin a makapadanag ti naladaw a panagtaray, ngem napateg ti agtalinaed a kalmado ken nakapokus. Manganges iti nauneg ken ipamaysam ti agdama a kanito. No surotem dagitoy nga addang, makontrolmo ti kasasaad ken aramidem ti amin a kabaelam a makadanon iti gimongmo iti umiso a tiempo. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_23",
+            "patterns": [
+                "Given a list of words, remove duplicate words and output the list with unique words. Elephant, Elephant, Mouse, Cat, Rat, Rat"
+            ],
+            "responses": [
+                "The unique words in the list are: Elephant, Mouse, Cat, Rat."
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_24",
+            "patterns": [
+                "Ipadto ti kaaduan a posible a pagbanagan ti umay a komperensia maipapan iti panagbalbaliw ti klima. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Predict the most likely outcome of the upcoming climate change conference. \n.\n                            Response in English: As an AI, I don't have the ability to predict real-world outcomes or events. This would depend on a range of variables such as the agenda of the conference, attendees' policies, negotiability, and international situations which I don't have the access to, and given the complexity of these variables, probability distributions or point estimates are ineffective. However, many experts hope that the upcoming climate change conference would result in a strengthened commitment from participating countries in tackling climate change; they could take key decisions to significantly reduce greenhouse gas emissions, support adaptation and resilience, and increase financing for climate actions to meet the Paris Agreement goal of limiting global temperature rise to well below 2 degrees Celsius above pre-industrial levels. \n. \n                            Response in Ilocano:  Kas maysa nga AI, awan ti abilidadko a mangipadto kadagiti pudno a pagbanagan wenno pasamak. Daytoy ket agpannuray koma iti sakop dagiti variable a kas ti adyenda ti komperensia, dagiti pagalagadan dagiti timmabuno, panagnegosio, ken dagiti internasional a kasasaad nga awan ti aksesko, ken gapu ti kinarikut dagitoy a variable, dagiti panagiwaras ti probabilidad wenno dagiti pattapatta ti puntos ket saan nga epektibo . Nupay kasta, mangnamnama ti adu nga eksperto a ti umay a komperensia maipapan iti panagbalbaliw ti klima ket agresulta iti napapigsa a panagkumit manipud kadagiti makipaspaset a pagilian iti panangtaming iti panagbalbaliw ti klima; mabalinda ti mangala kadagiti kangrunaan a pangngeddeng tapno dakkel a mangkissay kadagiti panagibuyat ti greenhouse gas, mangsuporta iti panagadaptasion ken kinaandur, ken mangpaadu iti panagpinansia para kadagiti tignay iti klima tapno maragpat ti kalat ti Tulag ti Paris a manglimitar iti panagngato ti sangalubongan a temperatura iti nababbaba unay ngem 2 a degree Celsius iti ngato dagiti lebel sakbay ti industria. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_25",
+            "patterns": [
+                " Alaen ti input list ken pilien ti item nga umay nga alpabetiko nga umuna, i-output ti item.  [Sabong, Mansanas, Kahel]."
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Take the input list and select the item that comes alphabetically first, output the item. \n.\n                            Response in English: Apple \n. \n                            Response in Ilocano:  Mansanas \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_26",
+            "patterns": [
+                "The news and other sources have been claiming that Democracy is losing ground around the world. Give an example of a recent event to back this claim up."
+            ],
+            "responses": [
+                "One recent example that supports this claim is the events in Hong Kong. In 2019 and 2020, the Chinese government imposed a national security law to crack down on pro-democracy protests in Hong Kong, effectively curtailing the freedoms and autonomy that the region once enjoyed. This move by Beijing to assert greater control over Hong Kong has led to concerns by human rights advocates and international leaders that democracy is being undermined in the territory. There is fear that Hong Kong’s outspoken media, independent judiciary, and civil liberties look increasingly vulnerable as Beijing tightens its grip on the city. Additionally, there have been arrests of multiple leading pro-Democracy figures such as Joshua Wong, Agnes Chow and Jimmy Lai in addition to many others who have become political prisoners."
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_27",
+            "patterns": [
+                "Mangaramid ti text analysis algorithm tapno maiklasipika ti teksto iti nadumaduma a kategoria. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Create a text analysis algorithm to classify text into various categories. \n.\n                            Response in English: Sure. Here is an outline of a text analysis algorithm to classify text into various categories:\n\n1. **Data Preparation:** The first step is data preparation where we gather and preprocess the data that we will use to train our model. This involves collecting a large corpus of text and labeling it with the relevant categories. Preprocessing includes steps such as tokenization, stop words removal, stemming or lemmatization to transform text data into a more suitable format for analysis.\n\n2. **Feature Extraction:** Once we have cleaned and pre-processed the data, the next step is to extract features from it. This involves transforming the text data into a numerical representation. We can use techniques like Bag of Words and TF-IDF to convert the text into vectors that can be used as input to our model.\n\n3. **Model Training:** After we have created the feature vectors, we can use them to train our classification model. Depending on the nature of the data, we may choose a different algorithm. Some popular algorithms for text classification are Naive Bayes, Logistic Regression, SVM, and Random Forests. We can use a training dataset to train the model and then validate its performance on a validation dataset.\n\n4. **Model Evaluation:** Once the model is trained, we can evaluate its performance using various metrics such as accuracy, precision, recall, and F1-Score. We can use these metrics to determine how well the model is performing and fine-tune the hyperparameters.\n\n5. **Model Deployment:** Once we have a well-performing model, we can deploy it for use in categorizing text according to the categories we have defined. As new data is fed into the model, it will classify it into one of the categories with a certain level of confidence.\n\nThis is a high-level outline of a text analysis algorithm to classify text into various categories. Each step can be further refined and customized according to the specific requirements of the task. \n. \n                            Response in Ilocano: Sigurado. Adda ditoy ti balabala ti text analysis algorithm tapno maiklasipika ti teksto iti nadumaduma a kategoria: 1. **Panangisagana iti Datos:** Ti umuna nga addang ket ti panagsagana iti datos a sadiay urnongen ken iprosesotayo a nasaksakbay ti datos nga usarentayo a mangsanay iti modelotayo. Ramanen daytoy ti panangurnong iti dakkel a korpus ti teksto ken panangimarkada iti dayta kadagiti mainaig a kategoria. Ti preprocessing ket mairaman dagiti addang a kas ti tokenization, stop words removal, stemming wenno lemmatization tapno agbaliw ti datos ti teksto iti ad-adda a maibagay a pormat para iti panaganalisar. 2. **Feature Extraction:** Apaman a nadalusan ken nasaksakbay a naprosesotayo ti datos, ti sumaruno nga addang ket ti panangala kadagiti features manipud iti dayta. Ramanen daytoy ti panangbalbaliw iti datos ti teksto iti numeriko a pannakabagi. Mabalintayo nga usaren dagiti teknik a kas iti Bag of Words ken TF-IDF tapno agbaliw ti teksto kadagiti vektor a mabalin nga usaren a kas input iti modelotayo. 3. **Model Training:** Kalpasan a naaramidtayo dagiti feature vectors, mabalintayo nga usaren dagitoy a mangsanay iti modelo ti klasipikasiontayo. Depende iti kinatao ti datos, mabalintayo ti agpili iti sabali nga algorithm. Sumagmamano a nalatak nga algoritmo para iti panagklasipika ti teksto ket dagiti Naive Bayes, Logistic Regression, SVM, ken Random Forests. Mabalintayo nga usaren ti maysa a dataset ti panagsanay tapno sanayen ti modelo ken kalpasanna balidoen ti panagaramidna iti maysa a dataset ti panangipaneknek. 4. **Panangtingiting ti Modelo:** Apaman a nasanay ti modelo, mabalintayo nga evaluate ti panagaramidna babaen ti panangusar kadagiti nadumaduma a metrics kas iti kinaumiso, kinaeksakto, pananglagip, ken F1-Score. Mabalintayo nga usaren dagitoy a metriko tapno maikeddeng no kasano ti kinasayaat ti panagaramid ti modelo ken mangpino kadagiti hiperparametro. 5. **Model Deployment:** Apaman nga addaantayo iti nasayaat ti panagaramidna a modelo, mabalintayo nga i-deploy daytoy para iti pannakausar iti panangkategoria iti teksto segun kadagiti kategoria nga inkeddengtayo. Bayat a maipauneg ti baro a datos iti modelo, daytoy ket mangklasipika daytoy iti maysa kadagiti kategoria nga addaan iti maysa a naikeddeng a tukad ti panagtalek. Daytoy ket nangato nga annong a balabala ti maysa nga algoritmo ti panaganalisar ti teksto tapno maiklasipika ti teksto kadagiti nadumaduma a kategoria. Tunggal addang ket mabalin nga ad-adda a mapinpino ken maibagay sigun kadagiti espesipiko a kasapulan ti trabaho. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_28",
+            "patterns": [
+                " Ammuem ti kategoria a kasayaatan a mangiladawan iti pelikula.  Anak a Babai ni India"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Identify the category that best describes the movie. \n.\n                            Response in English: The movie \"India's Daughter\" is best described as a Documentary. \n. \n                            Response in Ilocano:  Ti pelikula nga \"Anak a babai ti India\" ket kasayaatan a mailadawan a kas maysa a Dokumentario. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_29",
+            "patterns": [
+                "Mangpataud iti listaan ti 10 a restawran idiay Montreal nga addaan iti rating a 4.5 a bituen wenno nangatngato iti Google. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Generate a list of 10 restaurants in Montreal with a rating of 4.5 stars or higher on Google. \n.\n                            Response in English: Here is a list of 10 restaurants in Montreal with a rating of 4.5 stars or higher on Google:\n\n1. Joe Beef - 4.6 stars\n2. Le Robin Square - 4.8 stars\n3. Bouillon Bilk - 4.6 stars\n4. Hôtel Herman - 4.7 stars\n5. Le Club Chasse et Pêche - 4.6 stars\n6. Imadake Izakaya - 4.5 stars\n7. Restaurant Bonaparte - 4.7 stars\n8. Restaurant Le Serpent - 4.5 stars\n9. Le Boucan Smokehouse - 4.5 stars\n10. Le Chien Fumant - 4.6 stars.\n \nNote: Ratings are subject to change over time. All ratings listed here are accurate as of September 2021. \n. \n                            Response in Ilocano:  Adda ditoy ti listaan ti 10 a restawran idiay Montreal nga addaan iti rating a 4.5 a bituen wenno nangatngato iti Google: 1. Joe Beef - 4.6 a bituen 2. Le Robin Square - 4.8 a bituen 3. Bouillon Bilk - 4.6 a bituen 4. Hôtel Herman - 4.7 a bituen 5 .Le Club Chasse et Pêche - 4.6 a bituen 6. Imadake Izakaya - 4.5 a bituen 7. Restawran Bonaparte - 4.7 a bituen 8. Restawran Le Serpent - 4.5 a bituen 9. Le Boucan Smokehouse - 4.5 a bituen 10. Le Chien Fumant - 4.6 a bituen. Pakaammo: Mabalin nga agbaliw dagiti rating bayat ti panaglabas ti panawen. Amin a rating a nailista ditoy ket umiso manipud idi Setiembre 2021. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_30",
+            "patterns": [
+                "Reflect on the quote below and answer the question: \"Life is like riding a bicycle. To keep your balance, you must keep moving.\" - Albert Einstein"
+            ],
+            "responses": [
+                "This famous quote from Albert Einstein highlights the importance of constantly striving forward in life. He uses the metaphor of riding a bicycle to illustrate that standing still and not making any progress would eventually cause a loss of balance or stability. The same is true in life, where it's important to continuously move forward, learn, grow and make progress to maintain our balance and stability, be it in our careers, relationships or personal growth. The quote suggests that one of the keys to a fulfilling and successful life is to keep making progress and keep moving forward amidst the ups and downs that life throws our way."
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_31",
+            "patterns": [
+                " Klasipikaren ti ayup iti baba a kas maysa man nga omnivore, herbivore wenno carnivore  Maysa a tigre"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Classify the animal below as either an omnivore, herbivore or carnivore \n.\n                            Response in English: A tiger is a carnivore. Its primary diet consists of meat and it hunts for its food. \n. \n                            Response in Ilocano: Ti tigre ket karniboro. Ti kangrunaan a taraonna ket buklen ti karne ken aganup daytoy iti taraonna. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_32",
+            "patterns": [
+                "Describe the type of relationship between two people in the following short story. John and Max haven’t seen each other since high school. They meet at a cafe and they end up talking for hours."
+            ],
+            "responses": [
+                "John and Max share a friendly relationship. They are old acquaintances who have known each other since high school, and they have reconnected after a period of absence. The fact that they are able to talk for hours during their meeting at the cafe indicates a level of comfort, familiarity, and shared interest between the two."
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_33",
+            "patterns": [
+                "Mangted iti dua a pudno a pagarigan no kaano nga agaplikar ti Maikatlo a Linteg ti Panaggunay ni Newton. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Provide two real-world examples of when Newton's Third Law of Motion applies. \n.\n                            Response in English: 1. **Playing billiards:** In the game of billiards, one object (usually the cue ball) is used to strike another object (the target ball) directly or indirectly, in order to knock it into one of the pockets on the pool table. Newton's third law applies when the cue ball collides with the target ball because the two balls exert an equal and opposite force on each other during the collision. As the force of the cue ball transfers its momentum to the target ball, it experiences an equal and opposite force that causes it to slow down, change direction or even stop altogether.\n\n2. **Jumping on a trampoline:** When a person jumps on a trampoline, their feet exert a force on the trampoline mat pushing it downwards. At the same time, the mat pushes back on the person's feet with an equal and opposite force, according to Newton's third law of motion. This reaction force from the mat propels the person upwards into the air. The higher the person jumps, the greater the force they exert on the mat resulting in a larger reaction force,  which allows them to jump even higher. \n. \n                            Response in Ilocano: 1. **Agay-ayam iti billiards:** Iti ay-ayam ti billiards, ti maysa a banag (kadawyan a ti cue ball) ket mausar a mangdungpar iti sabali a banag (ti target ball) a direkta wenno saan, tapno maitukkol daytoy iti maysa kadagiti bulsa iti lamisaan ti pool. Ti maikatlo a linteg ni Newton ket agaplikar no ti bola ti cue ket agdinnungpar iti puntiria a bola gapu ta ti dua a bola ket mangipakatda ti agpapada ken agsumbangir a puersa iti tunggal maysa bayat ti panagdinnungpar. Bayat nga iyakar ti puersa ti cue ball ti momentum-na iti target ball, mapasaranna ti agpapada ken agsumbangir a puersa a pakaigapuan ti panagbannayat, panagbalbaliw ti direksion wenno uray naan-anay a panagsardeng. 2. **Panagluksaw iti trampoline:** No agluksaw ti maysa a tao iti trampoline, mangipakat dagiti sakana iti puersa iti trampoline mat a mangiduron iti daytoy nga agpababa. Maigiddato iti dayta, iduron ti banio nga agsubli kadagiti saka ti tao buyogen ti agpapada ken agsumbangir a puersa, sigun iti maikatlo a linteg ti panaggaraw ni Newton. Daytoy a puersa ti reaksion manipud iti banio ti mangiturong iti tao nga agpangato iti angin. No nangatngato ti panagluksaw ti tao, dakdakkel ti puersa nga ipaayda iti banio nga agresulta iti dakdakkel a puersa ti reaksion, a mangipalubos kadakuada nga agluksaw nga ad-adda pay. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_34",
+            "patterns": [
+                " Ibaga dagiti pagilian a nagbeddengan ti Mexico. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Name the countries that border Mexico. \n.\n                            Response in English: The United States of America, Guatemala, and Belize are the countries that border Mexico. \n. \n                            Response in Ilocano:  Ti Estados Unidos ti America, Guatemala, ken Belize ti pagilian a nagbeddengan ti Mexico. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_35",
+            "patterns": [
+                " Baliwan ti sentensia babaen ti maitutop a porma.  Napigsa ti panagtaul ti aso iti ganggannaet."
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Change a sentence using the appropriate form. \n.\n                            Response in English: The dog was barking loudly at the stranger. \n. \n                            Response in Ilocano: Napigsa ti panagtaul ti aso iti ganggannaet. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_36",
+            "patterns": [
+                " Ilawlawag ti makagapu iti dust bowl idi dekada 1930. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Explain the cause of the dust bowl in the 1930s. \n.\n                            Response in English: The Dust Bowl was a period of severe dust storms and soil erosion that occurred in the Great Plains region of the United States during the 1930s. It was caused by a combination of factors, including drought, over-farming, and high winds.\n\nIn the years leading up to the Dust Bowl, farmers in the Great Plains had plowed up the native grasses that held the soil in place in order to plant crops. This left the soil exposed and vulnerable to erosion. When a severe drought struck the region in the early 1930s, the crops failed, and the soil began to blow away in huge clouds of dust.\n\nThe problem was made worse by the use of intensive farming practices that left the soil depleted of nutrients and organic matter. High winds, common in the Great Plains, picked up the loose, dry topsoil and carried it for miles, creating huge black blizzards that blotted out the sun and made it difficult to breathe.\n\nThe Dust Bowl had devastating effects on both the environment and the people who lived in the region. Farmers were forced to abandon their land, and many migrated to other areas in search of work. The government eventually stepped in with programs to help restore the land and promote sustainable farming practices, but the Dust Bowl remains one of the worst environmental disasters in American history. \n. \n                            Response in Ilocano: Ti Dust Bowl ket maysa idi a panawen ti nakaro a bagyo ti buli ken panagreggaay ti daga a napasamak idiay rehion ti Dakkel a Tanap ti Estados Unidos idi las-ud ti 1930s. Naggapu dayta iti kombinasion dagiti banag, agraman ti tikag, nalabes a panagtalon, ken napigsa nga angin. Kadagiti tawen sakbay ti Dust Bowl, dagiti mannalon iti Great Plains inaradodan dagiti katutubo a ruot a mangtengtengngel iti daga iti lugarna tapno makamulada kadagiti apit. Daytoy ti nangpanaw iti daga a naibutaktak ken nalaka a marunaw. Idi dimteng ti nakaro a tikag iti rehion idi rugrugi ti dekada 1930, napaay dagiti apit, ket nangrugin nga agtaytayab ti daga iti nagdadakkel nga ulep ti buli. Nakarkaro ti parikut gapu iti pannakausar dagiti nainget nga aramid iti panagtalon a nangpanaw iti daga a naibus kadagiti sustansia ken organiko a banag. Dagiti napigsa nga angin, a gagangay iti Great Plains, ti nangpidut iti nalukay ken namaga a daga iti ngato ket inawitda dayta iti adu a kilometro, a nangpataud kadagiti nagdadakkel a nangisit a bagyo a nangpunas iti init ken nangparigat iti panaganges. Dakkel ti epekto ti Dust Bowl agpadpada iti aglawlaw ken kadagiti tattao nga agnanaed iti rehion. Napilitan dagiti mannalon a mangbaybay-a iti dagada, ket adu ti immakar iti dadduma a lugar tapno agsapulda iti trabaho. Kamaudiananna simrek ti gobierno kadagiti programa a tumulong a mangisubli iti daga ken mangitandudo kadagiti mataginayon nga aramid ti panagtalon, ngem agtalinaed ti Dust Bowl a maysa kadagiti kadadaksan a didigra iti aglawlaw iti pakasaritaan ti America. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_37",
+            "patterns": [
+                "Find the sum of the numbers from 1 to 10."
+            ],
+            "responses": [
+                "The sum of the numbers from 1 to 10 is 55."
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_38",
+            "patterns": [
+                "Convert a text string to upper case. i love dogs"
+            ],
+            "responses": [
+                "I LOVE DOGS"
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_39",
+            "patterns": [
+                "Mangaramid iti listaan dagiti shopping items a kasapulan tapno mangsangaili iti dinner party. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Create a list of shopping items needed to host a dinner party. \n.\n                            Response in English: Here is a possible list of shopping items needed to host a dinner party:\n\n1. Appetizers (e.g. cheese platter, crudites, crackers, bruschetta)\n2. Main Course (e.g. chicken, fish, beef, veggies, potatoes, rice, pasta, sauces)\n3. Salad (greens, dressing, toppings)\n4. Bread (baguette, rolls, garlic bread)\n5. Beverages (wine, beer, soda, water, juice)\n6. Desserts (cake, ice cream, fruit, pastries)\n7. Tableware (napkins, plates, utensils, table cloth, candles)\n8. Decorations (flowers, balloons, streamers, centerpieces)\n9. Music (playlist or CDs)\n10. Extra chairs or seating if needed\n\nNote: The specific items on the list may vary depending on the number of guests, their culinary preferences, dietary restrictions, and the theme of the dinner party. \n. \n                            Response in Ilocano:  Adtoy ti posible a listaan dagiti shopping items a kasapulan tapno masangaili ti dinner party: 1. Appetizers (kas pagarigan, cheese platter, crudites, crackers, bruschetta) 2. Main Course (kas pagarigan, manok, ikan, karne ti baka, veggies, patatas, bagas, pasta, sarsa ) 3. Ensalada (berde, dressing, toppings) 4. Tinapay (baguette, rolls, tinapay a bawang) 5. Inumen (arak, serbesa, soda, danum, tubbog) 6. Desserts (cake, sorbetes, prutas, pastries) 7 .Dagiti alikamen iti lamisaan (napkin, plato, alikamen, lupot ti lamisaan, kandela) 8. Dekorasion (sabong, balloon, streamer, centerpiece) 9. Musika (playlist wenno CD) 10. Ekstra a tugaw wenno pagtugawan no kasapulan Pakaammo: Dagiti espesipiko a banag iti listaan mabalin nga agduduma depende iti bilang dagiti sangaili, ti kaykayatda a panagluto, dagiti restriksion iti taraon, ken ti tema ti dinner party. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_40",
+            "patterns": [
+                "Mangpataud iti hipotesis para iti daytoy a sentensia.  Nakaam-amak ti kapartak ti ipapatay dagiti mula iti daytoy a lugar."
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Generate a hypothesis for this sentence. \n.\n                            Response in English: One possible hypothesis for this situation could be that there has been a change in the environmental conditions of the area, such as increased pollution or temperature changes, leading to the death of the plants. \n. \n                            Response in Ilocano:  Ti maysa a posible a hipotesis para iti daytoy a kasasaad ket mabalin nga adda panagbalbaliw ti kasasaad ti aglawlaw ti lugar, a kas ti immadu a polusion wenno panagbalbaliw ti temperatura, a mangiturong iti ipapatay dagiti mula. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_41",
+            "patterns": [
+                " Mangpataud iti daniw a mangidilig iti dua nga agduma nga ideya. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Generate a poem that compares two contrasting ideas. \n.\n                            Response in English: Between Night and Day\n\nThe night sky stretches thick and vast,\nA canvas for the stars to broadcast,\nWith darkness that can make you feel lost,\nAs it embraces you at any cost.\n\nBut once the horizon births the sun,\nThe day, with its light, has begun,\nThe warmth that touches your skin,\nAs life around you starts to spin.\n\nNight brings peace with its quiet,\nA silence that we can’t deny it,\nWhile day brings the sounds of life,\nA symphony amidst the strife.\n\nThey are two sides of the same coin,\nContrasting, yet together they join,\nBetween the peace of night and day’s light,\nA balance that feels just right. \n. \n                            Response in Ilocano: Iti nagbaetan ti Rabii ken Aldaw Napuskol ken nalawa ti langit iti rabii, Maysa a canvas para kadagiti bituen a mangibrodkas, Buyogen ti sipnget a makarikna kenka a nayaw-awan, Bayat nga arakupennaka uray ania ti magastos. Ngem apaman a maipasngay ti horizon ti init, Nangrugin ti aldaw, nga addaan iti lawagna, Ti pudot a mangsagid iti kudilmo, Bayat a mangrugin nga agturong ti biag iti aglawlawmo. Ti rabii iyegna ti talna babaen ti kinaulimekna, Maysa a kinaulimek a ditay mailibak, Bayat nga iyeg ti aldaw dagiti uni ti biag, Maysa a simponia iti tengnga ti panagsusupiat. Dua a sikiganda ti isu met laeng a sinsilio, Agduma, kaskasdi a sangsangkamaysa nga agtipon, Iti nagbaetan ti talna ti rabii ken lawag ti aldaw, Maysa a balanse a marikna nga umiso laeng. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_42",
+            "patterns": [
+                " Mangbukel iti listaan dagiti nalatak a libro a nairuar ita a tawen. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Compile a list of popular books that were released this year. \n.\n                            Response in English: Here is a list of popular books that were released in 2021:\n1. \"The Four Winds\" by Kristin Hannah\n2. \"The Push\" by Ashley Audrain\n3. \"The Sanatorium\" by Sarah Pearse\n4. \"Malibu Rising\" by Taylor Jenkins Reid\n5. \"No One Is Talking About This\" by Patricia Lockwood\n6. \"Klara and the Sun\" by Kazuo Ishiguro\n7. \"The Wife Upstairs\" by Rachel Hawkins\n8. \"The Hunting Wives\" by May Cobb\n9. \"Project Hail Mary\" by Andy Weir\n10. \"The Other Black Girl\" by Zakiya Dalila Harris. \n\nPlease note that this may change as the year goes on and more popular books may be released. \n. \n                            Response in Ilocano:  Adtoy ti listaan dagiti nalatak a libro a nairuar idi 2021: 1. \"The Four Winds\" ni Kristin Hannah 2. \"The Push\" ni Ashley Audrain 3. \"The Sanatorium\" ni Sarah Pearse 4. \"Malibu Rising\" ni Taylor Jenkins Reid 5. \"Awan ti Agsasao Maipapan iti Daytoy\" ni Patricia Lockwood 6. \"Klara ken ti Init\" ni Kazuo Ishiguro 7. \"Ti Asawa iti Ngato\" ni Rachel Hawkins 8. \"Dagiti Assawa nga Agan-anup\" ni May Cobb 9. \"Proyekto nga Ulo Mary\" ni Andy Weir 10. \"Ti Sabali a Nangisit a Balasang\" ni Zakiya Dalila Harris. Pangngaasiyo ta laglagipenyo a mabalin nga agbaliw daytoy bayat ti panaglabas ti tawen ken mabalin a mairuar dagiti ad-adu a nalatak a libro. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_43",
+            "patterns": [
+                "Generate a list of five different activities that can help reduce plastic waste."
+            ],
+            "responses": [
+                "1. Use reusable shopping bags: Instead of using single-use plastic bags when shopping, bring your own cloth or reusable bags to pack your groceries or supplies. This small change can significantly reduce the number of plastic bags that end up in landfills.\n\n2. Bring your own water bottle: Instead of buying bottled water, bring your own reusable bottle with you. You'll not only reduce plastic waste but also save money.\n\n3. Choose products with minimal packaging: When shopping, look for products that have minimal packaging, preferably made from recyclable materials. This will reduce the amount of plastic waste you generate.\n\n4. Say no to plastic straws: Refuse plastic straws when ordering drinks at restaurants or cafes. If you must use a straw, consider using a reusable one made from bamboo, silicone or stainless steel.\n\n5. Practice proper recycling: Make sure you know the rules for recycling in your area, and separate your plastic waste accordingly. Rinse out containers before recycling them and, if possible, try to repurpose items before throwing them away."
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_44",
+            "patterns": [
+                "Sukatan dagiti balikas nga \"a\" ken \"the\" kadagiti sinonimo tapno ad-adda a makapainteres ti sumaganad a sentensia.  Adda pusa a nakatugaw iti tugaw."
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Replace the words \"a\" and \"the\" with synonyms to make the following sentence more interesting. \n.\n                            Response in English: One feline was perched on top of an armchair. \n. \n                            Response in Ilocano:  Maysa a feline ti nakatakder iti rabaw ti armchair. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_45",
+            "patterns": [
+                " Ania ti kabesera ti Bangladesh? Iruar ti nagan ti kapitolio. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  What is the capital of Bangladesh? Output the name of the capital. \n.\n                            Response in English: The capital of Bangladesh is Dhaka. \n. \n                            Response in Ilocano:  Ti kapitolio ti Bangladesh ket ti Dhaka. \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_46",
+            "patterns": [
+                " Mangisurat ti programa ti Python a mangimaldit ti numero 1 agingga iti 100.  Awan ti Input"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Write a Python program that prints the number 1 to 100. \n.\n                            Response in English: Here is a Python program that prints the numbers from 1 to 100:\n\n```python\nfor number in range(1, 101):\n    print(number)\n``` \n. \n                            Response in Ilocano:  Adda ditoy ti programa ti Python a mangimaldit kadagiti numero manipud iti 1 aginggana iti 100: ```python para iti numero iti sakop(1, 101): print(number) ``` \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_47",
+            "patterns": [
+                "Suggest a healthy mid-morning snack."
+            ],
+            "responses": [
+                "A healthy mid-morning snack could be a small serving of mixed nuts or a piece of fresh fruit such as an apple, banana or berries. You could also try some sliced vegetables such as carrots or bell peppers with a hummus or yogurt dip, or a small bowl of oatmeal topped with fresh fruits and nuts. These snacks are all packed with nutrients and provide a good balance of protein, healthy fats, and fiber to keep you feeling satisfied and energized until lunchtime."
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_48",
+            "patterns": [
+                " Mangisurat ti function tapno agbaliw ti text string iti integer. nan"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Write a function to convert a text string into an integer. \n.\n                            Response in English: Here's one way you could write such a function in Python:\n\n```python\ndef text_to_int(text):\n    # Removing any white space before or after the text and converting it to lower case\n    text = text.strip().lower()\n    \n    # Dictionary of numbers in words and their integer equivalents\n    numbers_dict = { \"zero\": 0, \"one\": 1, \"two\": 2, \"three\": 3, \"four\": 4, \"five\": 5, \"six\": 6, \"seven\": 7, \"eight\": 8, \"nine\": 9 }\n    \n    # Splitting the text into a list\n    text_list = text.split()\n    number = 0\n\n    # Looping through the text list to add up the numbers\n    for word in text_list:\n        if word in numbers_dict:\n            number = number*10 + numbers_dict[word]\n        else:\n            raise ValueError(f\"'{word}' is not a valid number.\")\n    \n    return number\n```\n\nThis function takes in the text string as input and returns the integer representation of the text. It handles white spaces before and after the text and converts the text to lower case. The dictionary contains the numbers in word form as keys and their integer equivalents as values. It then splits the text into a list of string and uses a loop to iterate through the list to add up the numbers. If the word is not present in the dictionary, then it raises a ValueError.\n\nHere is an example of how you can use this function:\n\n```python\ntext = \"one two three four\"\nresult = text_to_int(text)\nprint(result) # prints 1234\n``` \n. \n                            Response in Ilocano: Adda ditoy ti maysa a wagas a mabalinmo nga isurat ti kasta a panagandar iti Python: ```python def text_to_int(text): # Panangikkat iti ania man a puraw nga espasio sakbay wenno kalpasan ti teksto ken panangbalbaliw iti babassit a letra text = text.strip().lower() # Diksionario dagiti numero kadagiti balikas ken dagiti katupagda nga intero a bilang numbers_dict = { \"sero\": 0, \"maysa\": 1, \"dua\": 2, \"tallo\": 3, \"uppat\": 4, \"lima\": 5, \"innem.\" \": 6, \"pito\": 7, \"walo\": 8, \"siam\": 9 } # Panagbingay ti teksto iti listaan text_list = text.split() numero = 0 # Panag-looping iti listaan ti teksto tapno manayonan dagiti numero para iti balikas iti text_list: no sao iti numbers_dict: numero = numero*10 + numbers_dict[word] else: raise ValueError(f\"'{word}' ket saan a balido a numero.\") return number ``` Daytoy a function ket mangala iti kuerdas ti teksto a kas input ken mangisubli ti intero a bilang a pannakabagi ti teksto. Daytoy ket mangasikaso kadagiti puraw nga espasio sakbay ken kalpasan ti teksto ken pagbalinenna ti teksto iti babassit a letra. Ti diksionario ket aglaon kadagiti numero iti porma ti balikas a kas tulbek ken dagiti katupagda nga intero a bilang kas pateg. Kalpasanna bingayenna ti teksto iti listaan ti kuerdas ken agusar iti loop tapno maulit-ulit ti listaan tapno agtitipon dagiti numero. No ti sao ket awan iti diksionario, kalpasanna daytoy ket mangpataud ti ValueError. Adda ditoy ti pagarigan no kasano a mausarmo daytoy a panagandar: ```python text = \"maysa dua tallo uppat\" result = text_to_int(text) print(result) # prints 1234 ``` \n "
+            ]
+        },
+        {
+            "tag": "alpaca_ilocano_49",
+            "patterns": [
+                " Urnosen manen dagiti sumaganad a sasao tapno mangbukel iti dua-sao nga idiom:  liebre, nauyong"
+            ],
+            "responses": [
+                "\n                            Instruction in English:  Rearrange the following words to form a two-word idiom: \n.\n                            Response in English: mad hare \n. \n                            Response in Ilocano:  nauyong nga liebre \n "
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_0",
+            "patterns": [
+                "Batay sa liriko, sumulat ng isang pangungusap na naglalarawan sa pangunahing mensahe ng kanta  (Lyrics sa isang kanta)"
+            ],
+            "responses": [
+                " Hindi ibinigay ang pangunahing mensahe ng kanta, kaya hindi ko matukoy ang pangunahing takeaway nito."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_1",
+            "patterns": [
+                " Bumuo ng storyline para sa isang pelikula tungkol sa isang dating propesyonal na basketball player nan"
+            ],
+            "responses": [
+                "Dati'y isang maliwanag at nagniningning na bituin sa mundo ng basketball, mayroon si Michael Straits ng lahat - katanyagan, kayamanan at napakaraming mga sumasamba sa mga tagahanga. Ngunit sa kasagsagan ng kanyang karera, isang matinding pinsala ang nagtulak sa kanya na magretiro sa larong kanyang minamahal. Sa paglipas ng mga taon, nakita ni Michael ang kanyang sarili na nahihirapang umangkop sa buhay sa labas ng spotlight. Siya ay pinahihirapan ng mga damdamin ng kawalan ng laman at depresyon, dahil hindi niya mahanap ang kahulugan at layunin nang walang basketball. Ang mga alaala ng kanyang nakaraang kaluwalhatian ay bumabagabag sa kanya, at hinahanap-hanap niya ang kilig at adrenaline rush na dulot ng pagiging isang propesyonal na atleta. Isang araw, nadatnan ni Michael ang isang grupo ng mga bata na naglalaro ng basketball sa isang rundown court sa isang mahirap na kapitbahayan. Siya ay naakit sa kanilang hilaw na talento at pagkahilig para sa laro, at nagsimulang kumilos bilang isang tagapayo at coach sa mga batang manlalaro. Natagpuan ni Michael ang kanyang sarili na muling natuklasan ang kanyang pag-ibig sa basketball, habang tinutulungan niya ang mga bata na malampasan ang kanilang sariling mga hadlang at magtrabaho para sa kanilang mga pangarap. Siya ay inspirasyon ng kanilang determinasyon at katatagan, at sa wakas ay nakahanap muli ng isang kahulugan ng layunin at katuparan. Ngunit ang mga bagay ay nagbabago nang ang isa sa mga bata, si Jamal, ay nahaharap sa mga personal na problema na nagbabanta sa kanyang kinabukasan. Pumasok si Michael upang gabayan at suportahan siya, at sa pamamagitan ng kanilang pinagsamang pakikibaka, ang dalawa ay bumuo ng isang matibay na samahan. Habang tinatahak nila ang kanilang daan patungo sa isang mas magandang kinabukasan, parehong natututo sina Michael at Jamal ang tungkol sa kapangyarihan ng pagtitiyaga, at ang epekto ng isang tao sa buhay ng iba. Nagtatapos ang pelikula nang buong pagmamalaki na nakatayo si Michael sa gilid habang pinapanood niya si Jamal at ang iba pang koponan na naglalaro ng championship game, na napagtanto na ang kanyang paglalakbay bilang isang basketball player ay hindi pa natapos, ito ay tumahak lamang sa ibang landas."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_2",
+            "patterns": [
+                "Gumawa ng script para sa isang advertisement sa radyo para sa isang restaurant. nan"
+            ],
+            "responses": [
+                "**Nagsisimulang tumugtog ang background na musika** Narrator: Pagod ka na ba sa parehong mga lumang pagkain sa bahay, araw-araw? Gusto mo ba ng isang gabi out, napapaligiran ng init ng masarap na pagkain at mahusay na kasama? Huwag nang tumingin pa! **Tunog ng mainit na kawali** Narrator: Ipinapakilala si [Name of Restaurant], ang perpektong lugar para mabusog ang iyong gutom. Nagtatampok ang aming menu ng hanay ng mga katakam-takam na pagkain, lahat ay dalubhasa na inihanda gamit ang mga pinakasariwang sangkap. Mula sa mga makatas na steak hanggang sa makatas na seafood, mayroong isang bagay para sa lahat! **Tunog ng cork popping** Narrator: Umupo at magpahinga sa aming maaliwalas na kapaligiran, habang inaasikaso ng aming magiliw na staff ang lahat ng iyong pangangailangan. Humigop sa isang baso ng masarap na alak, o ituring ang iyong sarili sa isa sa aming mga signature cocktail. At huwag kalimutang mag-ipon ng puwang para sa dessert, dahil ang aming mga chef ay naglagay ng isang seleksyon ng mga hindi mapaglabanan na pagkain na mag-iiwan sa iyo ng higit pa. **Tunog ng kumakalat na mga pinggan** Narrator: Romantikong hapunan man ito para sa dalawa, pagtitipon ng pamilya, o paglabas kasama ang mga kaibigan, ang [Pangalan ng Restaurant] ang perpektong destinasyon. Kaya huwag maghintay, magpareserba ngayon at maranasan ang pinakamahusay na iniaalok ng [lungsod]. [Pangalan ng Restaurant], hindi kami makapaghintay na pagsilbihan ka! **Nawala ang background na musika**"
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_3",
+            "patterns": [
+                " Dahil sa paglalarawan ng produkto, sumulat ng nakakumbinsi na elevator pitch para sa produkto.  Ang produktong ito ay isang serbisyo sa computer na tumutulong sa iyong pamahalaan at iimbak ang iyong mga file sa cloud para sa madaling pag-access."
+            ],
+            "responses": [
+                "Ipinapakilala ang aming makabagong solusyon sa cloud storage, na idinisenyo upang baguhin ang paraan ng iyong pamamahala at pag-access sa iyong mga file. Wala nang pag-aalala tungkol sa pagkawala ng mahahalagang dokumento o pagkaubos ng lokal na espasyo sa imbakan. Ang aming intuitive, user-friendly na platform ay ginagawang madali ang pag-iimbak at pagkuha ng iyong mga file mula saanman, anumang oras. Dagdag pa, sa aming makabagong mga hakbang sa seguridad, makatitiyak kang palaging ligtas at kumpidensyal ang iyong data. Magpaalam sa mga limitasyon ng tradisyonal na pag-iimbak ng file at sumali sa milyun-milyong nasisiyahang customer na tinatangkilik ang kalayaan at flexibility ng aming solusyon sa cloud storage. Subukan ito ngayon at makita ang pagkakaiba para sa iyong sarili!"
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_4",
+            "patterns": [
+                "Ano ang walang frictionless na ekonomiya? nan"
+            ],
+            "responses": [
+                " Ang ekonomiyang walang friction ay tumutukoy sa isang sistemang pang-ekonomiya kung saan ang mga transaksyon sa pagitan ng mga mamimili at nagbebenta ay nangyayari nang walang putol na may nababawasan o walang mga hadlang, na humahantong sa isang mahusay na pagpapalitan ng mga produkto at serbisyo. Sa ganitong uri ng ekonomiya, ang mga gastos at oras na nauugnay sa mga proseso ng transaksyon ay minimal o inalis, na humahantong sa isang mas mahusay, maginhawa, at mas mabilis na pagpapalitan ng halaga. Ang ideya sa likod ng walang alitan na ekonomiya ay gawing mas madali ang pagbili at pagbebenta at bawasan ang mga gastos at abala na nauugnay sa mga tradisyunal na transaksyon. Ito ay maaaring makamit sa pamamagitan ng iba't ibang paraan tulad ng mga pagsulong sa teknolohiya, mga patakaran ng pamahalaan, at mahusay na mga kasanayan sa negosyo na nagpapahusay sa transparency, seguridad, at kadalian ng mga transaksyon."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_5",
+            "patterns": [
+                " Bumuo ng isang malikhaing headline na ibinigay sa sumusunod na paksa ng artikulo  Ang Mga Benepisyo ng Pag-eehersisyo"
+            ],
+            "responses": [
+                " \"Pawisan Ngayon, Lumiwanag sa Mamaya: Pagtuklas ng Mga Bentahe ng Regular na Pag-eehersisyo\""
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_6",
+            "patterns": [
+                " Sabihin sa akin ang pamagat ng pinakasikat na kanta na inilabas noong 2020 sa ngayon. nan"
+            ],
+            "responses": [
+                " Noong Disyembre 2020, isa sa mga pinakasikat na kanta na inilabas noong 2020 ay ang \"Blinding Lights\" ng The Weeknd."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_7",
+            "patterns": [
+                " Ilista ang mga hakbang sa pagsulat ng press release. nan"
+            ],
+            "responses": [
+                "Narito ang mga hakbang sa pagsulat ng press release: 1. Tukuyin ang layunin at mensahe: Tukuyin ang layunin ng press release at tukuyin ang mahalagang mensahe na nais mong iparating sa iyong madla. 2. Magsaliksik sa iyong target na madla: Tukuyin kung sino ang iyong target na madla, anong mga publikasyon o media outlet ang malamang na basahin nila, at iakma ang iyong press release sa kanilang mga interes. 3. Sumulat ng nakakahimok na headline: Gumawa ng headline na kumukuha ng atensyon ng mambabasa at tumpak na sumasalamin sa nilalaman ng press release. 4. Bumuo ng isang malakas na lead: Simulan ang press release na may isang malakas na lead paragraph na nagsasabi kung sino, ano, kailan, saan, at bakit. 5. Magbigay ng sumusuportang impormasyon: Isama ang mga nauugnay na katotohanan, quote, istatistika, at mga detalye upang suportahan ang pangunahing mensahe at magbigay ng karagdagang impormasyon. 6. Magsama ng call-to-action: Hikayatin ang mambabasa na kumilos, tulad ng pagbisita sa iyong website o pakikipag-ugnayan sa iyo para sa higit pang impormasyon. 7. Sundin ang karaniwang format ng press release: Gamitin ang karaniwang format ng press release, na kinabibilangan ng petsa, lokasyon, at impormasyon ng contact. 8. Proofread at i-edit: Maingat na basahin ang press release upang suriin kung may mga error o hindi pagkakapare-pareho at gumawa ng anumang kinakailangang mga pagbabago. 9. Ipamahagi ang press release: Ipadala ang press release sa iyong mga target na media outlet at i-follow up sa kanila upang matiyak na ito ay natanggap at isinasaalang-alang para sa publikasyon."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_8",
+            "patterns": [
+                " Bumuo ng isang listahan ng tatlong magkakasunod na prime number nan"
+            ],
+            "responses": [
+                " Ang unang tatlong magkakasunod na prime number ay [2, 3, 5]. Ang isa pang set ng tatlong magkakasunod na prime number ay [5, 7, 11]."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_9",
+            "patterns": [
+                " Kunin ang ibinigay na pahayag at muling isulat ito gamit ang pangatlong panauhan na pananaw.  Nakaramdam ako ng lungkot at pagkabigo."
+            ],
+            "responses": [
+                " Nakaramdam siya ng lungkot at pagkabigo."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_10",
+            "patterns": [
+                " Sumulat ng slogan sa marketing na wala pang 10 salita nan"
+            ],
+            "responses": [
+                " \"Baguhin ang iyong mundo sa tulong ng AI.\""
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_11",
+            "patterns": [
+                " Pangalanan ang dalawang katangian ng ari-arian.  Isang moderno, 3-bedroom apartment"
+            ],
+            "responses": [
+                " 1. Makabagong disenyo 2. 3 silid-tulugan."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_12",
+            "patterns": [
+                " Ilarawan ang isang karanasan ng pagkabigo. nan"
+            ],
+            "responses": [
+                "Ang kabiguan ay isang hindi maiiwasang aspeto ng buhay at lahat ay maaaring makaugnay sa karanasan ng hindi pagkamit ng ninanais na layunin. Ang isang posibleng pagkakataon ng pagkabigo ay ang pagtatangka na magsimula ng bagong pakikipagsapalaran, tulad ng paglulunsad ng maliit na negosyo. Isipin ang paglalagay ng maraming pagsisikap, mapagkukunan, oras, at lakas upang makabuo ng isang ideya sa negosyo, mag-draft ng isang plano, at sa wakas ay maisakatuparan ito. Ngunit sa kabila ng lahat ng pagsusumikap, hindi umuusad ang negosyo, at nahihirapan kang kumita. Kapag hindi nagpakita ang mga customer, at nag-aatubili ang mga supplier na magnegosyo, tambak ang mga bayarin at utang, at kalaunan, nabigo ang buong venture. Ang emosyonal na epekto ng kabiguan na ito ay maaaring maging mabigat. Ang makita ang lahat ng pagsusumikap, pawis, at pera na nahuhulog sa alisan ng tubig ay nangangailangan ng malaking halaga ng katatagan at lakas ng loob upang makabangon muli. Ito ay isang sandali ng pagdududa sa sarili, pagkabigo, at kawalan ng pag-asa. Maaari mong maramdaman na ang lahat ng akala mo ay alam mong mali o hindi mo kayang abutin ang iyong mga pangarap. Sa kabila ng labis na mga damdamin, ang nakakaranas ng kabiguan ay isa sa mga pinakamahalagang karanasan sa buhay. Nakakatulong ito na magkaroon ng katatagan, mas malalim na pag-unawa sa sarili, at motibasyon na magsimulang muli gamit ang mga bagong kasanayan at kaalaman. Ang kabiguan, gaano man ito ka-cliche, ay isang stepping stone patungo sa hinaharap na tagumpay."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_13",
+            "patterns": [
+                "Ilang tatsulok ang nasa ibinigay na pigura?  [Figure: ABCD na may dalawang right-angled triangles]"
+            ],
+            "responses": [
+                " Batay sa ibinigay na paglalarawan, mayroong dalawang right-angled triangles sa ibinigay na figure ABCD."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_14",
+            "patterns": [
+                " Magdagdag ng mga salitang naglalarawan sa sumusunod na parirala Mapayapang umaga"
+            ],
+            "responses": [
+                " Tahimik, payapa, kalmado, tahimik, at tahimik na mapayapang umaga."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_15",
+            "patterns": [
+                "Magbigay ng tatlong mungkahi para sa pagkumbinsi sa isang tao na bumili ng produkto. nan"
+            ],
+            "responses": [
+                "1. I-highlight ang mga benepisyo at feature ng produkto: Magsimula sa pamamagitan ng pagtutok sa mga natatanging feature ng produkto na makakaakit sa customer, at ipaalam sa kanila kung paano ito mapapabuti o magpapagaan ng kanilang buhay. Ipaliwanag ang halaga na inaalok ng produkto at bigyang-diin kung paano nito matutugunan ang kanilang mga pangangailangan at malulutas ang isang problema na maaaring mayroon sila. 2. Gumamit ng social proof: Magbigay ng mga testimonial o review mula sa mga nasisiyahang customer, dahil maaari itong maging isang mahusay na tool upang kumbinsihin ang mga potensyal na mamimili. Mas malamang na bumili ang mga tao kung nakita nilang may positibong karanasan ang iba sa produkto. Ang social proof ay maaari ding dumating sa anyo ng influencer o expert endorsement, na maaaring magdagdag ng kredibilidad sa produkto. 3. Mag-alok ng libreng pagsubok o garantiyang ibabalik ang pera: Ito ay isang mahusay na paraan upang matugunan ang anumang mga alalahanin o pagtutol na maaaring mayroon ang customer tungkol sa produkto. Sa pamamagitan ng pagbibigay ng isang libreng panahon ng pagsubok o isang garantiyang ibabalik ang pera, ipinapakita mo sa customer na nakatayo ka sa likod ng produkto at naniniwala sa kakayahan nitong matugunan ang kanilang mga pangangailangan. Makakatulong ito sa pagbuo ng tiwala at pataasin ang kanilang kumpiyansa sa paggawa ng pagbili."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_16",
+            "patterns": [
+                " Pumili ng numero sa pagitan ng 0 at 100. Hulaan ang resulta ng pagdaragdag ng 17 sa napiling numero.  32"
+            ],
+            "responses": [
+                " Kung pipiliin mo ang numero 32 at idagdag ang 17 dito, ang resulta ay 49."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_17",
+            "patterns": [
+                " Pag-aralan ang pangungusap na ito: Hindi siya namili dahil sa sobrang pagod  \"Hindi siya namimili dahil sa sobrang pagod niya.\""
+            ],
+            "responses": [
+                " Ipinapaliwanag ng pangungusap na ito ang dahilan kung bakit hindi namili ang isang babae. Iminumungkahi nito na maaaring dati niyang balak na mamili, ngunit sa huli ay nagpasya siyang huwag na, dahil sa kanyang pagod. Ang pang-ugnay na \"dahil\" ay nagpapakilala sa dahilan o dahilan ng hindi niya pagpunta sa pamimili, at pinag-uugnay nito ang dalawang sugnay na \"hindi siya namimili\" at \"sobrang pagod siya.\" Ang unang sugnay ay gumagamit ng pantulong na pandiwa na \"ginawa\" upang ipahiwatig ang nakalipas na panahunan at pagkatapos ay binabalewala ito ng pang-abay na \"hindi\" upang ipahayag na ang aksyon ng pamimili ay hindi nangyari. Ang ikalawang sugnay ay naglalarawan sa kalagayan ng babaeng paksa gamit ang nag-uugnay na pandiwa na \"was\" at ang pang-uri na \"pagod.\""
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_18",
+            "patterns": [
+                "Tukuyin kung anong uri ng tatsulok ang lilikha ng mga sumusunod na panig.  7 cm, 3 cm, 9 cm"
+            ],
+            "responses": [
+                " Ang tatsulok na may mga gilid na 7 cm, 3 cm, at 9 cm ay magiging isang tatsulok na scalene. Ito ay dahil ang lahat ng tatlong panig ay may iba't ibang haba."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_19",
+            "patterns": [
+                "Uriin ang bawat isa sa mga sumusunod na pahayag bilang tama o mali. Tama o mali: Palaging pribado ang komunikasyon sa Internet. nan"
+            ],
+            "responses": [
+                " Mali. Ang komunikasyon sa Internet ay hindi palaging pribado. Maraming online na pakikipag-ugnayan, lalo na ang mga may kinalaman sa hindi naka-encrypt na pagpapadala ng data, ay mahina sa pagharang ng mga third party. Bukod pa rito, maraming platform at serbisyo ang may access sa data ng user at maaaring ibahagi ito sa iba. Mahalaga para sa mga indibidwal na gumawa ng mga hakbang upang maprotektahan ang kanilang privacy online sa pamamagitan ng paggamit ng pag-encrypt at mga secure na paraan ng komunikasyon."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_20",
+            "patterns": [
+                "Sumulat ng isang mathematical expression para sa pahayag na ito: \"ang produkto ng anim at ang kabuuan ng tatlo at apat\". nan"
+            ],
+            "responses": [
+                " 6 * (3 + 4)"
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_21",
+            "patterns": [
+                "Gumawa ng tula na may sampung linya, bawat isa ay may bilang na limang pantig. nan"
+            ],
+            "responses": [
+                " Namumulaklak na mga puno ng cherry, Magiliw at banayad ang simoy ng tagsibol, Lumilitaw ang mga paru-paro, Nagkalat ang mga buto ng dandelion. Mga parang dilaw na usbong, Mga ibong umaawit nang magkakasuwato, Lumabas sa kanilang mga nakatagong pugad; Isang mundong muling isinilang at buhay, Kalikasan ay nagising sa mahabang pagtulog, Isang bagong panahon ang dumating."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_22",
+            "patterns": [
+                " Dahil sa isang sipi, kunin ang pangunahing paksa ng sipi.  Ang mga strawberry ay isang uri ng prutas na madaling makuha sa mga tindahan sa buong tag-araw at taglagas. Ang mga ito ay matamis at maasim, at maaaring kainin nang mag-isa o bilang bahagi ng iba pang mga pagkain."
+            ],
+            "responses": [
+                " Ang pangunahing paksa ng sipi ay mga strawberry."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_23",
+            "patterns": [
+                " Magbigay ng 5 natatanging aktibidad na maaari mong gawin kasama ng iyong mga kaibigan nang hindi umaalis ng bahay. nan"
+            ],
+            "responses": [
+                "1. Magkaroon ng game night: Ipunin ang iyong mga kaibigan upang maglaro ng mga board game, card game o online multiplayer na laro para sa isang gabing puno ng tawanan at libangan. 2. Mag-host ng isang pelikula o seryeng marathon: Pumili ng tema o bagong serye at magpalipas ng gabi sa kakainin ng popcorn at panonood ng mga pelikula o episode nang magkasama. 3. Magluto o maghurno nang magkasama: Pumili ng masarap na recipe, tipunin ang mga sangkap at magluto o maghurno ng pagkain o dessert nang magkasama. 4. Magkaroon ng sesyon sa DIY: Maging malikhain sa pamamagitan ng paggawa ng ilang proyekto sa DIY nang magkakasama tulad ng pagpipinta, paggawa o paggawa ng sarili mong mga produktong pampaganda. 5. Ayusin ang isang home spa day: Palayawin ang iyong sarili sa isang nakakarelaks na araw ng spa sa bahay. Maglagay ng nakakarelaks na musika, magsindi ng kandila at subukan ang iba't ibang face mask, masahe, at nail treatment."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_24",
+            "patterns": [
+                "Mag-isip ng isang malikhaing salita para sa \"masarap\". nan"
+            ],
+            "responses": [
+                " \"Masarap\""
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_25",
+            "patterns": [
+                "Palitan ang lahat ng pangngalan ng mga panghalip  Naglalakad si Marcus sa kalsada."
+            ],
+            "responses": [
+                " Naglalakad siya pababa nito."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_26",
+            "patterns": [
+                " Dahil sa isang bugtong, tukuyin ang nakatagong mensahe  Malambot ang boses ko, balingkinitan ang baywang At madalas akong niyayaya na maglaro. Ang aking paa ay hindi tuod, hindi ako tumutugtog ng trumpeta Ngunit nakakaakit pa rin ng maraming pansin sa bawat araw."
+            ],
+            "responses": [
+                " Ang sagot sa bugtong ay \"isang biyolin\". Ang nakatagong mensahe ay ang bagay na inilalarawan ay isang instrumentong pangmusika na may malambot na tunog at balingkinitang baywang, na inaanyayahan na tumugtog kahit na wala itong stumpy foot at hindi tumutugtog ng trumpeta."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_27",
+            "patterns": [
+                " Magbigay ng halimbawa ng isang query na magagamit mo upang maghanap ng isang partikular na aklat sa isang catalog ng library. nan"
+            ],
+            "responses": [
+                "Upang maghanap ng partikular na aklat, maaari kang gumamit ng query na kinabibilangan ng pamagat ng aklat, may-akda, o paksa. Halimbawa, kung gusto mong hanapin ang aklat na \"To Kill a Mockingbird\" ni Harper Lee, ang iyong query ay maaaring: `\"To Kill a Mockingbird\" AT author: \"Harper Lee\"`. Maghahanap ito sa catalog ng library para sa isang aklat na may partikular na pamagat at ang tinukoy na may-akda."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_28",
+            "patterns": [
+                "Isulat muli ang pangungusap upang ito ay makasunod sa ibang istruktura kaysa sa orihinal.  Mahirap maghanap ng trabaho sa merkado ngayon."
+            ],
+            "responses": [
+                " Ang paghahanap ng trabaho sa merkado ngayon ay mahirap."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_29",
+            "patterns": [
+                "Paraphrase ang pangungusap: Ang kanyang pagiging huli ay nagdulot ng maraming abala nan"
+            ],
+            "responses": [
+                " Malaki ang pagkagambala dahil sa kanyang pagkahuli."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_30",
+            "patterns": [
+                " Bumuo ng angkop na tono para sa isang liham ng paghingi ng tawad sa isang customer.  Walang input."
+            ],
+            "responses": [
+                "Minamahal na customer, Taos-puso kaming humihingi ng paumanhin para sa anumang abala o pagkabigo na maaaring naranasan mo sa iyong kamakailang pakikipag-ugnayan sa amin. Sineseryoso namin ang anumang mga reklamo at isyung dinadala sa aming atensyon, at lubos kaming ikinalulungkot na nagkulang kami sa pagbibigay sa iyo ng mahusay na serbisyo na nararapat sa iyo. Mangyaring malaman na kami ay nakatuon sa paggawa ng lahat ng aming makakaya upang malutas ang anumang mga isyu at upang ayusin ito. Pinahahalagahan namin ang iyong tiwala sa amin at nais naming gawin ang lahat ng aming makakaya upang maibalik ang kumpiyansa na iyon. Muli, mangyaring tanggapin ang aming taos-pusong paghingi ng tawad at alamin na kami ay tunay na nagsisisi sa anumang pagkabigo na maaaring naidulot namin. Taos-puso, [Kinatawan ng Kumpanya]"
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_31",
+            "patterns": [
+                " Ibuod ang nangyari sa balita ngayon nan"
+            ],
+            "responses": [
+                " Bilang modelo ng wikang AI, wala akong access sa mga kasalukuyang pinagmumulan ng balita nang real-time, kaya hindi ko masabi kung ano ang nangyari sa partikular na araw na tinanong mo ang tanong. Maaari ka bang magbigay ng higit pang impormasyon tungkol sa pinagmulan ng balita, petsa o paksa na gusto mong ibuod ko?"
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_32",
+            "patterns": [
+                "Bumuo ng isang kwentong itinakda sa isang takdang panahon.  Medieval Europe"
+            ],
+            "responses": [
+                "Noong unang panahon sa medieval Europe, may isang dalagang nagngangalang Isabella. Siya ay nanirahan sa isang maliit na nayon na matatagpuan sa mga gumulong berdeng burol ng isang malawak na kaharian. Ang kanyang ama ay ang panday sa nayon, at ang kanyang ina ay namatay noong siya ay sanggol pa lamang. Si Isabella ay may talento sa herbal healing at madalas na pumunta sa kagubatan upang mangalap ng mga bulaklak at halaman para sa kanyang mga lunas. Habang nag-iipon siya ng mga halamang gamot isang araw, napadpad siya sa isang tagong glade kung saan nagsasayaw ang isang grupo ng mga diwata. Malugod nilang tinanggap siya at itinuro sa kanya ang mga lihim ng kagubatan. Gayunpaman, ang nayon ay nasa ilalim ng pamamahala ng isang masamang panginoon na nagmamalasakit lamang sa kanyang kayamanan at kapangyarihan. Nagpataw siya ng mataas na buwis sa mga tao, at marami sa kanila ang nahihirapang mabuhay. Si Isabella, sa tulong ng kanyang mga bagong kaibigang engkanto, ay nagpasya na gumawa ng isang bagay upang makatulong sa kanyang mga kababayan. Isang gabi, sumilip siya sa kastilyo ng panginoon na may dalang gayuma na tinimplahan ng patnubay ng mga diwata. Ibinuhos niya ang gayuma sa inumin ng panginoon, at kinabukasan ay nagbagong-anyo siya. Naging mabait siya at patas, at ibinaba niya ang mga buwis para sa mga tao. Umunlad ang nayon, at nakilala si Isabella bilang manggagamot sa nayon. Mula noon, patuloy siyang tumulong sa mga tao sa kanyang nayon sa pamamagitan ng kanyang kaalaman sa mga halamang gamot at gayuma. At sa tuwing mapupunta siya sa kagubatan, tumitigil siya sa tagong glade para sumayaw kasama ang kanyang mga kaibigang engkanto. Ang mga taganayon at ang panginoon ay nagpapasalamat sa pagbabago sa kanilang buhay, lahat ay salamat sa matapang at mabait na si Isabella."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_33",
+            "patterns": [
+                "Uriin ang mga sumusunod na bagay bilang mammal, amphibian, ibon, reptilya o isda  Unggoy, Palaka, Agila, Ahas, Salmon"
+            ],
+            "responses": [
+                " Unggoy: Mammal Frog: Amphibian Eagle: Bird Snake: Reptile Salmon: Isda"
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_34",
+            "patterns": [
+                " Hanapin ang hypernym ng mga salitang \"carrot\" at \"saging\" nan"
+            ],
+            "responses": [
+                " Ang hypernym ng mga salitang \"carrot\" at \"saging\" ay \"gulay\" at \"prutas,\" ayon sa pagkakabanggit. Kung naghahanap ka ng isang karaniwang hypernym para sa parehong salita, ito ay magiging \"produce\" o \"food.\""
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_35",
+            "patterns": [
+                " Hanapin ang paksa ng pangungusap na ibinigay sa ibaba.  Napakaganda ng liwanag ng buwan na nagbibigay liwanag sa madilim na kalangitan."
+            ],
+            "responses": [
+                " Ang paksa ng pangungusap ay \"Ang liwanag ng buwan\"."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_36",
+            "patterns": [
+                "Bumuo ng isang kuwento na gumagamit ng mga sumusunod na salita: basketball, dragon, time machine nan"
+            ],
+            "responses": [
+                "Noong unang panahon, may isang batang lalaki na nagngangalang Tim na mahilig maglaro ng basketball. Gumugol siya tuwing hapon sa pagbaril ng mga hoop sa lokal na palaruan, nangangarap na balang araw ay maging isang propesyonal na manlalaro. Isang araw, habang nagsasanay siya ng kanyang mga shot, isang mahiwagang dragon ang lumitaw sa kanyang harapan. Ang dragon ay kahanga-hanga, may esmeralda berdeng kaliskis at gintong mga mata. Kinausap niya si Tim sa isang malalim, umaalingawngaw na boses, na sinasabi sa kanya na siya ay nakalaan para sa kadakilaan. Pagkatapos ay ipinahayag ng dragon na mayroon siyang espesyal para kay Tim - isang time machine na maaaring magdadala sa kanya sa anumang punto ng oras. Ang kailangan lang gawin ni Tim ay isipin kung saan at kailan niya gustong pumunta, at dadalhin siya doon ng time machine. Tuwang-tuwa si Tim sa pag-iisip ng paglalakbay sa oras, at alam niya kung saan niya gustong unang pumunta. Gusto niyang bumalik sa nakaraan kung kailan unang naimbento ang basketball, para matutunan niya ang lahat ng dapat malaman tungkol sa laro. Walang pag-aalinlangan, umakyat siya sa likod ng dragon at ipinikit ang kanyang mga mata, iniisip ang oras at lugar na gusto niyang puntahan. Sa isang iglap, nadala sila pabalik sa nakaraan, sa huling bahagi ng 1800s, kung saan nagsisimula pa lamang ang basketball sa pagiging popular. Nakilala ni Tim ang imbentor ng basketball, si James Naismith, at natutunan ang lahat ng orihinal na panuntunan at diskarte ng laro. Nag-ensayo siya kasama ang ilan sa mga unang manlalaro at lumahok pa sa ilan sa mga unang larong nilaro. Ang dragon ay nanonood mula sa gilid, ipinagmamalaki ni Tim para sa paggamit ng time machine upang sundin ang kanyang hilig. Pagkatapos ng ilang linggong pag-aaral at paglalaro ng basketball noon, alam ni Tim na oras na para bumalik sa sarili niyang oras. Ibinalik siya ng dragon sa kasalukuyan, kung saan naging usap-usapan si Tim. Napabuti niya nang husto ang kanyang mga kasanayan, at lahat ay nagtaka kung paano niya ito nagawa. Ngumiti lang si Tim, alam niyang ligtas ang sikreto niya sa dragon at sa time machine. Mula noon, nagpatuloy si Tim sa paglalaro ng basketball, gamit ang lahat ng natutunan niya para maging isa sa pinakamahuhusay na manlalaro sa kanyang bayan. At paminsan-minsan, magpapatuloy siya sa isa pang pakikipagsapalaran kasama ang dragon, gamit ang time machine upang tuklasin ang iba't ibang oras at lugar. Ito ang simula ng isang mahiwagang pagkakaibigan, lahat ay salamat sa pagmamahal ng isang batang lalaki sa basketball, isang mahiwagang dragon, at isang time machine."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_37",
+            "patterns": [
+                " Gumawa ng isang listahan ng magkakaibang mga adjectives para sa sumusunod na damdamin.  kagalakan"
+            ],
+            "responses": [
+                "1. Kaligayahan vs Kalungkutan 2. Kasiyahan vs Kawalan ng Pag-asa 3. Ecstasy vs Misery 4. Euphoria vs Anguish 5. Bliss vs Pagdurusa 6. Masayahin vs Gloomy 7. Content vs Discontent 8. Tuwang-tuwa vs Depressed 9. Enchanted vs Dischanted 10. Excited vs Dischanted ."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_38",
+            "patterns": [
+                " Balangkas ang mga pagkakaiba sa pagitan ng isang puno at isang bush. nan"
+            ],
+            "responses": [
+                "Ang isang puno at isang bush (kilala rin bilang palumpong) ay parehong uri ng mga halaman, ngunit mayroon silang ilang pangunahing pagkakaiba na nagpapahiwalay sa kanila. - **Laki:** Ang mga puno ay karaniwang mas matangkad at may mas malinaw na puno kaysa sa mga palumpong. Ang mga mature na puno ay maaaring umabot sa napakataas na taas, habang ang isang mature na bush ay karaniwang nananatiling mababa sa 15 talampakan ang taas. - **Pattern ng Paglago:** Ang mga puno ay may iisang, nangingibabaw na tangkay, habang ang mga palumpong ay karaniwang may maraming tangkay na tumutubo mula sa base o antas ng lupa. Ang mga sanga ng isang bush ay mas malapit sa lupa, habang ang mga sanga ng isang puno ay karaniwang nagsisimula nang mas mataas sa puno. - **Hugis:** Ang mga puno ay may mas malinaw na hugis, na may isang puno ng kahoy na humahantong sa mga sanga at isang canopy ng mga dahon. Ang mga palumpong, sa kabilang banda, ay may mas bilugan o nababagsak na hitsura, na may mga sanga at dahon na tumutubo sa maraming direksyon. - **Function:** Ang mga puno ay karaniwang nagbibigay ng lilim, troso, o mga prutas habang ang mga palumpong ay kadalasang ginagamit para sa mga layuning pang-adorno, mga hangganan, o screening dahil ang kanilang laki at makapal na paglaki ay perpekto para sa mga paggamit na ito. Sa buod, ang mga puno at palumpong ay nag-iiba sa kanilang sukat, pattern ng paglago, hugis, at pangkalahatang paggana. Ang mga pagkakaibang ito ay makakatulong upang makilala ang dalawang uri ng halaman."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_39",
+            "patterns": [
+                "Isulat muli ang ibinigay na pangungusap upang gumamit ito ng ibang pandiwa at mapanatili ang parehong kahulugan.  Kinain ng pusa ang pagkain."
+            ],
+            "responses": [
+                " Inubos ng pusa ang pagkain."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_40",
+            "patterns": [
+                " Ayusin ang mga pang-uri sa sumusunod na pagkakasunud-sunod: basa, sariwa, berde nan"
+            ],
+            "responses": [
+                " sariwa, berde, basa."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_41",
+            "patterns": [
+                " Kalkulahin ang average ng mga sumusunod na numero at bilugan ang resulta sa pinakamalapit na integer.  43, -2, 3, 39"
+            ],
+            "responses": [
+                " Ang average ng mga numerong 43, -2, 3, at 39 ay kinakalkula sa pamamagitan ng pagdaragdag ng lahat ng mga numero (43 + -2 + 3 + 39) at pagkatapos ay hinahati ang kabuuan sa kabuuang bilang ng mga numero, na 4. Ang ang pagkalkula ay: (43 + -2 + 3 + 39) / 4 = 83 / 4 = 20.75 Ang pag-round 20.75 sa pinakamalapit na integer, makakakuha tayo ng 21. Samakatuwid, ang average ng mga numero na 43, -2, 3, at 39 ay naka-round sa ang pinakamalapit na integer ay 21."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_42",
+            "patterns": [
+                "Tukuyin ang ibinigay na salungatan.  Nais ng lalaki na ituloy ang kanyang mga pangarap sa karera, habang gusto ng kanyang pamilya na manatili siya sa bahay at ipagpatuloy ang negosyo ng pamilya."
+            ],
+            "responses": [
+                " Ang salungatan na inilarawan dito ay isang interpersonal na salungatan, kung saan nahaharap ang lalaki sa dilemma ng pagpili sa pagitan ng pagsunod sa kanyang mga pangarap at pagtupad sa mga inaasahan ng kanyang pamilya. Ito ay nagmumula sa mga pagkakaiba sa pagitan ng mga indibidwal na interes ng lalaki at ng kolektibong interes ng kanyang pamilya."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_43",
+            "patterns": [
+                "Tukuyin ang lugar ng tatsulok na may mga sumusunod na sukat.  Base: 5 cm Taas: 4 cm"
+            ],
+            "responses": [
+                " Ang lugar ng isang tatsulok ay maaaring kalkulahin gamit ang formula: Lugar = (Base x Taas) / 2. Dahil sa base na 5 cm at taas na 4 cm, ang lugar ng tatsulok ay (5 x 4)/2 = 10 cm ^2."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_44",
+            "patterns": [
+                "Ibuod ang artikulo sa mas mababa sa 100 salita sa pamamagitan ng pagpapanatili ng mga pangunahing ideya.  Ang Ebola virus, na unang natuklasan noong 1976, ay itinuturing na isa sa mga pinakanakamamatay na virus na kilala sa sangkatauhan. Ito ay katutubong sa mga rehiyon ng Central at West Africa at nagdulot ng maraming paglaganap sa rehiyon. Ayon sa Centers for Disease Control and Prevention, maaaring kabilang sa mga sintomas ng Ebola ang lagnat, pananakit ng ulo, pagkapagod, pananakit ng kalamnan at pananakit ng lalamunan, na sinusundan ng pagsusuka, pantal, at pagdurugo, at maaaring nakamamatay kung hindi naagapan. Ang mga rate ng pagkamatay ay nag-iiba, ngunit ito ay kasing taas ng 90%."
+            ],
+            "responses": [
+                " Tinatalakay ng artikulo ang Ebola virus, na unang natuklasan noong 1976 at kilala bilang isang nakamamatay na virus na katutubong sa Central at West Africa. Maaaring kabilang sa mga sintomas ang lagnat, pananakit ng ulo, pagkapagod, pananakit ng kalamnan, at pananakit ng lalamunan, at maaaring humantong sa pagsusuka, pantal, at pagdurugo, na may mga rate ng pagkamatay na umabot sa 90%."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_45",
+            "patterns": [
+                " I-convert ang ibinigay na numerical expression sa katumbas nitong algebraic expression  3 * (5 - 4)"
+            ],
+            "responses": [
+                "Ang katumbas na algebraic na expression para sa numerical na expression na 3 * (5 - 4) ay `3x`, kung saan `x = (5 - 4)` o `x = 1`."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_46",
+            "patterns": [
+                "Gumawa ng timeline na nagbabalangkas sa iba't ibang hakbang sa proseso ng paggawa ng cake. nan"
+            ],
+            "responses": [
+                "Narito ang isang timeline na nagbabalangkas sa iba't ibang hakbang sa proseso ng paggawa ng cake: 1. **Paghahanda (10 minuto)**: Ipunin ang lahat ng kinakailangang sangkap at kasangkapan tulad ng harina, asukal, mantikilya, itlog, baking powder, gatas, isang hurno, isang mangkok ng paghahalo, isang lata ng cake, at isang panghalo. 2. **Paghahalo (15 minuto)**: Pagsamahin ang mantikilya at asukal hanggang sa maging magaan at malambot ang timpla. Magdagdag ng mga itlog, isa-isa, habang patuloy na matalo. Paghalu-haluin ang tuyo at basa na mga sangkap hanggang sa maayos ang lahat. 3. **Pinainit muna ang oven (5-10 minuto)**: Habang hinahalo ang mga sangkap, painitin muna ang oven sa tamang temperatura ayon sa iyong recipe. Siguraduhing mainit ang oven bago ilagay ang cake dito. 4. **Paglipat ng batter (5 minuto)**: Grasa ang iyong cake tin at ibuhos ang batter dito. Gumamit ng spatula para pantayin ang tuktok. 5. **Pagluluto ng cake (25-35 minuto)**: Ilagay ang lata ng cake sa oven at maghurno para sa inirerekomendang oras. Ang cake ay tapos na kapag ito ay ginintuang kayumanggi, at kapag ang isang toothpick na ipinasok sa gitna ay lumabas na malinis. 6. **Paglamig ng cake (30-45 minuto)**: Alisin ang cake sa oven at hayaang lumamig ito sa loob ng cake lata sa loob ng ilang minuto. Pagkatapos, ilipat ito sa isang wire rack at hayaan itong ganap na lumamig. 7. **Pagdekorasyon ng cake (15-30 minuto)**: Kapag lumamig na ang cake, maaari mo itong palamutihan ng frosting, sariwang prutas, chocolate chips o anumang iba pang toppings na gusto mo. 8. **Paghain ng cake (5 minuto)**: Hiwain ang cake at ihain ito sa iyong mga bisita. Ang kabuuang oras para sa paggawa ng cake ay maaaring mula sa 1 oras 45 minuto hanggang 2 oras 30 minuto, depende sa recipe at mga hakbang na kasangkot."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_47",
+            "patterns": [
+                " I-edit ang pangungusap na ito upang magkaroon ito ng malinaw na kahulugan: Ang makinang may ay magbubukas ng pinto. nan"
+            ],
+            "responses": [
+                " Bubuksan ng makina ang pinto."
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_48",
+            "patterns": [
+                "Gumawa ng JavaScript program para ibawas ang dalawang numero. nan"
+            ],
+            "responses": [
+                " Narito ang isang JavaScript program na maaaring magbawas ng dalawang numero: ```javascript function subtractNums(num1, num2){ return num1 - num2; } // Halimbawa: pagbabawas ng 10 at 5 hayaan ang resulta = subtractNums(10, 5); console.log(resulta); // Output: 5 ```"
+            ]
+        },
+        {
+            "tag": "alpaca_filipino_49",
+            "patterns": [
+                " Bawat araw, mas maraming oras ang ginugugol namin sa harap ng computer kaysa sa labas. Sumulat ng isang teksto na kumukuha ng ideyang ito. nan"
+            ],
+            "responses": [
+                " Sa mundong pinapatakbo ng teknolohiya ngayon, hindi nakakagulat na marami sa atin ang gumugugol ng malaking bahagi ng ating oras sa harap ng computer. Nagtatrabaho man tayo, nag-aaral, o kahit na nakikipag-usap sa mga kaibigan at pamilya, ang computer ay naging pangunahing bahagi ng ating pang-araw-araw na gawain. Karaniwan para sa mga indibidwal na gumugol ng 8 oras o higit pa sa pag-upo sa harap ng screen, kadalasang nagsasakripisyo ng mahalagang oras na maaaring gugulin sa labas. Ito ay isang patunay kung gaano kalaki ang pagbabago ng digital age sa ating mga gawi at pamumuhay, habang nagiging mas umaasa tayo sa teknolohiya para sa ating pang-araw-araw na pangangailangan. Habang sumusulong tayo sa hinaharap, mahalagang magkaroon ng balanse sa pagitan ng ating oras sa paggamit at mga aktibidad sa labas, upang mapanatili ang isang malusog at kasiya-siyang buhay."
+            ]
+        }
+    ]
+}
