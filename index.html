@@ -3,189 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrgyLink AI Chat</title>
+    <title>BrgyLink AI — Smart Multilingual Barangay Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; }
+        :root {
+            --bg-base: #0b1120;
+            --card-bg: rgba(17, 24, 39, 0.85);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.4);
+            --accent-teal: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-amber: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --bot-bubble: rgba(30, 41, 59, 0.85);
+            --user-bubble: linear-gradient(135deg, #2563eb, #1d4ed8);
+            --shadow-glow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.18) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.12) 0%, transparent 60%);
+            background-attachment: fixed;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            padding: 16px;
+            color: var(--text-main);
         }
-        .chat-container {
-            width: 440px;
-            height: 600px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            overflow: hidden;
+
+        .chat-app {
+            width: 100%;
+            max-width: 520px;
+            height: 94vh;
+            max-height: 840px;
+            background: var(--card-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            box-shadow: var(--shadow-glow), 0 0 0 1px rgba(255, 255, 255, 0.05);
             display: flex;
             flex-direction: column;
+            overflow: hidden;
+            position: relative;
         }
-        .chat-header {
-            background: #1e3c72;
-            color: white;
+
+        /* Top Header */
+        .header {
             padding: 16px 20px;
+            background: rgba(15, 23, 42, 0.75);
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .header-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        .chat-header-title {
-            font-weight: 700;
-            font-size: 1.1rem;
+
+        .brand {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            background: #4cd137;
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #1d4ed8, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        }
+
+        .brand-text h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .brand-text p {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #34d399;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            background: #10b981;
             border-radius: 50%;
-            display: inline-block;
+            box-shadow: 0 0 8px #10b981;
+            animation: pulse 2s infinite;
         }
-        .chat-subtitle {
-            font-size: 0.75rem;
-            opacity: 0.85;
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.3); }
         }
+
+        /* Language Switcher Pills */
+        .language-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 2px;
+            scrollbar-width: none;
+        }
+
+        .language-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .lang-btn {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lang-btn:hover {
+            background: rgba(51, 65, 85, 0.8);
+            color: var(--text-main);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(16, 185, 129, 0.25));
+            border-color: var(--primary);
+            color: #93c5fd;
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Quick Prompt Suggestions */
+        .suggestions-bar {
+            padding: 8px 16px;
+            background: rgba(15, 23, 42, 0.4);
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .suggestions-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chip {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.74rem;
+            cursor: pointer;
+            transition: all 0.18s ease;
+        }
+
+        .chip:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        /* Chat Messages Container */
         .chat-messages {
             flex: 1;
-            padding: 20px;
+            padding: 18px 20px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            background: #f8f9fc;
+            gap: 16px;
+            scroll-behavior: smooth;
         }
-        .message {
-            padding: 12px 16px;
-            border-radius: 16px;
-            max-width: 82%;
-            font-size: 0.95rem;
-            line-height: 1.45;
-            word-wrap: break-word;
-            animation: fadeIn 0.2s ease-in-out;
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+        }
+
+        /* Message Bubbles */
+        .message-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            max-width: 86%;
+            animation: messageFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes messageFadeIn {
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .user-message {
-            background: #1e3c72;
-            color: white;
+
+        .message-wrap.user {
             align-self: flex-end;
-            border-bottom-right-radius: 4px;
+            align-items: flex-end;
         }
-        .bot-message {
-            background: white;
-            color: #2d3436;
+
+        .message-wrap.bot {
             align-self: flex-start;
-            border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            align-items: flex-start;
         }
-        .typing-indicator {
-            align-self: flex-start;
-            background: white;
-            padding: 12px 16px;
-            border-radius: 16px;
-            border-bottom-left-radius: 4px;
-            display: none;
-            gap: 5px;
+
+        .message-meta {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            display: flex;
             align-items: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            gap: 6px;
+            padding: 0 4px;
         }
+
+        .lang-tag {
+            background: rgba(59, 130, 246, 0.18);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #93c5fd;
+            padding: 1px 6px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.65rem;
+            text-transform: capitalize;
+        }
+
+        .bubble {
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.92rem;
+            line-height: 1.55;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .message-wrap.user .bubble {
+            background: var(--user-bubble);
+            color: white;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .message-wrap.bot .bubble {
+            background: var(--bot-bubble);
+            color: #e2e8f0;
+            border: 1px solid var(--card-border);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .bubble p {
+            margin-bottom: 8px;
+        }
+
+        .bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bubble ul {
+            padding-left: 18px;
+            margin: 6px 0;
+        }
+
+        .bubble li {
+            margin-bottom: 4px;
+        }
+
+        /* Typing Indicator */
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background: var(--bot-bubble);
+            border: 1px solid var(--card-border);
+            padding: 10px 16px;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            gap: 6px;
+            align-items: center;
+        }
+
         .typing-dot {
             width: 7px;
             height: 7px;
-            background: #a4b0be;
+            background: #60a5fa;
             border-radius: 50%;
             animation: bounce 1.4s infinite ease-in-out both;
         }
+
         .typing-dot:nth-child(1) { animation-delay: -0.32s; }
         .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
         @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
+            0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+            40% { transform: scale(1); opacity: 1; }
         }
-        .chat-input-area {
+
+        /* Input Area */
+        .input-bar {
+            padding: 14px 18px;
+            background: rgba(15, 23, 42, 0.9);
+            border-top: 1px solid var(--card-border);
             display: flex;
-            padding: 14px;
-            background: white;
-            border-top: 1px solid #edf2f7;
+            align-items: center;
             gap: 10px;
         }
-        .chat-input-area input {
+
+        .input-bar input {
             flex: 1;
-            padding: 12px 16px;
-            border: 1px solid #e2e8f0;
-            border-radius: 24px;
-            outline: none;
-            font-size: 0.95rem;
-            transition: border-color 0.2s;
-        }
-        .chat-input-area input:focus {
-            border-color: #1e3c72;
-        }
-        .chat-input-area button {
-            background: #1e3c72;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
+            padding: 12px 18px;
+            border-radius: 999px;
+            font-size: 0.92rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .input-bar input:focus {
+            border-color: var(--primary);
+            background: rgba(30, 41, 59, 0.95);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+
+        .input-bar input::placeholder {
+            color: #64748b;
+        }
+
+        .action-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
             border: none;
-            padding: 0 20px;
-            border-radius: 24px;
-            font-weight: 600;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            transition: background 0.2s, opacity 0.2s;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
         }
-        .chat-input-area button:hover {
-            background: #2a5298;
+
+        .action-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.5);
         }
-        .chat-input-area button:disabled {
-            opacity: 0.5;
+
+        .action-btn:active {
+            transform: scale(0.96);
+        }
+
+        .action-btn:disabled {
+            opacity: 0.4;
             cursor: not-allowed;
+            transform: none;
+        }
+
+        .clear-btn {
+            background: transparent;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            font-size: 0.78rem;
+            padding: 6px;
+            border-radius: 8px;
+            transition: color 0.15s;
+        }
+
+        .clear-btn:hover {
+            color: #e2e8f0;
         }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <div>
-                <div class="chat-header-title">
-                    <span class="status-dot"></span>
-                    BrgyLink AI
+    <main class="chat-app" role="main" aria-label="BrgyLink AI Chatbot">
+        <!-- Top Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="brand">
+                    <div class="brand-icon" aria-hidden="true">🏛️</div>
+                    <div class="brand-text">
+                        <h1>BrgyLink AI</h1>
+                        <p>Brgy. Bagong Pag-asa • San Jacinto, Pangasinan</p>
+                    </div>
                 </div>
-                <div class="chat-subtitle">English • Tagalog • Pangasinan • Ilocano</div>
+                <div class="status-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Online v5</span>
+                </div>
             </div>
-        </div>
-        <div class="chat-messages" id="chat-messages">
-            <div class="message bot-message">
-                Hello! I am BrgyLink AI, your barangay virtual assistant. How may I assist you today? / Naimbag nga aldaw! / Maabig ya agew! / Kumusta po!
-            </div>
+
+            <!-- Language Pills -->
+            <nav class="language-bar" aria-label="Language selection">
+                <button class="lang-btn active" data-lang="auto" onclick="setLanguage('auto', this)">
+                    🌐 Auto-Detect
+                </button>
+                <button class="lang-btn" data-lang="pag" onclick="setLanguage('pag', this)">
+                    🌊 Pangasinan
+                </button>
+                <button class="lang-btn" data-lang="ilo" onclick="setLanguage('ilo', this)">
+                    🌾 Ilocano
+                </button>
+                <button class="lang-btn" data-lang="fil" onclick="setLanguage('fil', this)">
+                    🇵🇭 Tagalog
+                </button>
+                <button class="lang-btn" data-lang="en" onclick="setLanguage('en', this)">
+                    🇺🇸 English
+                </button>
+            </nav>
+        </header>
+
+        <!-- Quick Prompts Bar -->
+        <section class="suggestions-bar" id="suggestions-bar" aria-label="Sample questions">
+            <!-- Populated dynamically via JS -->
+        </section>
+
+        <!-- Chat Feed -->
+        <section class="chat-messages" id="chat-messages" aria-live="polite">
+            <article class="message-wrap bot">
+                <div class="message-meta">
+                    <span class="lang-tag">Multilingual</span>
+                    <span>Just now</span>
+                </div>
+                <div class="bubble">
+                    <p><strong>Kumusta kabaleyan, kailian, at mga kabarangay!</strong></p>
+                    <p>I am <strong>BrgyLink AI</strong>, your official barangay virtual assistant. You can speak to me naturally in <strong>Pangasinan</strong>, <strong>Ilocano</strong>, <strong>Tagalog</strong>, or <strong>English</strong>!</p>
+                    <p>How can I help you today with barangay certificates, clearances, permits, or assistance?</p>
+                </div>
+            </article>
+
+            <!-- Typing indicator -->
             <div class="typing-indicator" id="typing-indicator">
                 <span class="typing-dot"></span>
                 <span class="typing-dot"></span>
                 <span class="typing-dot"></span>
             </div>
-        </div>
-        <div class="chat-input-area">
-            <input type="text" id="user-input" placeholder="Type in Tagalog, Pangasinan, Ilocano..." onkeypress="handleKeyPress(event)" autofocus>
-            <button id="send-btn" onclick="sendMessage()">Send</button>
-        </div>
-    </div>
+        </section>
+
+        <!-- Input Bar -->
+        <footer class="input-bar">
+            <button class="clear-btn" onclick="resetChat()" title="Reset Conversation">🔄 Clear</button>
+            <input type="text" id="user-input" placeholder="Tepet kayo ed Pangasinan, Ilocano, o Tagalog..." autocomplete="off" autofocus>
+            <button class="action-btn" id="send-btn" onclick="sendMessage()" title="Send Message">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </footer>
+    </main>
 
     <script>
         const chatMessages = document.getElementById('chat-messages');
         const userInput = document.getElementById('user-input');
-        const typingIndicator = document.getElementById('typing-indicator');
         const sendBtn = document.getElementById('send-btn');
+        const typingIndicator = document.getElementById('typing-indicator');
+        const suggestionsBar = document.getElementById('suggestions-bar');
 
-        function appendMessage(sender, text) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
-            messageDiv.textContent = text;
-            chatMessages.insertBefore(messageDiv, typingIndicator);
+        let currentLang = 'auto';
+        let sessionId = 'web_' + Math.random().toString(36).substring(2, 10);
+
+        const PROMPTS = {
+            auto: [
+                { text: "Mano so bayad na clearance?", lang: "pag" },
+                { text: "Kasano ti agkiddaw ti indigency?", lang: "ilo" },
+                { text: "Paano kumuha ng Business Permit?", lang: "fil" },
+                { text: "Oras ng opisina ng barangay hall", lang: "fil" },
+                { text: "🚨 Emergency Hotlines", lang: "auto" }
+            ],
+            pag: [
+                { text: "Mano so bayad na clearance tan permit?", lang: "pag" },
+                { text: "Antoy kailangan para ed Certificate of Indigency?", lang: "pag" },
+                { text: "Antoy oras na opisina na barangay hall?", lang: "pag" },
+                { text: "Wala so alitan tan kolkolan iner so paka-ayos to?", lang: "pag" },
+                { text: "Kapigan so panangala na basura?", lang: "pag" }
+            ],
+            ilo: [
+                { text: "Kasano ti agala ti barangay clearance para iti trabaho?", lang: "ilo" },
+                { text: "Ania dagiti kasapulan para iti Certificate of Indigency?", lang: "ilo" },
+                { text: "Ania ti oras ti opisina ti barangay hall?", lang: "ilo" },
+                { text: "Adda kolkol ken riri ti kaarruba kasano a maurnos?", lang: "ilo" },
+                { text: "Kaano ti panag-ala ti basura iti purok?", lang: "ilo" }
+            ],
+            fil: [
+                { text: "Paano kumuha ng Barangay Clearance at magkano?", lang: "fil" },
+                { text: "Libre ba ang Certificate of Indigency?", lang: "fil" },
+                { text: "Ano ang mga requirements para sa Business Permit?", lang: "fil" },
+                { text: "Paano mag-file ng reklamo sa Lupon Tagapamayapa?", lang: "fil" },
+                { text: "Ano ang schedule ng hakot ng basura?", lang: "fil" }
+            ],
+            en: [
+                { text: "How to get a Barangay Clearance?", lang: "en" },
+                { text: "What are the requirements for Certificate of Indigency?", lang: "en" },
+                { text: "What are the barangay office hours and location?", lang: "en" },
+                { text: "What are the emergency hotlines?", lang: "en" },
+                { text: "How to report an incident to the barangay?", lang: "en" }
+            ]
+        };
+
+        const PLACEHOLDERS = {
+            auto: "Tepet kayo ed Pangasinan, Ilocano, Tagalog, or English...",
+            pag: "Mantitipet ed salitan Pangasinan (kabaleyan)...",
+            ilo: "Agsaludsod iti pagsasao nga Ilocano (kailian)...",
+            fil: "Magtanong sa wikang Tagalog / Filipino...",
+            en: "Ask any question in English..."
+        };
+
+        function renderSuggestions(lang) {
+            suggestionsBar.innerHTML = '';
+            const list = PROMPTS[lang] || PROMPTS.auto;
+            list.forEach(item => {
+                const btn = document.createElement('button');
+                btn.className = 'chip';
+                btn.textContent = item.text;
+                btn.onclick = () => {
+                    userInput.value = item.text;
+                    sendMessage();
+                };
+                suggestionsBar.appendChild(btn);
+            });
+        }
+
+        function setLanguage(lang, btnElement) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            if (btnElement) btnElement.classList.add('active');
+            userInput.placeholder = PLACEHOLDERS[lang] || PLACEHOLDERS.auto;
+            renderSuggestions(lang);
+            userInput.focus();
+        }
+
+        function formatMessage(text) {
+            // Escape HTML
+            let clean = text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+
+            // Format bold **text**
+            clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+            // Convert bullet points starting with - or •
+            const lines = clean.split('\n');
+            let inList = false;
+            let result = '';
+
+            lines.forEach(line => {
+                const trimmed = line.trim();
+                if (trimmed.startsWith('- ') || trimmed.startsWith('• ')) {
+                    if (!inList) {
+                        result += '<ul>';
+                        inList = true;
+                    }
+                    result += `<li>${trimmed.substring(2)}</li>`;
+                } else {
+                    if (inList) {
+                        result += '</ul>';
+                        inList = false;
+                    }
+                    if (trimmed) {
+                        result += `<p>${line}</p>`;
+                    }
+                }
+            });
+
+            if (inList) result += '</ul>';
+            return result;
+        }
+
+        function appendMessage(sender, text, meta = {}) {
+            const wrap = document.createElement('article');
+            wrap.className = `message-wrap ${sender}`;
+
+            const metaDiv = document.createElement('div');
+            metaDiv.className = 'message-meta';
+
+            const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            if (sender === 'bot') {
+                const langLabel = meta.language_name || meta.language || 'Multilingual';
+                const timeLabel = meta.processing_time_ms ? ` • ${meta.processing_time_ms}ms` : '';
+                metaDiv.innerHTML = `<span class="lang-tag">${langLabel}</span><span>${now}${timeLabel}</span>`;
+            } else {
+                metaDiv.innerHTML = `<span>Resident • ${now}</span>`;
+            }
+
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = formatMessage(text);
+
+            wrap.appendChild(metaDiv);
+            wrap.appendChild(bubble);
+
+            chatMessages.insertBefore(wrap, typingIndicator);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
@@ -201,23 +669,36 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
             try {
-                const response = await fetch('http://127.0.0.1:5000/chat', {
+                const payload = {
+                    message: text,
+                    session_id: sessionId
+                };
+                if (currentLang !== 'auto') {
+                    payload.language = currentLang;
+                }
+
+                const response = await fetch('/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
+                    body: JSON.stringify(payload)
                 });
 
                 const data = await response.json();
                 typingIndicator.style.display = 'none';
 
                 if (data.response) {
-                    appendMessage('bot', data.response);
+                    appendMessage('bot', data.response, {
+                        language_name: data.language_name,
+                        language: data.language,
+                        intent: data.intent,
+                        processing_time_ms: data.processing_time_ms
+                    });
                 } else if (data.error) {
                     appendMessage('bot', '⚠️ ' + data.error);
                 }
-            } catch (error) {
+            } catch (err) {
                 typingIndicator.style.display = 'none';
-                appendMessage('bot', '⚠️ Error connecting to server. Make sure the server is running on port 5000.');
+                appendMessage('bot', '⚠️ Connection error. Please ensure the BrgyLink server is running.');
             } finally {
                 userInput.disabled = false;
                 sendBtn.disabled = false;
@@ -226,11 +707,19 @@
             }
         }
 
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
+        function resetChat() {
+            sessionId = 'web_' + Math.random().toString(36).substring(2, 10);
+            chatMessages.innerHTML = '';
+            chatMessages.appendChild(typingIndicator);
+            appendMessage('bot', 'Conversation cleared. How can I help you today? / Kumusta, paano kita matutulungan? / Panon ta kan natulongan kabaleyan?');
         }
+
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // Initialize
+        renderSuggestions('auto');
     </script>
 </body>
 </html>
