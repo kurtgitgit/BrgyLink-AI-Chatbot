@@ -1,7 +1,11 @@
 """
-BrgyLink Smart Classifier v5 — High-Performance Multilingual Offline NLP Engine.
-Authoritative Barangay Knowledge Engine for Barangay Bagong Pag-asa, San Jacinto.
-Languages: Pangasinan, Ilocano, Tagalog, English.
+BrgyLink Smart Classifier v6 — Prototype Multilingual Offline NLP Engine.
+Barangay assistant prototype for Barangay Bagong Pag-asa, San Jacinto.
+Languages supported: Pangasinan, Ilocano, Tagalog, English.
+
+IMPORTANT: This is a prototype. Answers come from knowledge_base.json.
+Unverified facts are flagged. The chatbot does not provide legal or medical
+advice and cannot dispatch emergency services.
 """
 
 import json
@@ -13,10 +17,14 @@ from collections import Counter, defaultdict
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INTENTS_FILE = os.path.join(BASE_DIR, "data", "intents_brgylink_curated.json")
+KB_FILE = os.path.join(BASE_DIR, "knowledge_base.json")
 MODEL_FILE = os.path.join(BASE_DIR, "smart_classifier.pkl")
-MODEL_VERSION = 5
-FALLBACK = "fallback"
-CONFIDENCE_THRESHOLD = 0.08
+MODEL_VERSION = 6
+FALLBACK = "out_of_scope"
+
+# --- Tuned thresholds ---
+CONFIDENCE_THRESHOLD = 0.18        # minimum score to accept an intent
+MARGIN_THRESHOLD = 0.06            # minimum gap between #1 and #2 intents
 
 # ---------------------------------------------------------------------------
 # Document aliases -> standard display name
@@ -36,7 +44,6 @@ DOCUMENTS = {
     "bgy id": "Barangay ID",
     "barangay i.d": "Barangay ID",
     "barangay identification": "Barangay ID",
-    "cert": "Barangay Clearance",
 }
 
 DOC_TO_INTENT = {
@@ -76,25 +83,85 @@ ALIASES: list[tuple[re.Pattern, str]] = [
 ]
 
 # ---------------------------------------------------------------------------
+# SAFETY-CRITICAL: Pre-classifier keyword rules
+# These ALWAYS override the TF-IDF classifier.
+# ---------------------------------------------------------------------------
+_EMERGENCY_RE = re.compile(
+    r"\b(sunog|apoy|uram|fire|911|ambulance|ambulansya|saklolo|tulong\s+tulong|aksidente|"
+    r"inatake|heart\s*attack|aktibong\s*krimen|hostage|crime\s*in\s*progress|"
+    r"nahulog|drowning|earthquake|lindol|bagyo|typhoon|flood|baha|"
+    r"nawawala\w*\s*(na\s*)?(bata|tao|anak)|kidnap|active\s*shooter|nawawalang|"
+    r"weapons?|active\s*assault|imminent\s*killing|severe\s*bleeding|inability\s*to\s*breathe|"
+    r"unconsciousness|poisoning|binubugbog|binugbog|sinasaksak|may\s*baril|binabaril|"
+    r"assault|sinakal|pinugutan|patay|pinatay|pumatay|self[\s\-]?harm|suicide|"
+    r"papatayin|patayin|gustong\s*mamatay|ayaw\s*(ko\s*)?na\s*mabuhay|kill|nananaksak|"
+    r"nagdudugo|bleeding|hirap\s*huminga|difficulty\s*breathing)\b",
+    re.IGNORECASE,
+)
+
+_THREAT_RE = re.compile(
+    r"\b(nangbabanta|nagbanta|banta|sinasaktan|inaabuso|"
+    r"domestic\s*violence|violence|abuse\w*|sinaktan|pinagsasaktan|"
+    r"hinoldap|holdup|rape|pangmomolestiya|molestiya|"
+    r"stalker|stalking|nananakit|pinagbabantaan|binabanta|"
+    r"threat\w*|harass\w*|haras\w*|pang-?aabuso|"
+    r"nag-aaway|nag-aalburoto|nagwawala|naghaharas|"
+    r"nagbabanta|nang-?aaway|mangdadakip)\b",
+    re.IGNORECASE,
+)
+
+_MEDICAL_SYMPTOM_RE = re.compile(
+    r"\b(lagnat|fever|ubo|cough|sakit\s*(ng|na)\s*(ulo|tiyan|dibdib|katawan)|"
+    r"pain|masakit|sumasakit|sugat|wound|allergy|"
+    r"hilo|dizzy|diarrhea|vomit|nausea|nilalagnat|may\s*sakit|"
+    r"nahihilo|nasusuka|"
+    r"sore|infection|impeksyon|skin\s*rash|singaw|"
+    r"buntis|pregnant|prenatal|masakit\s*ang|anak\s*ko\s*may\s*sakit|"
+    r"my\s*child\s*(?:has\s*a\s*fever|is\s*sick|needs\s*help))\b",
+    re.IGNORECASE,
+)
+
+_LEGAL_RE = re.compile(
+    r"\b(abogado|lawyer|attorney|legal\s*advice|kaso|court\s*case|"
+    r"legal\s*consultation|fiscal|hukom|judge|demanda|magdemanda|"
+    r"file\s*(?:a\s*)?case|sue|kasuhan|sampahan)\b",
+    re.IGNORECASE,
+)
+
+_OUT_OF_SCOPE_RE = re.compile(
+    r"\b(passport|visa|nbi\s*clearance|psa|birth\s*certificate|"
+    r"driver.?s?\s*license|sss|pag.?ibig|phil\s*health|"
+    r"school\s*enrollment|tuition|"
+    r"basketball|nba|movie|joke|sing\s*(me\s*)?a\s*song|poem|"
+    r"weather\s*in|president\s*of|capital\s*of|recipe|"
+    r"pizza|burger|game|cryptocurrency|bitcoin|stock\s*market|"
+    r"renew\s*(my\s*)?passport|how\s*to\s*cook)\b",
+    re.IGNORECASE,
+)
+
+# ---------------------------------------------------------------------------
 # Keyword-boost dictionary {pattern: {intent: boost_value}}
-# High-signal terms across Tagalog, Ilocano, Pangasinan, and English
 # ---------------------------------------------------------------------------
 KEYWORD_BOOSTS: list[tuple[re.Pattern, dict]] = [
-    # Goodbye & Farewell (must overcome polite 'salamat')
+    # Greetings
+    (re.compile(r"\b(hello|hi|hey|good\s*(morning|afternoon|evening)|kumusta|kamusta|naimbag|maabig|magandang)\b"), {"greeting": 0.50}),
+
+    # Goodbye & Farewell
     (re.compile(r"\b(paalam|makaalis|agpakada|innakon|goodbye|bye\s*bye|quit|exit|signing\s*off)\b"), {"goodbye": 0.50}),
     (re.compile(r"\b(salamat|maraming salamat|agyamanak|balbaleg)\b"), {"thanks": 0.25}),
 
     # Document intents
-    (re.compile(r"\bclearance\b"), {"clearance": 0.35}),
-    (re.compile(r"^cert$"), {"clearance": 0.40}),
-    (re.compile(r"\bindigenc[yi]\b"), {"indigency": 0.45}),
+    (re.compile(r"\bclearance\b"), {"clearance": 0.30}),
+    (re.compile(r"\bindigenc[yi]\b"), {"indigency": 0.40}),
     (re.compile(r"\bresidency\b"), {"residency": 0.35}),
-    (re.compile(r"\bgood moral\b"), {"good_moral": 0.40}),
+    (re.compile(r"\bkatibayan\s+na\s+nakatira\b"), {"residency": 0.60}),
+    (re.compile(r"\bproof\s+of\s+residen\w*\b"), {"residency": 0.55}),
+    (re.compile(r"\bgood moral\b(?!\s*morning)"), {"good_moral": 0.40}),
     (re.compile(r"\bbarangay i\.?d\.?\b|\bbgy id\b"), {"barangay_id": 0.50}),
     (re.compile(r"\bbusiness (clearance|permit)\b"), {"business_permit": 0.40}),
     (re.compile(r"\b(negosyo|sari.?sari|tindahan)\b"), {"business_permit": 0.25}),
 
-    # Emergency
+    # Emergency (supplement safety pre-classifier)
     (re.compile(r"\b(sunog|apoy|uram|fire|911|ambulance|ambulansya)\b"), {"emergency": 0.55}),
     (re.compile(r"\b(saklolo|tulong.*tulong|aksidente|danger|peligro)\b"), {"emergency": 0.40}),
 
@@ -109,21 +176,21 @@ KEYWORD_BOOSTS: list[tuple[re.Pattern, dict]] = [
     (re.compile(r"\b(aics|ayuda|tulong.?salapi|tulong.?pinansyal|relief|4ps|pantawid|ponpon|burial)\b"), {"aics_assistance": 0.45}),
 
     # Senior Citizen & Solo Parent
-    (re.compile(r"\b(senior citizen|osca|lolo|lola|matatken|lallakay|babbaket)\b"), {"senior_citizen": 0.50}),
+    (re.compile(r"\b(senior citizen|osca|matatken|lallakay|babbaket)\b"), {"senior_citizen": 0.50}),
     (re.compile(r"\b(solo parent|single parent|nag.?iisang magulang|agsolsolo a nagannak)\b"), {"solo_parent": 0.50}),
 
-    # Health
+    # Health (but not medical symptoms — those go to safety pre-classifier)
     (re.compile(r"\b(health center|bhc|bakuna|vaccin\w*|prenatal|gamot|agas|bitamina|salun.?at)\b"), {"health_services": 0.45}),
-    (re.compile(r"\b(ugugaw|ubbing|sanggol|bata)\b"), {"health_services": 0.20}),
 
     # Garbage
     (re.compile(r"\b(basura|garbage|trash|hakot|panangala na basura|panag.?ala ti basura|kolekta)\b"), {"garbage": 0.50}),
 
-    # Office hours
-    (re.compile(r"\b(office hours|oras na opisina|oras ti opisina|tanggapan|bukas.*barangay|schedule)\b"), {"office_hours": 0.45}),
+    # Office hours / Location
+    (re.compile(r"\b(office hours|oras na opisina|oras ti opisina|tanggapan|bukas.*barangay|schedule\s*(ng|na|ti)\s*opisina)\b"), {"office_hours": 0.45}),
+    (re.compile(r"\b(where\s*(is|ang)\s*(the\s*)?office|nasaan\s*(ang\s*)?opisina|saan\s*(so|ti)\s*opisina|address|location\s*(of|ng|na)?\s*(the\s*)?(office|barangay)?)\b"), {"office_hours": 0.45}),
 
-    # Fees
-    (re.compile(r"\b(fees?|bayad|bayar|magkano|panpiga|mano ti bayad|mano so bayad|presyo|singil)\b"), {"fees": 0.45}),
+    # Fees — must beat clearance when fee-related words present
+    (re.compile(r"\b(fees?|bayad|bayar|magkano|panpiga|mano ti bayad|mano so bayad|presyo|singil|cost|price|how\s*much)\b"), {"fees": 0.50}),
 
     # Voter Registration
     (re.compile(r"\b(voter|botante|comelec|rehistro.*boto|eleksyon)\b"), {"voter_registration": 0.50}),
@@ -135,14 +202,14 @@ KEYWORD_BOOSTS: list[tuple[re.Pattern, dict]] = [
     (re.compile(r"\b(kapitan|punong barangay|kagawad|opisyal|officials|tanod|sk chairman)\b"), {"officials": 0.45}),
 
     # Status / Tracking
-    (re.compile(r"\b(status|track|ready for pickup|nasaan na|subaybayan|nabantayan)\b"), {"document_status": 0.35}),
+    (re.compile(r"\b(status|track|ready for pickup|nasaan na|subaybayan|nabantayan)\b"), {"document_status": 0.30}),
 
     # About App
     (re.compile(r"\b(what is brgylink|ano ang brgylink|ania ti brgylink|antoy brgylink|features of brgylink)\b"), {"about_app": 0.50}),
 ]
 
 # ---------------------------------------------------------------------------
-# Core UI / Helper responses
+# Helper responses (non-factual UI prompts)
 # ---------------------------------------------------------------------------
 HELPER_TEXTS = {
     "choose_document": {
@@ -152,39 +219,98 @@ HELPER_TEXTS = {
         "pangasinan": "Antoy dokumento ya kasapulan mo kabaleyan? Nayari kayon mangala na Barangay Clearance, Certificate of Indigency, Certificate of Residency, Business Clearance, Certificate of Good Moral Character, odino Barangay ID."
     },
     "status": {
-        "english": "Open Document Requests in BrgyLink to check the live status of your application (Pending, Processing, Ready for Pickup, Completed, or Rejected).",
-        "tagalog": "Buksan ang Document Requests sa BrgyLink upang makita ang kasalukuyang status ng iyong request (Pending, Processing, Ready for Pickup, Completed, o Rejected).",
-        "ilocano": "Lukatan ti Document Requests iti BrgyLink tapno makita ti kasasaad ti kineddawmo a dokumento (Pending, Processing, Ready for Pickup, Completed, wenno Rejected).",
-        "pangasinan": "Lukatan so Document Requests ed BrgyLink pian nengnengen so kasalukuyan ya status na kineddeng mon dokumento (Pending, Processing, Ready for Pickup, Completed, odino Rejected)."
+        "english": "Open Document Requests in BrgyLink to check the status of your application (Pending, Processing, Ready for Pickup, Completed, or Rejected). The chatbot cannot access personal request details.",
+        "tagalog": "Buksan ang Document Requests sa BrgyLink upang makita ang status ng iyong request (Pending, Processing, Ready for Pickup, Completed, o Rejected). Hindi maa-access ng chatbot ang personal na request details.",
+        "ilocano": "Lukatan ti Document Requests iti BrgyLink tapno makita ti kasasaad ti kineddawmo a dokumento (Pending, Processing, Ready for Pickup, Completed, wenno Rejected). Saan a maakses ti chatbot ti personal a request details.",
+        "pangasinan": "Lukatan so Document Requests ed BrgyLink pian nengnengen so status na kineddeng mon dokumento (Pending, Processing, Ready for Pickup, Completed, odino Rejected). Ag nayarin aksesan na chatbot so personal ya request details."
+    },
+    "legal_disclaimer": {
+        "english": "The chatbot cannot provide legal advice. For legal concerns, you may visit the barangay office to inquire about Lupon Tagapamayapa (mediation) if the dispute is within barangay jurisdiction, or consult a lawyer for matters beyond barangay scope.",
+        "tagalog": "Hindi makapagbigay ng legal advice ang chatbot. Para sa legal concerns, bumisita sa opisina ng barangay para sa Lupon Tagapamayapa (mediation) kung sakop ng barangay ang usapin, o kumonsulta sa abogado para sa mga bagay na lampas sa sakop ng barangay.",
+        "ilocano": "Saan a makaited ti chatbot iti legal advice. Para kadagiti legal concerns, bisitaem ti opisina ti barangay tapno umammo maipapan iti Lupon Tagapamayapa (mediation) no sakop ti barangay, wenno konsultaem ti abogado para kadagiti saan a sakop.",
+        "pangasinan": "Ag makaiter na legal advice so chatbot. Para ed saray legal concerns, bisitaen so opisina na barangay para ed Lupon Tagapamayapa (mediation) no sakop na barangay, odino konsultaen so abogado para ed saray agtaay ed sakop."
+    },
+    "unverified_disclaimer": {
+        "english": "\n\n(Note: This information is not verified. Please confirm with the barangay office.)",
+        "tagalog": "\n\n(Paalala: Ang impormasyong ito ay hindi pa verified. Pakikumpirma sa opisina ng barangay.)",
+        "ilocano": "\n\n(Pammalagip: Daytoy nga impormasion ket saan pay a verified. Pangngaasi a kumpirmaen iti opisina ti barangay.)",
+        "pangasinan": "\n\n(Paimano: Saya ya impormasyon et agni verified. Kumpirmaen ed opisina na barangay.)"
     }
 }
 
 
-def document_response(document: str, language: str) -> str:
-    """Generate a fluent, localized response for a specific document request."""
-    if language == "tagalog":
-        return (
-            f"Para humiling ng {document}, buksan ang Document Requests sa BrgyLink, "
-            f"piliin ang {document}, ilagay ang layunin ng pagkuha, mag-attach ng larawan ng balidong ID, "
-            f"at isumite ang request. Masusubaybayan mo ang progreso sa app."
-        )
-    if language == "ilocano":
-        return (
-            f"Tapno agkiddaw iti {document}, lukatan ti Document Requests iti BrgyLink, "
-            f"piliem ti {document}, isurat ti panggep ti panagkiddaw, mangikabil iti ladawan ti valid ID, "
-            f"ket isumitem. Mabalinmo a subaybayan ti progreso iti uneg ti app."
-        )
-    if language == "pangasinan":
-        return (
-            f"Pian mangikeddeng na {document}, lukatan so Document Requests ed BrgyLink, "
-            f"piliyen so {document}, isulat so layunin odino rason, mangikabil na litrato na balidong ID, "
-            f"tan isumite. Nayarim ya bantayan so progreso diad uneg na app."
-        )
-    return (
-        f"To request {document}, open Document Requests in BrgyLink, "
-        f"select {document}, enter its purpose, attach a photo of a valid ID, "
-        f"and submit. Track the request status directly in the app."
-    )
+# ---------------------------------------------------------------------------
+# Knowledge Base Loader
+# ---------------------------------------------------------------------------
+_kb_cache: dict | None = None
+
+def load_knowledge_base() -> dict:
+    """Load knowledge_base.json and index by intent."""
+    global _kb_cache
+    if _kb_cache is not None:
+        return _kb_cache
+    with open(KB_FILE, encoding="utf-8") as f:
+        kb = json.load(f)
+    index = {}
+    for svc in kb.get("services", []):
+        index[svc["intent"]] = svc
+    _kb_cache = index
+    return index
+
+
+def get_kb_answer(intent: str, language: str) -> str:
+    """Get the answer for an intent from the knowledge base.
+
+    Appends an unverified-data disclaimer only when content_type is
+    'barangay_fact' and the entry is not validly verified.
+    System copy (greetings, fallback, etc.) never gets the disclaimer.
+    """
+    kb = load_knowledge_base()
+    entry = kb.get(intent)
+
+    def is_valid_answer(ans):
+        if not isinstance(ans, dict):
+            return False
+        for lang in ["english", "tagalog", "ilocano", "pangasinan"]:
+            if lang not in ans or not isinstance(ans[lang], str) or not ans[lang].strip():
+                return False
+        return True
+
+    if not entry or not is_valid_answer(entry.get("answer")):
+        # Fall through to out_of_scope
+        entry = kb.get("out_of_scope", {})
+
+    answer_obj = entry.get("answer", {})
+    text = answer_obj.get(language, answer_obj.get("english", ""))
+
+    # Only barangay_fact entries can carry the unverified disclaimer.
+    content_type = entry.get("content_type", "barangay_fact")
+    if content_type != "barangay_fact":
+        return text
+
+    import datetime
+
+    is_verified = entry.get("verified", False)
+
+    # Check verification requirements
+    if is_verified:
+        has_reqs = all(entry.get(f) for f in ["source", "verified_by", "verified_at", "expires_at"])
+        if not has_reqs:
+            is_verified = False
+        else:
+            try:
+                expiry_date = datetime.datetime.fromisoformat(entry["expires_at"].replace("Z", "+00:00"))
+                if datetime.datetime.now(datetime.timezone.utc) > expiry_date:
+                    is_verified = False
+            except ValueError:
+                is_verified = False
+
+    if not is_verified:
+        disclaimer = HELPER_TEXTS["unverified_disclaimer"].get(language, HELPER_TEXTS["unverified_disclaimer"]["english"])
+        if disclaimer not in text:
+            text += disclaimer
+
+    return text
 
 
 # ---------------------------------------------------------------------------
@@ -229,19 +355,31 @@ def featurize(text: str) -> Counter:
 # ---------------------------------------------------------------------------
 # Scored Language Detection (Ilocano, Pangasinan, Tagalog, English)
 # ---------------------------------------------------------------------------
+# Short common tokens that overlap between Pangasinan and English.
+# These get reduced weight to prevent English from being classified as Pangasinan.
+_SHORT_PAN_TOKENS = {"ed", "so", "ya", "et", "to", "mi", "yo", "da", "ak", "la"}
+
 _LANG_RULES: dict[str, list[tuple[re.Pattern, float]]] = {
     "ilocano": [
-        (re.compile(r"\b(dagiti|kadagiti|wenno|ket|tapno|iti|ken|nga|ti|met|pay|laeng|amin|ditoy|daytoy|kaniak|kenka|kadakayo|datayo|dakami|isuda|kasta)\b"), 1.4),
+        (re.compile(r"\b(dagiti|kadagiti|wenno|ket|tapno|ken|nga|met|pay|laeng|amin|ditoy|daytoy|kaniak|kenka|kadakayo|datayo|dakami|isuda|kasta)\b"), 1.4),
         (re.compile(r"\b(mabalin|agkiddaw|kasano|wen|saan|apay|sadino|kaano|kaanu|mano ti|anian|ania|anya|masapulko|masapul)\b"), 2.5),
         (re.compile(r"\b(ilocano|ilokano|kabsat|kailian|agas|ubbing|kolkol|riri|uram|panagbiag|malungsot|agyamanak|agpakada|innakon|agsapa)\b"), 3.5),
         (re.compile(r"\b(naimbag|aldaw|bigat|malem|rabii|dios ti agngina|makasungbatak|makaawat)\b"), 3.5),
         (re.compile(r"\b(mangited|mangaramid|pangngeddeng|panangsalaysay|lukatan|piliem|isumitem|panagkiddaw)\b"), 2.0),
+        # iti/ti get reduced weight to avoid false positives on short text
+        (re.compile(r"\biti\b"), 0.6),
+        (re.compile(r"\bti\b"), 0.4),
     ],
     "pangasinan": [
-        (re.compile(r"\b(saray|diad|onla|ed|odino|pian|tan|met|so|ya|kabaleyan|natan|laeng|labat|siak|sika|sikato|sikara|tayo|iner|siopa|akin|ak|la|et|to|mi|yo|da)\b"), 1.5),
+        # High-confidence Pangasinan markers
+        (re.compile(r"\b(saray|diad|onla|odino|pian|kabaleyan|natan)\b"), 2.5),
         (re.compile(r"\b(mano so|panon so|antoy|anto|panon|kapigan|kasapulan|amtaen|ugugaw|makapaingal|alitan|kolkolan|apoy|ponpon|mabiin|kailangan koy|panpiga|piga)\b"), 3.2),
         (re.compile(r"\b(pangasinan|makatalos|anggad|nayarin|manggawa|man.?ingat|makaalis|balbaleg|maabig|kabuasan|ngarem|agew|labi|masantos)\b"), 3.5),
         (re.compile(r"\b(say|inkuan|nanengneng|ipaliwawa|piliyen|mangikeddeng|nengnengen|silpin)\b"), 2.0),
+        # Pangasinan pronoun 'ak' (first-person) — medium weight
+        (re.compile(r"\bak\b"), 1.5),
+        # Short tokens that also appear in English — low weight
+        (re.compile(r"\b(ed|so|ya|et|tan|met|labat)\b"), 0.3),
     ],
     "tagalog": [
         (re.compile(r"\b(ang|ng|mga|sa|ay|ko|mo|po|opo|naman|lang|ba|dito|ito|yan|yun|natin|ninyo|amin|atin|nila|siya|sila)\b"), 0.8),
@@ -253,31 +391,91 @@ _LANG_RULES: dict[str, list[tuple[re.Pattern, float]]] = {
 
 
 def detect_language(message: str) -> str:
-    """Accurately detect whether text is Ilocano, Pangasinan, Tagalog, or English."""
+    """Detect whether text is Ilocano, Pangasinan, Tagalog, or English.
+
+    Uses a scoring system with safety checks against false positives
+    from short overlapping tokens (e.g. 'to', 'so', 'ed' which appear
+    in both English and Pangasinan).
+    """
     value = normalize(message)
+    tokens = set(value.split())
+
     scores = {lang: 0.0 for lang in _LANG_RULES}
+    match_counts = {lang: 0 for lang in _LANG_RULES}
+
     for lang, rules in _LANG_RULES.items():
         for pattern, weight in rules:
             matches = len(pattern.findall(value))
-            scores[lang] += matches * weight
+            if matches > 0:
+                scores[lang] += matches * weight
+                match_counts[lang] += matches
+
     best_lang = max(scores, key=scores.__getitem__)
-    return best_lang if scores[best_lang] > 0.4 else "english"
+    best_score = scores[best_lang]
+
+    # Require a minimum threshold
+    if best_score <= 0.5:
+        return "english"
+
+    # Safety: If Pangasinan won but ALL matching tokens are short/ambiguous,
+    # and there are no high-confidence Pangasinan markers, default to English.
+    if best_lang == "pangasinan":
+        pan_only_short = tokens.issubset(
+            _SHORT_PAN_TOKENS | {t for t in tokens if len(t) <= 3}
+            | set(value.split())
+        )
+        # Check if any high-confidence Pangasinan word is present
+        high_conf_pan = re.search(
+            r"\b(saray|diad|onla|odino|pian|kabaleyan|pangasinan|makatalos|"
+            r"maabig|kabuasan|balbaleg|antoy|panon|kapigan|nayarin|mangikeddeng|"
+            r"nengnengen|say|anggad|ugugaw|kolkolan|panpiga|mabiin)\b",
+            value,
+        )
+        if not high_conf_pan and best_score < 2.0:
+            return "english"
+
+    return best_lang
 
 
 # ---------------------------------------------------------------------------
 # Language switch intent detection
 # ---------------------------------------------------------------------------
 _LANG_SWITCH = re.compile(
-    r"(sagot|sumagot|reply|response|speak|salita|wika|sagutin|usaren|pansalita).{0,30}"
-    r"(tagalog|filipino|ilocano|ilokano|pangasinan)"
-    r"|(tagalog|filipino|ilocano|ilokano|pangasinan).{0,30}"
+    r"(sagot|sumagot|reply|response|speak|salita|wika|sagutin|usaren|pansalita|answer|isagot).{0,30}"
+    r"(tagalog|filipino|ilocano|ilokano|pangasinan|english|ingles)"
+    r"|(tagalog|filipino|ilocano|ilokano|pangasinan|english|ingles).{0,30}"
     r"(ang|lang|only|please|lamang|na lang|so usaren|ti usarem)",
     re.IGNORECASE,
 )
 
+_LANG_SWITCH_ENGLISH = re.compile(
+    r"(answer|reply|speak|respond|talk).{0,20}(in\s+)?(english|ingles)"
+    r"|(english|ingles).{0,20}(please|lang|only|po)",
+    re.IGNORECASE,
+)
+
+def _extract_switch_language(message: str) -> str | None:
+    """Extract the target language from a language-switch request."""
+    value = message.lower()
+    if _LANG_SWITCH_ENGLISH.search(value):
+        return "english"
+    m = _LANG_SWITCH.search(value)
+    if not m:
+        return None
+    full = m.group(0).lower()
+    if "ilocano" in full or "ilokano" in full:
+        return "ilocano"
+    if "pangasinan" in full:
+        return "pangasinan"
+    if "tagalog" in full or "filipino" in full:
+        return "tagalog"
+    if "english" in full or "ingles" in full:
+        return "english"
+    return None
+
 
 def language_switch(message: str) -> bool:
-    return bool(_LANG_SWITCH.search(message))
+    return _extract_switch_language(message) is not None
 
 
 # ---------------------------------------------------------------------------
@@ -310,20 +508,10 @@ def train() -> dict:
         for k in centroids[tag]:
             centroids[tag][k] /= n
 
-    multilingual_map = {}
-    default_responses = {}
-    for i in intents:
-        tag = i["tag"]
-        default_responses[tag] = i["responses"][0]
-        if "multilingual_responses" in i:
-            multilingual_map[tag] = i["multilingual_responses"]
-
     model = {
         "version": MODEL_VERSION,
         "idf": idf,
         "centroids": dict(centroids),
-        "responses": default_responses,
-        "multilingual_responses": multilingual_map,
     }
     with open(MODEL_FILE, "wb") as f:
         pickle.dump(model, f)
@@ -358,7 +546,8 @@ def compute_boost(value: str) -> dict[str, float]:
 
 def document_in(message: str) -> str | None:
     value = normalize(apply_aliases(message))
-    return next((doc for key, doc in DOCUMENTS.items() if key in value), None)
+    # Don't match "cert" alone — too ambiguous
+    return next((doc for key, doc in DOCUMENTS.items() if key != "cert" and key in value), None)
 
 
 def new_session() -> dict:
@@ -371,7 +560,11 @@ def new_session() -> dict:
     }
 
 
-def classify(message: str, model: dict) -> tuple[str, float]:
+def classify(message: str, model: dict) -> tuple[str, float, float]:
+    """Classify a message. Returns (intent, score, margin).
+
+    margin is the gap between the top intent and the runner-up.
+    """
     fv = featurize(message)
     vec = {k: v * model["idf"].get(k, 1) for k, v in fv.items()}
     boost = compute_boost(normalize(message))
@@ -385,7 +578,14 @@ def classify(message: str, model: dict) -> tuple[str, float]:
         reverse=True,
     )
     intent, score = ranked[0]
-    return (FALLBACK if score < CONFIDENCE_THRESHOLD else intent), score
+    runner_up_score = ranked[1][1] if len(ranked) > 1 else 0.0
+    margin = score - runner_up_score
+
+    # Strict threshold + margin requirement
+    if score < CONFIDENCE_THRESHOLD or margin < MARGIN_THRESHOLD:
+        return FALLBACK, score, margin
+
+    return intent, score, margin
 
 
 def _build(intent: str, score: float, language: str, response: str, session: dict) -> dict:
@@ -400,14 +600,9 @@ def _build(intent: str, score: float, language: str, response: str, session: dic
     }
 
 
-def get_multilingual_response(intent: str, language: str, model: dict) -> str:
-    """Retrieve verified multilingual answer for any intent and language."""
-    multi = model.get("multilingual_responses", {})
-    if intent in multi:
-        return multi[intent].get(language, multi[intent].get("english", model["responses"].get(intent, "")))
-    return model["responses"].get(intent, "")
-
-
+# ---------------------------------------------------------------------------
+# Main message handler
+# ---------------------------------------------------------------------------
 def handle_message(message: str, session: dict | None = None, model: dict | None = None) -> dict:
     session = session or new_session()
     model = model or load_model()
@@ -419,65 +614,121 @@ def handle_message(message: str, session: dict | None = None, model: dict | None
         session.update(new_session())
         return _build("reset", 1.0, "english", "Conversation reset.", session)
 
-    # Detect language & user switch request
+    # --- Language detection ---
     detected = detect_language(message)
-    language = session["preferred_language"] or detected
-    if language_switch(message):
-        language = detected
-        session["preferred_language"] = language
+    language = session.get("preferred_language") or detected
 
-    # Compound query: "fees for X"
-    _COMPOUND_DOC_PATTERN = re.compile(
-        r"\b(fees?|bayad|bayar|magkano|panpiga|cost|price|singil)\b.{0,30}\b(clearance|indigency|residency|good moral|barangay id|business|permit)\b",
+    # Language switch request
+    switch_lang = _extract_switch_language(message)
+    if switch_lang:
+        language = switch_lang
+        session["preferred_language"] = language
+        resp = get_kb_answer("language_support", language)
+        return _build("language_support", 1.0, language, resp, session)
+
+    # ===================================================================
+    # SAFETY PRE-CLASSIFIER — always runs first, overrides everything
+    # ===================================================================
+
+    # 1. Emergency (life-threatening)
+    if _EMERGENCY_RE.search(value):
+        resp = get_kb_answer("emergency", language)
+        return _build("emergency", 1.0, language, resp, session)
+
+    # 2. Threats, violence, abuse, self-harm
+    if _THREAT_RE.search(value):
+        resp = get_kb_answer("safety_threat", language)
+        return _build("safety_threat", 1.0, language, resp, session)
+
+    # 3. Medical symptoms (non-emergency) — route to health guidance
+    if _MEDICAL_SYMPTOM_RE.search(value):
+        # Check if also emergency-level
+        resp = get_kb_answer("medical_non_emergency", language)
+        return _build("medical_non_emergency", 1.0, language, resp, session)
+
+    # 4. Legal questions
+    if _LEGAL_RE.search(value):
+        resp = HELPER_TEXTS["legal_disclaimer"][language]
+        return _build("legal_disclaimer", 1.0, language, resp, session)
+
+    # 5. Obvious out-of-scope topics
+    if _OUT_OF_SCOPE_RE.search(value):
+        resp = get_kb_answer("out_of_scope", language)
+        return _build("out_of_scope", 1.0, language, resp, session)
+
+    # ===================================================================
+    # COMPOUND QUERY DETECTION
+    # ===================================================================
+
+    # "How much for clearance?" / "bayad sa clearance" → fees, not clearance
+    _COMPOUND_FEE_RE = re.compile(
+        r"\b(fees?|bayad|bayar|magkano|panpiga|cost|price|singil|how\s*much|mano)\b"
+        r".{0,30}\b(clearance|indigency|residency|good moral|barangay id|business|permit|certificate|sertipiko|dokumento)\b",
         re.IGNORECASE,
     )
-    if _COMPOUND_DOC_PATTERN.search(value):
+    _COMPOUND_FEE_RE2 = re.compile(
+        r"\b(clearance|indigency|residency|good moral|barangay id|business|permit|certificate|sertipiko|dokumento)\b"
+        r".{0,30}\b(fees?|bayad|bayar|magkano|panpiga|cost|price|singil|how\s*much|mano)\b",
+        re.IGNORECASE,
+    )
+    if _COMPOUND_FEE_RE.search(value) or _COMPOUND_FEE_RE2.search(value):
         doc = document_in(message)
         if doc:
             session["selected_document"] = doc
-        fees_resp = get_multilingual_response("fees", language, model)
-        return _build("fees", 0.95, language, fees_resp, session)
+        resp = get_kb_answer("fees", language)
+        return _build("fees", 0.95, language, resp, session)
 
-    # Compound query: "clearance for business"
+    # "clearance for business" → business_permit
     if re.search(r"\bclearance\b.{0,20}\bbusiness\b|\bbusiness\b.{0,20}\bclearance\b", value):
-        return _build("business_permit", 0.95, language, document_response("Business Clearance", language), session)
+        resp = get_kb_answer("business_permit", language)
+        return _build("business_permit", 0.95, language, resp, session)
 
-    intent, score = classify(message, model)
+    # ===================================================================
+    # TF-IDF CLASSIFIER
+    # ===================================================================
+    intent, score, margin = classify(message, model)
 
     # Blotter status check
     if re.search(r"\b(blotter|reklamo|complaint|incident report)\b", value) and \
        re.search(r"\b(status|track|history|nasaan|naitala|in-process|update|naasikaso|pakaamta)\b", value):
-        return _build("blotter_status", score, language, get_multilingual_response("blotter_status", language, model), session)
+        resp = get_kb_answer("blotter_status", language)
+        return _build("blotter_status", score, language, resp, session)
 
-    # Document status check
+    # Document status check — but only if the message is clearly about status
     _STATUS_RE = re.compile(
-        r"\b(status|track|ready for pickup|nasaan na|pending ba|approved na|processing na|rejected|kailan makukuha|kailan maaayos|done na|naaprubaran|subaybayan|nabantayan)\b",
+        r"\b(status|track|ready for pickup|nasaan na|pending ba|approved na|processing na|rejected|"
+        r"kailan makukuha|kailan maaayos|done na|naaprubaran|subaybayan|nabantayan)\b",
         re.IGNORECASE,
     )
-    if _STATUS_RE.search(value) or intent == "document_status":
-        return _build("document_status", score, language, HELPER_TEXTS["status"][language], session)
+    _DOC_OR_NAME_RE = re.compile(
+        r"\b(document|dokumento|request|hiniling|kineddaw|inkerew|"
+        r"clearance|indigency|residency|business|good\s*moral|barangay\s*id|sertipiko|certificate)\b",
+        re.IGNORECASE,
+    )
+    if _STATUS_RE.search(value) and (intent == "document_status" or _DOC_OR_NAME_RE.search(value)):
+        resp = get_kb_answer("document_status", language)
+        return _build("document_status", score, language, resp, session)
 
     # Single-word / short document direct route
     document = document_in(message)
     if document and len(value.split()) <= 4 and not session.get("pending"):
         session["selected_document"] = document
         doc_intent = DOC_TO_INTENT.get(document, "document_request")
-        return _build(doc_intent, 1.0, language, document_response(document, language), session)
+        resp = get_kb_answer(doc_intent, language)
+        return _build(doc_intent, 1.0, language, resp, session)
 
     # Resolve pending document choice
     if session.get("pending") == "document_choice" and document:
         session["pending"] = None
         session["selected_document"] = document
         doc_intent = DOC_TO_INTENT.get(document, "document_request")
-        return _build(doc_intent, 1.0, language, document_response(document, language), session)
-
-    # Hard overrides for critical safety / emergency
-    if re.search(r"\b(sunog|911|ambulance|fire|apoy|uram|tulong tulong|saklolo|aksidente|inatake)\b", value):
-        return _build("emergency", score, language, get_multilingual_response("emergency", language, model), session)
+        resp = get_kb_answer(doc_intent, language)
+        return _build(doc_intent, 1.0, language, resp, session)
 
     # Lupon mediation
     if re.search(r"\b(lupon|katarungang pambarangay|mediation|pangkat|alitan|kolkol|kolkolan)\b", value):
-        return _build("lupon", score, language, get_multilingual_response("lupon", language, model), session)
+        resp = get_kb_answer("lupon", language)
+        return _build("lupon", score, language, resp, session)
 
     # Generic document request
     generic_doc = bool(re.search(
@@ -493,11 +744,14 @@ def handle_message(message: str, session: dict | None = None, model: dict | None
     if document and intent not in {"fees", FALLBACK}:
         session["selected_document"] = document
         doc_intent = DOC_TO_INTENT.get(document, intent)
-        return _build(doc_intent, score, language, document_response(document, language), session)
+        resp = get_kb_answer(doc_intent, language)
+        return _build(doc_intent, score, language, resp, session)
 
-    # Multilingual response lookup
-    response = get_multilingual_response(intent, language, model)
-    return _build(intent, score, language, response, session)
+    # ===================================================================
+    # ANSWER FROM KNOWLEDGE BASE
+    # ===================================================================
+    resp = get_kb_answer(intent, language)
+    return _build(intent, score, language, resp, session)
 
 
 if __name__ == "__main__":
@@ -507,9 +761,10 @@ if __name__ == "__main__":
         for i in json.load(open(INTENTS_FILE, encoding="utf-8"))["intents"]
     )
     print(
-        f"BrgyLink Smart Classifier v{MODEL_VERSION} trained and saved -> {MODEL_FILE}\n"
-        f"  Intents : {len(m['responses'])}\n"
+        f"BrgyLink Smart Classifier v{MODEL_VERSION} (prototype) trained -> {MODEL_FILE}\n"
+        f"  Intents : {len(m['centroids'])}\n"
         f"  Patterns: {total_patterns}\n"
         f"  Features: {len(m['idf'])} unique TF-IDF keys\n"
-        f"  Languages: Pangasinan, Ilocano, Tagalog, English"
+        f"  Languages: Pangasinan, Ilocano, Tagalog, English\n"
+        f"  Note: This is a prototype. Answers sourced from knowledge_base.json."
     )

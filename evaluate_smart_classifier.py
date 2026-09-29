@@ -4,10 +4,10 @@ from smart_classifier import handle_message, new_session, train
 model = train()
 tests = [
     (["Tagalog ang isagot mo", "paano mag file ng blotter?"], "report_incident", "tagalog"),
-    (["paano mag file ng document?", "indigency"], "document_request", "english"),
+    (["paano mag file ng document?", "indigency"], "indigency", "english"),
     (["Status ng clearance ko?"], "document_status", "tagalog"),
     (["marunong ka mag ilocano?"], "language_support", "ilocano"),
-    (["Tell me a joke"], "fallback", "english"),
+    (["Tell me a joke"], "out_of_scope", "english"),
 ]
 passed = 0
 for messages, expected_intent, expected_language in tests:

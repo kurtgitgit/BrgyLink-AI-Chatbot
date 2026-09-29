@@ -8,3 +8,5 @@ __pycache__/
 train_local.log
 local_model_lora/
 data/alpaca_*.json
+audit.log
+*.bak

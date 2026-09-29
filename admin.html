@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrgyLink Admin - Knowledge Base Management</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --panel-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 300px;
+            background: var(--panel-bg);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+        
+        .header p {
+            margin: 5px 0 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .intent-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .intent-item {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .intent-item:hover {
+            border-color: var(--primary);
+            background: #f1f5f9;
+        }
+
+        .intent-item.active {
+            border-color: var(--primary);
+            background: #eff6ff;
+        }
+
+        .intent-title {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .intent-id {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge.verified {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge.unverified {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        .editor-panel {
+            background: var(--panel-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            display: none;
+        }
+
+        .editor-panel.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .verification-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .verification-toggle input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .verification-info {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .empty-state {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+        
+        .btn:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--text-main);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+        
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="header" style="position: relative;">
+            <h1>BrgyLink Admin</h1>
+            <button onclick="logout()" style="position: absolute; top: 15px; right: 15px; padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; background: #f8f9fa; cursor: pointer; font-size: 12px;">Logout</button>
+            <p>Knowledge Base Manager</p>
+            <div style="background: #fff3cd; color: #856404; padding: 10px; border-radius: 4px; font-size: 12px; margin-top: 10px; border: 1px solid #ffeeba;">
+                <strong>Warning:</strong> This dashboard is a development-only single-admin tool. Do not use in production without implementing real staff accounts, role authorization, rate limiting, and secure password hashing.
+            </div>
+        </div>
+        <div class="intent-list" id="intentList">
+            <!-- List populated by JS -->
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="emptyState" class="empty-state">
+            Select an intent from the sidebar to view and edit its content.
+        </div>
+
+        <div id="editorPanel" class="editor-panel">
+            <div class="header-actions">
+                <div>
+                    <h2 id="editorTitle" style="margin:0; color:var(--text-main);">Edit Intent</h2>
+                    <div id="editorIntentId" style="color:var(--text-muted); font-size: 0.85rem; margin-top:5px;"></div>
+                </div>
+                <button class="btn" id="saveBtn" onclick="saveIntent()">Save Changes</button>
+            </div>
+
+            <div class="verification-toggle">
+                <input type="checkbox" id="verifyCheck">
+                <div>
+                    <label for="verifyCheck" style="font-weight:600; cursor:pointer;">Mark as Verified</label>
+                    <div class="verification-info" id="verifyInfo">Unverified (Requires review)</div>
+                </div>
+            </div>
+            
+            <div id="verificationDetails" style="display: none; padding: 15px; background: rgba(59,130,246,0.1); border-radius: 8px; margin-bottom: 25px; border: 1px solid rgba(59,130,246,0.3);">
+                <div class="form-group">
+                    <label>Source Reference (URL or Official Document)</label>
+                    <input type="text" id="sourceInput" placeholder="e.g. Brgy Ordinance No. 5 s. 2024">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Expires At (Mandatory)</label>
+                    <input type="datetime-local" id="expiresInput">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="titleInput" placeholder="e.g. Barangay Clearance">
+            </div>
+
+            <div class="form-group">
+                <label>English Response</label>
+                <textarea id="englishInput"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Tagalog / Filipino Response</label>
+                <textarea id="tagalogInput"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Ilocano Response</label>
+                <textarea id="ilocanoInput"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Pangasinan Response</label>
+                <textarea id="pangasinanInput"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <div id="toast" class="toast">Saved successfully!</div>
+
+    <script>
+        let kbData = null;
+        let currentIntent = null;
+        let csrfToken = sessionStorage.getItem('csrf_token') || "";
+
+        async function login() {
+            const password = prompt("Enter Admin Password:");
+            if (!password) return false;
+            
+            const res = await fetch('/api/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({username: 'admin', password: password})
+            });
+            
+            if (res.ok) {
+                const data = await res.json();
+                csrfToken = data.csrf_token;
+                sessionStorage.setItem('csrf_token', csrfToken);
+                return true;
+            } else {
+                alert("Login failed or unauthorized.");
+                return false;
+            }
+        }
+
+        async function fetchKB() {
+            if (!csrfToken) {
+                const loggedIn = await login();
+                if (!loggedIn) return;
+            }
+            try {
+                const res = await fetch('/api/admin/knowledge_base');
+                if (res.status === 401 || res.status === 403) {
+                    sessionStorage.removeItem('csrf_token');
+                    csrfToken = "";
+                    alert("Session expired or unauthorized. Please refresh to login.");
+                    return;
+                }
+                kbData = await res.json();
+                renderList();
+            } catch (err) {
+                console.error("Failed to load KB:", err);
+            }
+        }
+
+        function renderList() {
+            const listEl = document.getElementById('intentList');
+            listEl.innerHTML = '';
+            
+            if (!kbData || !kbData.services) return;
+            
+            kbData.services.forEach(svc => {
+                const isVerified = svc.verified === true;
+                const badge = `<span class="badge ${isVerified ? 'verified' : 'unverified'}">${isVerified ? 'Verified' : 'Draft'}</span>`;
+                
+                const item = document.createElement('div');
+                item.className = `intent-item ${currentIntent === svc.intent ? 'active' : ''}`;
+                item.onclick = () => openIntent(svc.intent);
+                
+                const div = document.createElement('div');
+                
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'intent-title';
+                titleDiv.textContent = svc.title || svc.intent;
+                
+                const idDiv = document.createElement('div');
+                idDiv.className = 'intent-id';
+                idDiv.textContent = svc.intent;
+                
+                div.appendChild(titleDiv);
+                div.appendChild(idDiv);
+                
+                const badgeSpan = document.createElement('span');
+                badgeSpan.className = `badge ${isVerified ? 'verified' : 'unverified'}`;
+                badgeSpan.textContent = isVerified ? 'Verified' : 'Draft';
+                
+                item.appendChild(div);
+                item.appendChild(badgeSpan);
+                listEl.appendChild(item);
+            });
+        }
+
+        function openIntent(intentId) {
+            currentIntent = intentId;
+            renderList();
+            
+            const svc = kbData.services.find(s => s.intent === intentId);
+            if (!svc) return;
+
+            document.getElementById('emptyState').style.display = 'none';
+            document.getElementById('editorPanel').classList.add('active');
+
+            document.getElementById('editorTitle').innerText = svc.title || "Edit Response";
+            document.getElementById('editorIntentId').innerText = "Intent ID: " + svc.intent;
+            
+            document.getElementById('titleInput').value = svc.title || "";
+            
+            const ans = svc.answer || {};
+            document.getElementById('englishInput').value = typeof ans === 'string' ? ans : (ans.english || "");
+            document.getElementById('tagalogInput').value = typeof ans === 'string' ? ans : (ans.tagalog || "");
+            document.getElementById('ilocanoInput').value = typeof ans === 'string' ? ans : (ans.ilocano || "");
+            document.getElementById('pangasinanInput').value = typeof ans === 'string' ? ans : (ans.pangasinan || "");
+            
+            const vCheck = document.getElementById('verifyCheck');
+            const vInfo = document.getElementById('verifyInfo');
+            const vDetails = document.getElementById('verificationDetails');
+            document.getElementById('sourceInput').value = svc.source || "";
+            document.getElementById('expiresInput').value = svc.expires_at ? svc.expires_at.substring(0, 16) : "";
+            vCheck.onchange = function() { vDetails.style.display = this.checked ? 'block' : 'none'; };
+            vCheck.checked = svc.verified === true;
+            
+            if (svc.verified === true) {
+                vInfo.innerText = `Verified by ${svc.verified_by || 'Admin'} on ${svc.verified_at || 'unknown'}`;
+            } else {
+                vInfo.innerText = "Unverified (Requires review)";
+            }
+        }
+
+        async function saveIntent() {
+            if (!currentIntent) return;
+            
+            const btn = document.getElementById('saveBtn');
+            btn.disabled = true;
+            btn.innerText = "Saving...";
+
+            const payload = {
+                base_version: kbData._version || 1,
+                title: document.getElementById('titleInput').value,
+                verified: document.getElementById('verifyCheck').checked,
+                source: document.getElementById('sourceInput').value,
+                expires_at: document.getElementById('expiresInput').value ? new Date(document.getElementById('expiresInput').value).toISOString() : null,
+                answer: {
+                    english: document.getElementById('englishInput').value,
+                    tagalog: document.getElementById('tagalogInput').value,
+                    ilocano: document.getElementById('ilocanoInput').value,
+                    pangasinan: document.getElementById('pangasinanInput').value
+                }
+            };
+
+            try {
+                const res = await fetch(\`/api/admin/knowledge_base/\${currentIntent}\`, {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': csrfToken
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (res.status === 409) {
+                    alert("Concurrent modification detected. Refreshing data to get the latest version...");
+                    await fetchKB();
+                    openIntent(currentIntent);
+                } else if (res.ok) {
+                    showToast();
+                    await fetchKB(); // reload data
+                    openIntent(currentIntent); // re-populate
+                } else {
+                    const errData = await res.json();
+                    alert("Error: " + (errData.error || "Failed to save"));
+                }
+            } catch (err) {
+                console.error("Save failed:", err);
+                alert("Failed to save. Check console for details.");
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Save Changes";
+            }
+        }
+        
+        async function logout() {
+            if (!confirm("Are you sure you want to logout?")) return;
+            try {
+                const res = await fetch('/api/admin/logout', {
+                    method: 'POST',
+                    headers: {'X-CSRF-Token': csrfToken}
+                });
+                if (res.ok) window.location.href = '/login';
+            } catch (err) {
+                console.error("Logout failed:", err);
+            }
+        }
+        
+        function showToast() {
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        // Init
+        fetchKB();
+    </script>
+</body>
+</html>

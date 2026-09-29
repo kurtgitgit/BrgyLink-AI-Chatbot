@@ -96,13 +96,13 @@
         "Antoy gawaen mo?"
       ],
       "responses": [
-        "Hello! I am BrgyLink AI, the official virtual assistant for Barangay Bagong Pag-asa, San Jacinto. How can I help you with document requests, blotter reports, announcements, or barangay services today?"
+        "Hello! I am BrgyLink AI, the virtual assistant for Barangay Bagong Pag-asa, San Jacinto. How can I help you with document requests, blotter reports, announcements, or barangay services today?"
       ],
       "multilingual_responses": {
-        "english": "Hello! I am BrgyLink AI, the official virtual assistant for Barangay Bagong Pag-asa, San Jacinto. How can I help you with document requests, blotter reports, announcements, or barangay services today?",
-        "tagalog": "Magandang araw! Ako ang BrgyLink AI, ang opisyal na virtual assistant ng Barangay Bagong Pag-asa, San Jacinto. Paano kita matutulungan sa mga dokumento, blotter, anunsyo, o serbisyo ng barangay ngayon?",
-        "ilocano": "Naimbag nga aldaw! Siak ni BrgyLink AI, ti opisial a virtual assistant ti Barangay Bagong Pag-asa, San Jacinto. Kasano a makatulongak kadagiti dokumento, blotter, anunsio, wenno serbisyo ti barangay tatta?",
-        "pangasinan": "Maabig ya agew! Siak si BrgyLink AI, so opisyal ya virtual assistant na Barangay Bagong Pag-asa, San Jacinto. Panon ta kan natulongan ed saray dokumento, blotter, anunsyo, odino serbisyo na barangay natan?"
+        "english": "Hello! I am BrgyLink AI, the virtual assistant for Barangay Bagong Pag-asa, San Jacinto. How can I help you with document requests, blotter reports, announcements, or barangay services today?",
+        "tagalog": "Magandang araw! Ako ang BrgyLink AI, ang virtual assistant ng Barangay Bagong Pag-asa, San Jacinto. Paano kita matutulungan sa mga dokumento, blotter, anunsyo, o serbisyo ng barangay ngayon?",
+        "ilocano": "Naimbag nga aldaw! Siak ni BrgyLink AI, ti virtual assistant ti Barangay Bagong Pag-asa, San Jacinto. Kasano a makatulongak kadagiti dokumento, blotter, anunsio, wenno serbisyo ti barangay tatta?",
+        "pangasinan": "Maabig ya agew! Siak si BrgyLink AI, so virtual assistant na Barangay Bagong Pag-asa, San Jacinto. Panon ta kan natulongan ed saray dokumento, blotter, anunsyo, odino serbisyo na barangay natan?"
       }
     },
     {
@@ -306,10 +306,10 @@
         "Clearance para ed passport"
       ],
       "responses": [
-        "In BrgyLink, open Document Requests, select Barangay Clearance, enter your purpose, attach a clear photo of your valid ID, and submit. You can track progress in the app. For current fees and pickup instructions, check Announcements or visit the barangay hall."
+        "In BrgyLink, open Document Requests, select Barangay Clearance, enter your purpose, attach a clear photo of your valid ID, and submit. You can track progress in the app. For pickup instructions or fees, check Announcements or visit the barangay hall."
       ],
       "multilingual_responses": {
-        "english": "In BrgyLink, open Document Requests, select Barangay Clearance, enter your purpose, attach a clear photo of your valid ID, and submit. You can track progress in the app. For current fees and pickup instructions, check Announcements or visit the barangay hall.",
+        "english": "In BrgyLink, open Document Requests, select Barangay Clearance, enter your purpose, attach a clear photo of your valid ID, and submit. You can track progress in the app. For pickup instructions or fees, check Announcements or visit the barangay hall.",
         "tagalog": "Sa BrgyLink, buksan ang Document Requests, piliin ang Barangay Clearance, ilagay ang layunin ng pagkuha, mag-attach ng malinaw na larawan ng balidong ID, at isumite ang request. Maaari mong subaybayan ang status sa app. Para sa bayad at pagkuha, tingnan ang Announcements o pumunta sa barangay hall.",
         "ilocano": "Iti BrgyLink, lukatan ti Document Requests, piliem ti Barangay Clearance, isurat ti panggep ti panagkiddaw, mangikabil iti nalawag a ladawan ti valid ID, ket isumitem. Mabalinmo a subaybayan ti status iti app. Para iti bayad ken panangala, kitaem ti Announcements wenno agturong iti opisina ti barangay.",
         "pangasinan": "Diad BrgyLink, lukatan so Document Requests, piliyen so Barangay Clearance, isulat so gagala odino layunin, mangikabil na malinew ya litrato na balidong ID, tan isumite so request. Nayarim ya bantayan so status diad app. Para ed bayar tan panangala, nengnengen so Announcements odino onla ed opisina na barangay."
@@ -449,13 +449,13 @@
         "Mano so bayar na business clearance?"
       ],
       "responses": [
-        "For a Barangay Business Clearance or Permit, apply via Document Requests in BrgyLink. Select Business Clearance, enter business details, upload a valid ID and DTI/SEC registration if applicable, and submit. Fees depend on the current barangay tax ordinance."
+        "For a Barangay Business Clearance or Permit, apply via Document Requests in BrgyLink. Select Business Clearance, enter business details, upload a valid ID and DTI/SEC registration if applicable, and submit. The chatbot does not have a confirmed fee. Please check the barangay office or the app's announcements."
       ],
       "multilingual_responses": {
-        "english": "For a Barangay Business Clearance or Permit, apply via Document Requests in BrgyLink. Select Business Clearance, enter business details, upload a valid ID and DTI/SEC registration if applicable, and submit. Fees depend on the current barangay tax ordinance.",
-        "tagalog": "Para sa Barangay Business Clearance o Permit, mag-apply sa pamamagitan ng Document Requests sa BrgyLink. Piliin ang Business Clearance, ilagay ang detalye at uri ng negosyo (hal. sari-sari store), mag-upload ng valid ID at DTI/SEC kung mayroon, at isumite. Kumpirmahin ang kaukulang bayad batay sa ordinansa ng barangay.",
-        "ilocano": "Para iti Barangay Business Clearance wenno Permit, ag-apply babaen ti Document Requests iti BrgyLink. Piliem ti Business Clearance, isurat ti detalye ken klase ti negosyo, i-upload ti valid ID ken DTI/SEC no adda, ket isumitem. Kumpirmaem ti maitutop a bayad sigun iti ordinansa ti barangay.",
-        "pangasinan": "Para ed Barangay Business Clearance odino Permit, mag-apply panamegley na Document Requests ed BrgyLink. Piliyen so Business Clearance, isulat so detalye tan klase na negosyo, i-upload so valid ID tan DTI/SEC no wala, tan isumite. Kumpirmaen so manepeg ya bayar unong ed ordinansa na barangay."
+        "english": "For a Barangay Business Clearance or Permit, apply via Document Requests in BrgyLink. Select Business Clearance, enter business details, upload a valid ID and DTI/SEC registration if applicable, and submit. The chatbot does not have a confirmed fee. Please check the barangay office or the app's announcements.",
+        "tagalog": "Para sa Barangay Business Clearance o Permit, mag-apply sa pamamagitan ng Document Requests sa BrgyLink. Piliin ang Business Clearance, ilagay ang detalye at uri ng negosyo, mag-upload ng valid ID at DTI/SEC kung mayroon, at isumite. Walang kumpirmadong listahan ng bayarin ang chatbot. Mangyaring sumangguni sa opisina ng barangay o sa mga anunsyo sa app.",
+        "ilocano": "Para iti Barangay Business Clearance wenno Permit, ag-apply babaen ti Document Requests iti BrgyLink. Piliem ti Business Clearance, isurat ti detalye ken klase ti negosyo, i-upload ti valid ID ken DTI/SEC no adda, ket isumitem. Awan ti kumpirmado a bayad a naka-rekord iti chatbot. Pangngaasi nga agdamag iti opisina ti barangay wenno kitaen dagiti anunsio iti app.",
+        "pangasinan": "Para ed Barangay Business Clearance odino Permit, mag-apply panamegley na Document Requests ed BrgyLink. Piliyen so Business Clearance, isulat so detalye tan klase na negosyo, i-upload so valid ID tan DTI/SEC no wala, tan isumite. Anggapoy kumpirmadon bayar ed chatbot. Tepet kayo ed opisina na barangay odino nengneng yo iray anunsyo ed app."
       }
     },
     {
@@ -639,13 +639,13 @@
         "Antoy oras na tanggapan na barangay?"
       ],
       "responses": [
-        "The Barangay Bagong Pag-asa hall is open Monday to Friday, 8:00 AM to 5:00 PM (except official public holidays). For urgent emergencies, Barangay Tanod personnel are on standby 24/7."
+        "The chatbot does not have a confirmed office hour schedule. Please check the barangay office or the app's announcements."
       ],
       "multilingual_responses": {
-        "english": "The Barangay Bagong Pag-asa hall is open Monday to Friday, 8:00 AM to 5:00 PM (except official public holidays). For urgent emergencies, Barangay Tanod personnel are on standby 24/7.",
-        "tagalog": "Ang tanggapan ng Barangay Bagong Pag-asa ay bukas Lunes hanggang Biyernes, mula 8:00 AM hanggang 5:00 PM (maliban sa mga opisyal na holiday). Para sa mga emerhensiya, laging naka-alerto ang ating Barangay Tanod 24/7.",
-        "ilocano": "Ti opisina ti Barangay Bagong Pag-asa ket silulukat manipud Lunes inggana Biernes, 8:00 AM inggana 5:00 PM (malaksid kadagiti piesta opisyal). Para iti emerhensia, kanayon a nakasagana dagiti Barangay Tanod 24/7.",
-        "pangasinan": "Say opisina na Barangay Bagong Pag-asa et bukas Lunes anggad Biernes, manlapud 8:00 AM anggad 5:00 PM (puwera no holiday). Para ed emerhensya, alerto tan akaparaan ray Barangay Tanod 24/7."
+        "english": "The chatbot does not have a confirmed office hour schedule. Please check the barangay office or the app's announcements.",
+        "tagalog": "Walang kumpirmadong oras ng opisina ang chatbot. Mangyaring sumangguni sa opisina ng barangay o sa mga anunsyo sa app.",
+        "ilocano": "Awan ti kumpirmado nga oras ti opisina iti chatbot. Pangngaasi nga agdamag iti opisina ti barangay wenno kitaen dagiti anunsio iti app.",
+        "pangasinan": "Anggapoy kumpirmadon oras na opisina ed chatbot. Tepet kayo ed opisina na barangay odino nengneng yo iray anunsyo ed app."
       }
     },
     {
@@ -679,13 +679,13 @@
         "Libre kasi para ed first time jobseekers?"
       ],
       "responses": [
-        "Service fees depend on the local barangay revenue ordinance (typically ₱50-₱100 for clearance). Certificates are free for First Time Jobseekers under RA 11261, and Indigency is free for qualified residents. Verify current rates with the office."
+        "The chatbot does not have a confirmed fee list. Please check the barangay office or the app's announcements."
       ],
       "multilingual_responses": {
-        "english": "Service fees depend on the local barangay revenue ordinance (typically ₱50-₱100 for clearance). Certificates are free for First Time Jobseekers under RA 11261, and Indigency is free for qualified residents. Verify current rates with the office.",
-        "tagalog": "Ang mga bayarin sa sertipiko at clearance ay nakadepende sa ordinansa ng barangay (karaniwang ₱50-₱100 para sa clearance). Libre ang mga sertipiko para sa First Time Jobseekers alinsunod sa RA 11261, at libre rin ang Indigency para sa kapus-palad. Kumpirmahin ang eksaktong halaga sa opisina.",
-        "ilocano": "Dagiti bayad kadagiti sertipiko ket sigun iti ordinansa ti barangay (kadawyan a ₱50-₱100 para iti clearance). Libre dagiti dokumento para kadagiti First Time Jobseekers babaen ti RA 11261, ken libre ti Indigency. Kumpirmaem ti eksakto a gatad iti opisina ti barangay.",
-        "pangasinan": "Saray bayar ed sertipiko et unong ed ordinansa na barangay (masansanti ya ₱50-₱100 para ed clearance). Libre so saray dokumento para ed saray First Time Jobseekers unong ed RA 11261, tan libre met so Indigency para ed saray makaukol. Kumpirmaen so eksakton bayar ed opisina."
+        "english": "The chatbot does not have a confirmed fee list. Please check the barangay office or the app's announcements.",
+        "tagalog": "Walang kumpirmadong listahan ng bayarin ang chatbot. Mangyaring sumangguni sa opisina ng barangay o sa mga anunsyo sa app.",
+        "ilocano": "Awan ti kumpirmado a bayad iti chatbot. Pangngaasi nga agdamag iti opisina ti barangay wenno kitaen dagiti anunsio iti app.",
+        "pangasinan": "Anggapoy kumpirmadon bayar ed chatbot. Tepet kayo ed opisina na barangay odino nengneng yo iray anunsyo ed app."
       }
     },
     {
@@ -1238,13 +1238,13 @@
         "Listaan na saray manlilingkor ya opisyal"
       ],
       "responses": [
-        "To view the verified roster of Barangay Officials (Punong Barangay, Barangay Kagawads, SK Chairperson, Secretary, Treasurer, and Tanod leaders) for Barangay Bagong Pag-asa, open the 'Officials' section in the BrgyLink app."
+        "The chatbot does not have a confirmed roster. Please check the barangay office or the app's announcements."
       ],
       "multilingual_responses": {
-        "english": "To view the verified roster of Barangay Officials (Punong Barangay, Barangay Kagawads, SK Chairperson, Secretary, Treasurer, and Tanod leaders) for Barangay Bagong Pag-asa, open the 'Officials' section in the BrgyLink app.",
-        "tagalog": "Upang makita ang opisyal na listahan ng Punong Barangay (Kapitan), mga Kagawad, SK Chairperson, Barangay Secretary, Treasurer, at Chief Tanod ng Barangay Bagong Pag-asa, buksan ang tab na 'Officials' sa BrgyLink app para sa palagiang beripikado at updated na impormasyon.",
-        "ilocano": "Tapno makita ti opisial a listaan ti Punong Barangay (Kapitan), dagiti Kagawad, SK Chairperson, Secretary, Treasurer, ken Chief Tanod ti Barangay Bagong Pag-asa, lukatan ti 'Officials' tab iti BrgyLink app para iti kanayon a napabaro nga impormasion.",
-        "pangasinan": "Pian nanengneng so opisyal ya listaan na Punong Barangay (Kapitan), saray Kagawad, SK Chairperson, Secretary, Treasurer, tan Chief Tanod na Barangay Bagong Pag-asa, lukatan so 'Officials' tab diad BrgyLink app para ed updated ya impormasyon."
+        "english": "The chatbot does not have a confirmed roster. Please check the barangay office or the app's announcements.",
+        "tagalog": "Walang kumpirmadong listahan ng mga opisyal ang chatbot. Mangyaring sumangguni sa opisina ng barangay o sa mga anunsyo sa app.",
+        "ilocano": "Awan ti kumpirmado a listaan dagiti opisial ti chatbot. Pangngaasi nga agdamag iti opisina ti barangay wenno kitaen dagiti anunsio iti app.",
+        "pangasinan": "Anggapoy kumpirmadon listaan na saray opisyal ed chatbot. Tepet kayo ed opisina na barangay odino nengneng yo iray anunsyo ed app."
       }
     },
     {
@@ -1280,10 +1280,10 @@
         "Antoy saray salita ya amtam?"
       ],
       "responses": [
-        "Yes! I can fluently understand and respond in Pangasinan, Ilocano, and Tagalog (as well as English). Feel free to ask your question in any of these languages!"
+        "Yes! I can understand and respond in Pangasinan, Ilocano, and Tagalog (as well as English). Feel free to ask your question in any of these languages!"
       ],
       "multilingual_responses": {
-        "english": "Yes! I can fluently understand and respond in Pangasinan, Ilocano, and Tagalog (as well as English). Feel free to ask your question in any of these languages!",
+        "english": "Yes! I can understand and respond in Pangasinan, Ilocano, and Tagalog (as well as English). Feel free to ask your question in any of these languages!",
         "tagalog": "Opo! Nakakaintindi at nakakasagot ako sa tatlong pangunahing wika: Tagalog, Ilocano, at Pangasinan (at pati na rin sa English). Maaari kang magtanong sa alinman sa mga wikang ito anumang oras!",
         "ilocano": "Wen! Makaawat ken makasungbatak iti tallo a kangrunaan a pagsasao: Ilocano, Tagalog, ken Pangasinan (ken kasta met iti English). Mabalinmo ti agsaludsod iti aniaman kadagitoy a wika!",
         "pangasinan": "On! Makatalos tan makasungbat ak ed taloran manunan salita: Pangasinan, Tagalog, tan Ilocano (tan pati met ed English). Nayari kayon mantepet ed dinanman ed sarayan salita ed anggan anton oras!"
@@ -1316,13 +1316,13 @@
         "Akin ya maong ya usaren so BrgyLink?"
       ],
       "responses": [
-        "BrgyLink is the official mobile application for Barangay Bagong Pag-asa, San Jacinto. It empowers residents with digital document requests, online blotter filing, community SDG civic participation, and instant verified barangay announcements."
+        "BrgyLink is the mobile application for Barangay Bagong Pag-asa, San Jacinto. It empowers residents with digital document requests, online blotter filing, community SDG civic participation, and instant barangay announcements."
       ],
       "multilingual_responses": {
-        "english": "BrgyLink is the official mobile application for Barangay Bagong Pag-asa, San Jacinto. It empowers residents with digital document requests, online blotter filing, community SDG civic participation, and instant verified barangay announcements.",
-        "tagalog": "Ang BrgyLink ay ang opisyal na all-in-one mobile platform ng Barangay Bagong Pag-asa, San Jacinto. Dinisenyo ito para sa mabilisang document requests, online blotter reporting, community SDG participation, at direktang anunsyo para sa bawat residente.",
-        "ilocano": "Ti BrgyLink ket ti opisial nga all-in-one mobile app ti Barangay Bagong Pag-asa, San Jacinto. Naaramid daytoy para iti nalaka a panagkiddaw ti dokumento, online blotter reporting, komunidad SDG missions, ken anunsio para kadagiti residente.",
-        "pangasinan": "Say BrgyLink et say opisyal ya all-in-one mobile platform na Barangay Bagong Pag-asa, San Jacinto. Ginawa iya pian mainomay so panangikeddeng na dokumento, online blotter reporting, komunidad SDG participation, tan direktan anunsyo para ed balang residente."
+        "english": "BrgyLink is the mobile application for Barangay Bagong Pag-asa, San Jacinto. It empowers residents with digital document requests, online blotter filing, community SDG civic participation, and instant barangay announcements.",
+        "tagalog": "Ang BrgyLink ay ang all-in-one mobile platform ng Barangay Bagong Pag-asa, San Jacinto. Dinisenyo ito para sa mabilisang document requests, online blotter reporting, community SDG participation, at direktang anunsyo para sa bawat residente.",
+        "ilocano": "Ti BrgyLink ket ti all-in-one mobile app ti Barangay Bagong Pag-asa, San Jacinto. Naaramid daytoy para iti nalaka a panagkiddaw ti dokumento, online blotter reporting, komunidad SDG missions, ken anunsio para kadagiti residente.",
+        "pangasinan": "Say BrgyLink et say all-in-one mobile platform na Barangay Bagong Pag-asa, San Jacinto. Ginawa iya pian mainomay so panangikeddeng na dokumento, online blotter reporting, komunidad SDG participation, tan direktan anunsyo para ed balang residente."
       }
     },
     {
