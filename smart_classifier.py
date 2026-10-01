@@ -189,6 +189,10 @@ _BARANGAY_LOCATION_RE = re.compile(
     r"\b(?:barangay|brgy)\b.{0,30}\bbagong\s*pag\s*asa\b|"
     r"\bbagong\s*pag\s*asa\b.{0,30}\b(?:location|address|saan|nasaan|sadino|iner)\b"
 )
+_ACKNOWLEDGEMENT_RE = re.compile(
+    r"^\s*(?:ok(?:ay)?|sige|gets|noted|copy|okay\s+po|sige\s+po|ayos|alright|all\s+right)\s*[!.]*\s*$",
+    re.IGNORECASE,
+)
 _CAPABILITIES_RE = re.compile(
     r"\b(?:what\s*(?:can|do)\s*(?:you|brgylink)|how\s*can\s*you\s*help|"
     r"ano\s*(?:ang\s*)?(?:mga\s*)?(?:pwede|puwede|kaya)\s*(?:mong\s*)?gawin|"
@@ -307,6 +311,12 @@ HELPER_TEXTS = {
         "tagalog": "\n\n(Paalala: Ang impormasyong ito ay hindi pa verified. Pakikumpirma sa opisina ng barangay.)",
         "ilocano": "\n\n(Pammalagip: Daytoy nga impormasion ket saan pay a verified. Pangngaasi a kumpirmaen iti opisina ti barangay.)",
         "pangasinan": "\n\n(Paimano: Saya ya impormasyon et agni verified. Kumpirmaen ed opisina na barangay.)"
+    },
+    "acknowledgement": {
+        "english": "You’re welcome. What else can I help you with in BrgyLink?",
+        "tagalog": "Walang anuman. Ano pa ang maitutulong ko sa iyo sa BrgyLink?",
+        "ilocano": "Awan ania man. Ania pay ti maitulongko kenka iti BrgyLink?",
+        "pangasinan": "Anggapoy anto man. Antoy ni pay so maitulong ko ed BrgyLink?"
     }
 }
 
@@ -790,6 +800,8 @@ def handle_message(message: str, session: dict | None = None, model: dict | None
         return _build("registration", 0.98, language, get_kb_answer("registration", language, "id"), session)
     if _ID_PHOTO_RE.search(value):
         return _build("registration", 0.98, language, get_kb_answer("registration", language, "id"), session)
+    if _ACKNOWLEDGEMENT_RE.fullmatch(message):
+        return _build("acknowledgement", 1.0, language, HELPER_TEXTS["acknowledgement"][language], session)
 
     # ===================================================================
     # COMPOUND QUERY DETECTION
