@@ -5,6 +5,7 @@ Supports: Pangasinan (Kabaleyan), Ilocano (Ti Samtoy), Tagalog (Filipino), and E
 """
 
 import json
+import hmac
 import os
 import re
 import time
@@ -33,10 +34,15 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', os.urandom(24))
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-if os.environ.get("FLASK_ENV") == "production":
+IS_PRODUCTION = os.environ.get("BRGYLINK_ENV") == "production"
+if IS_PRODUCTION:
     app.config['SESSION_COOKIE_SECURE'] = True
     if not os.environ.get("FLASK_SECRET_KEY"):
         raise ValueError("FLASK_SECRET_KEY is required in production")
+    if os.environ.get("BRGYLINK_ENABLE_ADMIN", "").lower() == "true":
+        raise ValueError("The development-only admin dashboard cannot be enabled in production")
+    if not os.environ.get("AI_SERVICE_TOKEN"):
+        raise ValueError("AI_SERVICE_TOKEN is required in production")
 
 
 # Load Smart Classifier model at startup
@@ -88,6 +94,26 @@ LANG_ALIASES = {
     "en": "english", "english": "english", "fil": "tagalog", "tl": "tagalog", "tagalog": "tagalog",
     "ilo": "ilocano", "ilocano": "ilocano", "pag": "pangasinan", "pangasinan": "pangasinan",
 }
+
+
+def service_token_required() -> bool:
+    """Keep local development simple while making production server-to-server only."""
+    configured = os.environ.get("BRGYLINK_REQUIRE_SERVICE_TOKEN", "").lower() == "true"
+    return IS_PRODUCTION or configured
+
+
+def has_valid_service_token() -> bool:
+    """Accept a dedicated header so a private HF gateway can use Authorization."""
+    if not service_token_required():
+        return True
+    expected = os.environ.get("AI_SERVICE_TOKEN", "")
+    candidate = request.headers.get("X-AI-Service-Token", "")
+    if not candidate:
+        authorization = request.headers.get("Authorization", "")
+        prefix = "Bearer "
+        if authorization.startswith(prefix):
+            candidate = authorization[len(prefix):]
+    return bool(expected and candidate and hmac.compare_digest(expected, candidate))
 
 
 def prune_chat_sessions(now: float) -> None:
@@ -405,6 +431,8 @@ def api_update_kb(intent):
 def chat():
     t0 = time.time()
     try:
+        if not has_valid_service_token():
+            return jsonify({'error': 'Unauthorized chatbot service request.'}), 401
         if request.content_length is not None and request.content_length > app.config['MAX_CONTENT_LENGTH']:
             return payload_too_large(None)
         data = request.get_json(silent=True)

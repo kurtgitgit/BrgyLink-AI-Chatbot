@@ -1,3 +1,14 @@
+---
+title: BrgyLink AI Chatbot
+emoji: 🤝
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+short_description: Protected server-to-server BrgyLink chatbot prototype
+---
+
 # BrgyLink AI Chatbot
 
 An offline, development-only barangay-assistant prototype for Barangay Bagong Pag-asa, San Jacinto. It uses a local character n-gram classifier trained from curated intents; it does not call a hosted AI API.
@@ -20,6 +31,14 @@ python -B -X utf8 run_checks.py
 ```
 
 The local tester supports `reset` to clear its language preference and pending document selection.
+
+## Hugging Face deployment
+
+This repository includes a Docker Space configuration for a separate private
+chatbot service. Read `HF_SPACE_DEPLOYMENT.md` before deployment. Production
+requires `AI_SERVICE_TOKEN` and `FLASK_SECRET_KEY`; `/chat` rejects requests
+without the service token. Do not deploy this as a public direct-to-resident
+endpoint or put either secret in the mobile app.
 
 ## Knowledge and verification policy
 

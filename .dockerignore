@@ -1,0 +1,15 @@
+.git
+.gitignore
+.venv
+__pycache__
+*.py[cod]
+*.pkl
+*.log
+.env
+*.bak
+knowledge_base.lock
+admin.html
+test_*.py
+READINESS_REPORT.md
+INTEGRATION_HANDOFF.md
+HF_SPACE_DEPLOYMENT.md

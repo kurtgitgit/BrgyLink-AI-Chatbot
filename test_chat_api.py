@@ -1,5 +1,6 @@
 """Local Flask contract tests; no network, resident data or deployment."""
 import unittest
+import os
 from unittest.mock import patch
 
 import app as service
@@ -23,6 +24,14 @@ class TestChatAPI(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(set(response.get_json()), {'response', 'intent', 'confidence', 'language', 'language_name', 'processing_time_ms'})
         self.assertIn('Forgot Password', response.get_json()['response'])
+
+    def test_service_token_is_optional_locally_and_required_when_enabled(self):
+        self.assertEqual(self.post(message='hello').status_code, 200)
+        with patch.dict(os.environ, {'BRGYLINK_REQUIRE_SERVICE_TOKEN': 'true', 'AI_SERVICE_TOKEN': 'test-service-token'}):
+            self.assertEqual(self.post(message='hello').status_code, 401)
+            self.assertEqual(self.client.post('/chat', json={'message': 'hello'}, headers={'X-AI-Service-Token': 'wrong'}).status_code, 401)
+            self.assertEqual(self.client.post('/chat', json={'message': 'hello'}, headers={'Authorization': 'Bearer test-service-token'}).status_code, 200)
+            self.assertEqual(self.client.post('/chat', json={'message': 'hello'}, headers={'X-AI-Service-Token': 'test-service-token'}).status_code, 200)
 
     def test_invalid_payloads_are_400_not_server_errors(self):
         for body in ([], 'hello', True, 42, None, {}, {'message': None}, {'message': []}, {'message': 42}, {'message': '  '}, {'message': 'a' * 2001}, {'message': 'hi', 'session_id': 1}, {'message': 'hi', 'session_id': 'someone@example.com'}, {'message': 'hi', 'session_id': ''}, {'message': 'hi', 'language': 1}, {'message': 'hi', 'language': 'unknown'}):
