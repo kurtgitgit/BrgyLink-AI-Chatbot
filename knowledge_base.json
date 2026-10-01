@@ -195,10 +195,10 @@
         "ambulance": null
       },
       "answer": {
-        "english": "If there is immediate danger to life or property, call 911 immediately. For local emergency assistance in Barangay Bagong Pag-asa, check the emergency contacts posted in the Announcements section of BrgyLink.",
-        "tagalog": "Kung may agarang panganib sa buhay o ari-arian, tumawag agad sa 911. Para sa lokal na emergency assistance sa Barangay Bagong Pag-asa, tingnan ang emergency contacts na naka-post sa Announcements ng BrgyLink.",
-        "ilocano": "No adda dagus a peggad iti biag wenno sanikua, umawag a dagus iti 911. Para iti lokal nga emergency assistance iti Barangay Bagong Pag-asa, kitaen dagiti emergency contacts a naipablaak iti Announcements ti BrgyLink.",
-        "pangasinan": "No walay tampol ya peligro ed bilay odino kayarian, tawagan ya tampol so 911. Para ed lokal ya emergency assistance ed Barangay Bagong Pag-asa, nengnengen so saray emergency contacts ya aka-post ed Announcements na BrgyLink."
+        "english": "If there is immediate danger to life or property, call 911 immediately. Do not wait for a chatbot reply. The chatbot cannot dispatch help or contact emergency services for you.",
+        "tagalog": "Kung may agarang panganib sa buhay o ari-arian, tumawag agad sa 911. Huwag maghintay ng sagot ng chatbot. Hindi kayang magpadala ng tulong o tumawag sa emergency services para sa iyo ang chatbot.",
+        "ilocano": "No adda dagus a peggad iti biag wenno sanikua, umawag a dagus iti 911. Saan nga urayen ti sungbat ti chatbot. Saan a makapatulod ti chatbot iti tulong wenno umawag kadagiti emergency services para kenka.",
+        "pangasinan": "No walay tampol ya peligro ed bilay odino kayarian, tawagan ya tampol so 911. Ag-antayan so ebat na chatbot. Ag makapatulod na tulong so chatbot odino ontawag ed emergency services para ed sika."
       },
       "verified": false,
       "verified_by": null,
@@ -318,10 +318,10 @@
         "Complete email verification"
       ],
       "answer": {
-        "english": "To register a BrgyLink account: open the app, tap 'Create Account', fill in your full name, email, username, phone number, and Bagong Pag-asa address, then complete email OTP verification.",
-        "tagalog": "Upang gumawa ng account sa BrgyLink: buksan ang app, i-tap ang 'Create Account', ilagay ang iyong buong pangalan, email, username, mobile number, at address sa Bagong Pag-asa, at kumpletuhin ang email verification gamit ang natanggap na OTP.",
-        "ilocano": "Tapno agaramid iti account iti BrgyLink: lukatan ti app, i-tap ti 'Create Account', isurat ti kompleto a nagan, email, username, numero ti selpon, ken pagtaengan iti Bagong Pag-asa, ket leppasen ti email OTP verification.",
-        "pangasinan": "Pian manggawa na account ed BrgyLink: lukatan so app, i-tap so 'Create Account', isulat so interon ngaran, email, username, numero na telepono, tan address diad Bagong Pag-asa, tan kompletoen so email OTP verification."
+        "english": "To register, begin with your email in Step 1. Enter the six-digit code sent to that email before continuing. Then complete your resident details, upload clear photos of the required government-issued ID, create your password in the final step, accept the Privacy Notice and Terms of Use, and submit the registration for barangay review. Residents must be at least 15 years old. Never share your verification code.",
+        "tagalog": "Para mag-register, magsimula sa email sa Step 1. Ilagay ang anim na digit na code na ipinadala sa email bago magpatuloy. Kumpletuhin ang resident details, mag-upload ng malinaw na larawan ng hinihinging government-issued ID, gumawa ng password sa huling step, tanggapin ang Privacy Notice at Terms of Use, at isumite ang registration para sa barangay review. Kailangan ay hindi bababa sa 15 taong gulang. Huwag ibahagi ang verification code.",
+        "ilocano": "Tapno agparehistro, mangrugi iti email iti Step 1 ken ikabil ti innem a digit a code sakbay a mangtuloy. Kumpletoem dagiti resident details ken mang-upload iti nalawag a ladawan ti government-issued ID. Aramidem ti password iti maudi a step, awatem ti Privacy Notice ken Terms of Use, ken isumitem para iti barangay review. Masapul nga agtawen iti 15 wenno nangatngato. Saan nga ibagbaga ti verification code.",
+        "pangasinan": "Pian mag-register, manggapo ed email ed Step 1 tan isulat so anem ya digit a code antes ontuloy. Kumpletoen so resident details tan mang-upload na malinew ya litrato na government-issued ID. Gawaen so password ed unor ya step, awaten so Privacy Notice tan Terms of Use, tan isumite para ed barangay review. Kasapulan ya 15 taon odino mas matanda. Agmon iter so verification code."
       },
       "verified": false,
       "verified_by": null,
@@ -331,17 +331,25 @@
       "last_reviewed_at": null,
       "review_notes": "",
       "content_type": "barangay_fact",
-      "requires_verification": true
+      "requires_verification": true,
+      "answer_variants": {
+        "id": {
+          "english": "Residents must be at least 15 to register. In the final signup step, select your ID type and take a clear photo: all details must be readable, with no glare, blur, or cut-off edges. Upload the front and back when requested; Passport uses the information page. If you do not have an accepted ID, ask the barangay office what to do. The chatbot cannot approve an ID or bypass the requirement.",
+          "tagalog": "Kailangan ay hindi bababa sa 15 taong gulang para mag-register. Sa huling signup step, piliin ang ID type at kumuha ng malinaw na larawan: nababasa ang detalye, walang glare o blur, at hindi putol ang gilid. I-upload ang front at back kung hinihingi; para sa Passport, information page ang kailangan. Kung walang tinatanggap na ID, magtanong sa opisina ng barangay. Hindi kayang mag-approve ng ID o lumampas sa requirement ang chatbot.",
+          "ilocano": "Masapul nga agtawen iti 15 wenno nangatngato tapno agparehistro. Iti maudi a signup step, piliem ti ID type ken alaem ti nalawag a ladawan: mabasa amin a detalye, awan glare wenno blur, ken saan a naputed ti igid. I-upload ti front ken back no kasapulan; ti Passport ket information page. No awan ti maawat nga ID, agsaludsod iti opisina ti barangay. Saan a maka-approve ti chatbot iti ID wenno makalabsing iti requirement.",
+          "pangasinan": "Kasapulan ya 15 taon odino mas matanda pian mag-register. Ed unor ya signup step, piliyen so ID type tan alaen so malinew ya litrato: nabasa so amin ya detalye, anggapo so glare odino blur, tan agputol so gilid. I-upload so front tan back no kasapulan; say Passport et information page. No anggapoy tinatanggap ya ID, mantepet ed opisina na barangay. Ag maka-approve na ID so chatbot odino makalampas ed requirement."
+        }
+      }
     },
     {
       "intent": "account_help",
       "title": "Login and Email OTP",
       "needs_staff_verification": false,
       "answer": {
-        "english": "If you did not receive your 6-digit email OTP for login or registration, check your Spam or Junk folder and ensure your email address was typed correctly. Never share your OTP with anyone.",
-        "tagalog": "Kung hindi mo natanggap ang iyong 6-digit email OTP sa pag-login o pag-rehistro, suriin ang iyong Spam o Junk folder at tiyaking tama ang email address. Huwag kailanman ibigay ang iyong OTP kaninoman sa chat para sa seguridad ng iyong account.",
-        "ilocano": "No saanmo a naawat ti 6-digit email OTP iti panag-login wenno panag-rehistro, kitaem ti Spam wenno Junk folder ken siguraduem a husto ti email address. Saan a pulos ibagbaga ti OTP iti uray siasino para iti kinatalged ti accountmo.",
-        "pangasinan": "No agmo naawat so 6-digit email OTP ed panag-login odino panag-rehistro, nengnengen so Spam odino Junk folder tan seguroen ya duga so email address. Agmon balot iter so OTP ed siopaman parad seguridad na account mo."
+        "english": "For a registration code, check Inbox, Spam, and Junk and make sure the email was entered correctly. Wait for the resend timer in the app before requesting another code; an expired code needs a new request. Do not share the code. If your registration was submitted, wait for barangay review before signing in. For a forgotten password, use Forgot Password on the sign-in screen.",
+        "tagalog": "Para sa registration code, tingnan ang Inbox, Spam, at Junk at tiyaking tama ang email na inilagay. Hintayin ang resend timer sa app bago humiling ulit ng code; kung expired na ang code, humiling ng bago. Huwag ibahagi ang code. Kung naisumite na ang registration, hintayin muna ang barangay review bago mag-sign in. Para sa nakalimutang password, gamitin ang Forgot Password sa sign-in screen.",
+        "ilocano": "No awan ti registration code, kitaem ti Inbox, Spam, ken Junk ken siguraduem a husto ti email. Urayem ti resend timer iti app sakbay a mangkiddaw manen iti code. Saan nga ibagbaga ti code. No naipasa ti registration, urayem ti barangay review sakbay a sumrek.",
+        "pangasinan": "No anggapo so registration code, nengnengen so Inbox, Spam, tan Junk tan seguroen ya duga so email. Antayan so resend timer ed app antes mangikeddeng lamet na code. Agmon iter so code. No naisumite lay registration, antayan so barangay review antes sumrek."
       },
       "verified": false,
       "verified_by": null,
@@ -351,7 +359,27 @@
       "last_reviewed_at": null,
       "review_notes": "",
       "content_type": "barangay_fact",
-      "requires_verification": true
+      "requires_verification": true,
+      "answer_variants": {
+        "password": {
+          "english": "On the sign-in screen, tap Forgot Password, enter the email for your account, and follow the reset instructions sent to it. Check Inbox, Spam, and Junk. Use a newly requested reset link if the old one is invalid or expired. Never send your password or reset link to the chatbot. The chatbot cannot reset your password for you.",
+          "tagalog": "Sa sign-in screen, i-tap ang Forgot Password, ilagay ang email ng account, at sundin ang reset instructions na ipinadala rito. Tingnan ang Inbox, Spam, at Junk. Humiling ng bagong reset link kung invalid o expired na ang luma. Huwag ipadala sa chatbot ang password o reset link. Hindi kayang i-reset ng chatbot ang password para sa iyo.",
+          "ilocano": "Iti sign-in screen, i-tap ti Forgot Password, ikabil ti email ti account, ken surotem ti reset instructions iti email. Kitaem ti Inbox, Spam, ken Junk. Mangikiddaw iti baro a reset link no invalid wenno expired ti daan. Saan nga ipatulod iti chatbot ti password wenno reset link. Saan a ma-reset ti chatbot ti password mo.",
+          "pangasinan": "Ed sign-in screen, i-tap so Forgot Password, isulat so email na account, tan suroten so reset instructions ed email. Nengnengen so Inbox, Spam, tan Junk. Mangikeddeng na balon reset link no invalid odino expired lay daan. Agmon ipatulod ed chatbot so password odino reset link. Ag na-reset na chatbot so password mo."
+        },
+        "otp": {
+          "english": "Check that the signup email is correct and look in Inbox, Spam, and Junk. If the code has not arrived, wait for the app's resend timer, then request a new code. Enter the latest six-digit code; request another if it is expired or invalid. You can edit an incorrect email on the verification screen. Never share your OTP. The chatbot cannot see your code or confirm delivery.",
+          "tagalog": "Tiyaking tama ang signup email at tingnan ang Inbox, Spam, at Junk. Kung wala pa ang code, hintayin ang resend timer sa app at humiling ng bagong code. Ilagay ang pinakabagong anim na digit na code; humiling ulit kung expired o invalid. Maaari mong itama ang email sa verification screen. Huwag ibahagi ang OTP. Hindi nakikita ng chatbot ang code at hindi nito makukumpirma ang delivery.",
+          "ilocano": "Siguraduem a husto ti signup email ken kitaem ti Inbox, Spam, ken Junk. No awan pay ti code, urayem ti resend timer iti app ken mangkiddaw iti baro a code. Ikabil ti kabaruan nga innem a digit a code; mangkiddaw manen no expired wenno invalid. Mabalin a baliwan ti email iti verification screen. Saan nga ibagbaga ti OTP. Saan a makita ti chatbot ti code wenno makumpirma ti delivery.",
+          "pangasinan": "Seguroen ya duga so signup email tan nengnengen so Inbox, Spam, tan Junk. No anggapo ni so code, antayan so resend timer ed app tan mangikeddeng na balon code. Isulat so pinakabalo ya anem ya digit a code; mangikeddeng lamet no expired odino invalid. Nayari ya ontan so email ed verification screen. Agmon iter so OTP. Ag nanengneng na chatbot so code odino nakumpirma so delivery."
+        },
+        "review": {
+          "english": "Email verification does not mean the resident account has been approved. Submitted registrations still need barangay review. If the account is rejected, read any rejection reason shown and contact the barangay office about corrections. If it is approved but you still cannot sign in, check the email and password and report the exact error without sharing credentials. The chatbot cannot see or change your approval status.",
+          "tagalog": "Ang email verification ay hindi pa approval ng resident account. Kailangan pa rin ng barangay review ang naisumiteng registration. Kung rejected, basahin ang ipinakitang rejection reason at magtanong sa opisina ng barangay tungkol sa pagwawasto. Kung approved pero hindi makapasok, tiyaking tama ang email at password at i-report ang eksaktong error nang hindi ibinabahagi ang credentials. Hindi nakikita o nababago ng chatbot ang approval status.",
+          "ilocano": "Ti email verification ket saan pay nga approval ti resident account. Kasapulan pay ti barangay review ti naipasa a registration. No rejected, basaem ti rejection reason a naipakita ken makiuman iti opisina ti barangay maipapan iti panagkorehir. No approved ngem saan a makasrek, kitaem ti email ken password ken i-report ti error nga awan ibagbaga a credentials. Saan a makita wenno baliwan ti chatbot ti approval status.",
+          "pangasinan": "Say email verification et agni approval na resident account. Kasapulan ni so barangay review na naisumiten registration. No rejected, basaen so rejection reason ya nanengneng tan mantepet ed opisina na barangay nipaakar ed panangkorehir. No approved balet agmakasumrek, nengnengen so email tan password tan i-report so error ya agiter na credentials. Ag nanengneng odino nabago na chatbot so approval status."
+        }
+      }
     },
     {
       "intent": "announcements",
@@ -385,10 +413,10 @@
         "Tap Analyze & Submit"
       ],
       "answer": {
-        "english": "Community Initiatives and SDG Missions allow residents to participate in barangay civic activities (tree planting, clean-up drives, recycling). Open Community Initiatives in the app, select an active task, tap 'Upload Proof' for live camera capture, and tap 'Analyze & Submit'.",
-        "tagalog": "Ang Community Initiatives at SDG Missions ay nagbibigay-daan sa mga residente na makilahok sa mga gawaing pangkomunidad (tulad ng tree planting, clean-up drive, at waste reduction). Buksan ang Community Initiatives sa app, pumili ng aktibong programa, i-tap ang 'Upload Proof' upang kumuha ng live photo, at i-tap ang 'Analyze & Submit'.",
-        "ilocano": "Ti Community Initiatives ken SDG Missions ket mangted gundaway kadagiti residente a makipaset kadagiti aktibidad ti komunidad (kas iti tree planting, panagdalus, ken panangpabassit ti basura). Lukatan ti Community Initiatives iti app, piliem ti aktibo a programa, i-tap ti 'Upload Proof', ket i-submit.",
-        "pangasinan": "Say Community Initiatives tan SDG Missions et mangiiter na pankanawnawa ed saray residente ya maki-iba ed saray aktibidad na komunidad (singa tree planting, panaglinis, tan recycling). Lukatan so Community Initiatives ed app, piliyen so aktibon programa, i-tap so 'Upload Proof', tan i-submit."
+        "english": "Open Civic Tasks & Community Events, choose an active civic task, and use Capture Live Photo to show your participation clearly. Retake unclear photos, then tap Submit Task Proof. Open Profile and Community Mission Submissions to see your own submission status and any rejection reason. Pending is not approval; the chatbot cannot see or change your result. Civic participation does not earn reward points in the current app. Follow the task instructions and do not use unrelated or reused photos.",
+        "tagalog": "Buksan ang Civic Tasks & Community Events, pumili ng aktibong civic task, at gamitin ang Capture Live Photo para malinaw na ipakita ang pakikilahok. Mag-retake kung malabo at i-tap ang Submit Task Proof. Sa Profile, tingnan ang Community Mission Submissions para sa sariling submission status at rejection reason kung mayroon. Hindi pa approval ang Pending; hindi nakikita o nababago ng chatbot ang resulta. Walang reward points ang civic participation sa kasalukuyang app. Sundin ang task instructions at huwag gumamit ng hindi kaugnay o lumang larawan.",
+        "ilocano": "Lukatan ti Civic Tasks & Community Events, piliem ti aktibo a civic task, ken usarem ti Capture Live Photo tapno nalawag ti panagpasetmo. I-retake no saan a nalawag ken i-tap ti Submit Task Proof. Iti Profile, kitaem ti Community Mission Submissions para iti bukodmo a submission status ken rejection reason no adda. Saan pay nga approval ti Pending; saan a makita wenno baliwan ti chatbot ti resulta. Awan ti reward points iti agdama nga app. Surotem dagiti task instructions ken saan nga usaren ti saan a kaugnay wenno daan a ladawan.",
+        "pangasinan": "Lukatan so Civic Tasks & Community Events, piliyen so aktibon civic task, tan usaren so Capture Live Photo pian malinew so pakikiba mo. I-retake no agmalinew tan i-tap so Submit Task Proof. Ed Profile, nengnengen so Community Mission Submissions para ed bukod mon submission status tan rejection reason no wala. Agni approval so Pending; ag nanengneng odino nabago na chatbot so resulta. Anggapoy reward points ed kasalukuyan ya app. Suroten so task instructions tan ag-usar na agkaugnay odino daan ya litrato."
       },
       "verified": false,
       "verified_by": null,
@@ -755,6 +783,29 @@
       "source": null,
       "content_type": "barangay_fact",
       "requires_verification": true
+    },
+    {
+      "intent": "events",
+      "title": "Community Events",
+      "needs_staff_verification": false,
+      "requirements": [],
+      "fee_php": null,
+      "processing_time": null,
+      "answer": {
+        "english": "Open the Events tab under Civic Tasks & Community Events, choose an active event, and read its date, time, location, and instructions. If proof is requested, take a clear participation photo and tap Submit Participation Proof. Submitted is not the same as Approved. Check the app's displayed status or ask the barangay office if no review status is shown. The chatbot cannot see live event details or your personal approval result.",
+        "tagalog": "Buksan ang Events tab sa Civic Tasks & Community Events, pumili ng aktibong event, at basahin ang petsa, oras, lugar, at tagubilin. Kung kailangan ng proof, kumuha ng malinaw na larawan ng pakikilahok at i-tap ang Submit Participation Proof. Hindi pareho ang Submitted at Approved. Tingnan ang status na ipinapakita ng app o magtanong sa opisina ng barangay kung walang review status. Hindi nakikita ng chatbot ang live event details o personal na approval result.",
+        "ilocano": "Lukatan ti Events tab iti Civic Tasks & Community Events, piliem ti aktibo nga event, ken basaem ti petsa, oras, lugar, ken tagubilin. No kasapulan ti proof, alaem ti nalawag a ladawan ti panagpaset ken i-tap ti Submit Participation Proof. Saan nga agpada ti Submitted ken Approved. Kitaem ti status iti app wenno agsaludsod iti opisina ti barangay no awan ti review status. Saan a makita ti chatbot ti live event details wenno personal a approval result.",
+        "pangasinan": "Lukatan so Events tab ed Civic Tasks & Community Events, piliyen so aktibon event, tan basaen so petsa, oras, lugar, tan tagubilin. No kasapulan so proof, alaen so malinew ya litrato na pakikiba tan i-tap so Submit Participation Proof. Agpareho so Submitted tan Approved. Nengnengen so status ed app odino mantepet ed opisina na barangay no anggapo so review status. Ag nanengneng na chatbot so live event details odino personal ya approval result."
+      },
+      "verified": false,
+      "verified_by": null,
+      "verified_at": null,
+      "expires_at": null,
+      "source": null,
+      "last_reviewed_at": null,
+      "review_notes": "App navigation copy only; event details remain in the live Events screen.",
+      "content_type": "system_copy",
+      "requires_verification": false
     },
     {
       "intent": "fallback",

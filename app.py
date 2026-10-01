@@ -6,9 +6,12 @@ Supports: Pangasinan (Kabaleyan), Ilocano (Ti Samtoy), Tagalog (Filipino), and E
 
 import json
 import os
+import re
 import time
 import tempfile
-import fcntl
+import threading
+from contextlib import contextmanager
+from collections import OrderedDict
 from datetime import datetime, timezone
 from flask import Flask, jsonify, request, send_from_directory, abort, session, redirect
 from smart_classifier import (
@@ -19,8 +22,14 @@ from smart_classifier import (
     new_session,
 )
 
+try:
+    import fcntl  # POSIX (the production Linux deployment)
+except ImportError:  # Windows development and local regression tests
+    fcntl = None
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-app = Flask(__name__, static_folder=BASE_DIR, static_url_path='')
+app = Flask(__name__, static_folder=None)
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', os.urandom(24))
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
@@ -36,7 +45,34 @@ classifier_model = load_model()
 print("🎉 BrgyLink AI Multilingual Engine loaded and ready for chat!")
 
 # User session cache
-sessions: dict[str, dict] = {}
+sessions: OrderedDict[str, dict] = OrderedDict()
+session_last_seen: dict[str, float] = {}
+CHAT_SESSION_LOCK = threading.Lock()
+CHAT_SESSION_TTL_SECONDS = 3600
+MAX_CHAT_SESSIONS = 1000
+MAX_MESSAGE_LENGTH = 2000
+WINDOWS_KB_WRITE_LOCK = threading.Lock()
+
+
+@contextmanager
+def knowledge_base_write_lock(lock_path: str):
+    """Serialize development-only KB admin writes on POSIX and Windows.
+
+    Production runs on Linux and uses an OS file lock. Windows is explicitly
+    development-only, so a process lock gives deterministic local behavior
+    without changing the production locking path.
+    """
+    if fcntl is None:
+        with WINDOWS_KB_WRITE_LOCK:
+            yield
+        return
+
+    with open(lock_path, "a+") as lock_file:
+        fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
 
 LANG_DISPLAY = {
     "pangasinan": "Pangasinan",
@@ -48,6 +84,26 @@ LANG_DISPLAY = {
     "english": "English",
     "en": "English",
 }
+LANG_ALIASES = {
+    "en": "english", "english": "english", "fil": "tagalog", "tl": "tagalog", "tagalog": "tagalog",
+    "ilo": "ilocano", "ilocano": "ilocano", "pag": "pangasinan", "pangasinan": "pangasinan",
+}
+
+
+def prune_chat_sessions(now: float) -> None:
+    """Called under CHAT_SESSION_LOCK; keep only bounded, recently used state."""
+    expired = [key for key, seen in session_last_seen.items() if now - seen >= CHAT_SESSION_TTL_SECONDS]
+    for key in expired:
+        sessions.pop(key, None)
+        session_last_seen.pop(key, None)
+    while len(sessions) >= MAX_CHAT_SESSIONS:
+        key, _ = sessions.popitem(last=False)
+        session_last_seen.pop(key, None)
+
+
+@app.errorhandler(413)
+def payload_too_large(error):
+    return jsonify({'error': 'Request body is too large.'}), 413
 
 
 @app.route('/')
@@ -218,11 +274,8 @@ def api_update_kb(intent):
         return jsonify({"error": "Invalid JSON"}), 400
 
     kb_path = os.path.join(BASE_DIR, 'knowledge_base.json')
-    # Apply file lock
     lock_path = os.path.join(BASE_DIR, 'knowledge_base.lock')
-    with open(lock_path, 'w') as lock_file:
-        fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX)
-        try:
+    with knowledge_base_write_lock(lock_path):
             with open(kb_path, "r", encoding="utf-8") as f:
                 kb = json.load(f)
 
@@ -344,8 +397,6 @@ def api_update_kb(intent):
                 os.fsync(f.fileno())
             os.replace(temp_path, kb_path)
 
-        finally:
-            fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
 
     return jsonify({"status": "success", "message": "Updated successfully"})
 
@@ -354,33 +405,45 @@ def api_update_kb(intent):
 def chat():
     t0 = time.time()
     try:
-        data = request.get_json(silent=True) or {}
-        user_message = data.get('message', '').strip()
-        session_id = str(data.get('session_id') or request.remote_addr or 'default')
-        forced_lang = data.get('language')  # Optional: "pag", "ilo", "fil", "en"
-
-        if not user_message:
+        if request.content_length is not None and request.content_length > app.config['MAX_CONTENT_LENGTH']:
+            return payload_too_large(None)
+        data = request.get_json(silent=True)
+        if not isinstance(data, dict):
+            return jsonify({'error': 'A JSON object is required.'}), 400
+        user_message = data.get('message')
+        if not isinstance(user_message, str) or not user_message.strip():
             return jsonify({'error': 'Please enter a question or message.'}), 400
+        user_message = user_message.strip()
+        if len(user_message) > MAX_MESSAGE_LENGTH:
+            return jsonify({'error': f'Messages must be at most {MAX_MESSAGE_LENGTH} characters.'}), 400
+        session_id = data.get('session_id')
+        if session_id is not None and (not isinstance(session_id, str) or not re.fullmatch(r'[A-Za-z0-9_.-]{1,128}', session_id)):
+            return jsonify({'error': 'Use a non-personal session_id of 1 to 128 letters, digits, dots, underscores or hyphens.'}), 400
+        forced_lang = data.get('language')
+        if forced_lang is not None:
+            if not isinstance(forced_lang, str) or forced_lang.lower().strip() not in LANG_ALIASES:
+                return jsonify({'error': 'Unsupported language.'}), 400
+            forced_lang = LANG_ALIASES[forced_lang.lower().strip()]
 
-        # Retrieve or initialize user session
-        if session_id not in sessions:
-            sessions[session_id] = new_session()
-        session = sessions[session_id]
-
-        # Apply forced language preference if provided
-        if forced_lang:
-            norm = forced_lang.lower().strip()
-            if norm in {"pag", "pangasinan"}:
-                session["preferred_language"] = "pangasinan"
-            elif norm in {"ilo", "ilocano"}:
-                session["preferred_language"] = "ilocano"
-            elif norm in {"fil", "tagalog", "tl"}:
-                session["preferred_language"] = "tagalog"
-            elif norm in {"en", "english"}:
-                session["preferred_language"] = "english"
-
-        # Process message via Smart Classifier
-        result = handle_message(user_message, session=session, model=classifier_model)
+        # No explicit ID means no persisted state. A shared proxy/Wi-Fi IP must
+        # never mix one resident's language or pending document with another's.
+        # The future authenticated backend adapter owns trusted ID generation.
+        with CHAT_SESSION_LOCK:
+            now = time.monotonic()
+            if session_id and session_id not in sessions:
+                prune_chat_sessions(now)
+                sessions[session_id] = new_session()
+            elif session_id:
+                expired = now - session_last_seen.get(session_id, 0) >= CHAT_SESSION_TTL_SECONDS
+                if expired:
+                    sessions[session_id] = new_session()
+            chat_session = sessions[session_id] if session_id else new_session()
+            if session_id:
+                sessions.move_to_end(session_id)
+                session_last_seen[session_id] = now
+            if forced_lang:
+                chat_session['preferred_language'] = forced_lang
+            result = handle_message(user_message, session=chat_session, model=classifier_model)
         elapsed_ms = round((time.time() - t0) * 1000, 2)
 
         lang_code = result.get('language', 'english')
@@ -396,8 +459,12 @@ def chat():
         })
 
     except Exception as e:
-        print(f"Error handling chat: {e}", flush=True)
-        return jsonify({'error': 'Failed to process chat message', 'details': str(e)}), 500
+        # The Flask body-size exception must retain its 413 status.
+        from werkzeug.exceptions import RequestEntityTooLarge
+        if isinstance(e, RequestEntityTooLarge):
+            return payload_too_large(e)
+        app.logger.exception('Chat processing failed')
+        return jsonify({'error': 'Failed to process chat message. Please try again.'}), 500
 
 
 if __name__ == '__main__':

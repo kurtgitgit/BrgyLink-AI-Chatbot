@@ -14,7 +14,7 @@ from smart_classifier import get_kb_answer, handle_message, load_model, new_sess
 
 FAKE_REVIEWERS = {"Migration Script", "System", "system", "migration script"}
 SYSTEM_COPY_INTENTS = {"greeting", "goodbye", "thanks", "language_support",
-                       "out_of_scope", "fallback", "about_app"}
+                       "out_of_scope", "fallback", "about_app", "events"}
 
 
 class TestArchitecture(unittest.TestCase):

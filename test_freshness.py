@@ -94,7 +94,7 @@ class TestFreshnessClaims(unittest.TestCase):
 
         for intent_data in data.get("services", []):
             intent_name = intent_data.get("intent", "unknown")
-            for key in ["answer", "answer_en", "answer_fil", "answer_ilo", "answer_pag"]:
+            for key in ["answer", "answer_variants", "answer_en", "answer_fil", "answer_ilo", "answer_pag"]:
                 if key in intent_data:
                     self.traverse_dict(intent_data[key], f"{path} {intent_name} {key}")
 
@@ -120,18 +120,20 @@ class TestFreshnessClaims(unittest.TestCase):
             if svc.get("verified", False):
                 continue
             intent = svc.get("intent", "?")
-            answer = svc.get("answer", {})
-            if not isinstance(answer, dict):
-                continue
-            for lang, text in answer.items():
-                if not isinstance(text, str):
+            answer_sets = [("default", svc.get("answer", {}))]
+            answer_sets.extend(svc.get("answer_variants", {}).items())
+            for variant, answer in answer_sets:
+                if not isinstance(answer, dict):
                     continue
-                for pattern, label in FACTUAL_CLAIM_PATTERNS:
-                    m = pattern.search(text)
-                    if m:
-                        violations.append(
-                            f"  {intent} [{lang}]: {label} -> \"{m.group()}\""
-                        )
+                for lang, text in answer.items():
+                    if not isinstance(text, str):
+                        continue
+                    for pattern, label in FACTUAL_CLAIM_PATTERNS:
+                        m = pattern.search(text)
+                        if m:
+                            violations.append(
+                                f"  {intent}/{variant} [{lang}]: {label} -> \"{m.group()}\""
+                            )
 
         if violations:
             self.fail(

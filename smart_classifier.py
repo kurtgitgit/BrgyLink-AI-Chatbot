@@ -1,5 +1,5 @@
 """
-BrgyLink Smart Classifier v6 — Prototype Multilingual Offline NLP Engine.
+BrgyLink Smart Classifier v7 — Prototype Multilingual Offline NLP Engine.
 Barangay assistant prototype for Barangay Bagong Pag-asa, San Jacinto.
 Languages supported: Pangasinan, Ilocano, Tagalog, English.
 
@@ -9,17 +9,19 @@ advice and cannot dispatch emergency services.
 """
 
 import json
+import hashlib
 import math
 import os
 import pickle
 import re
+import tempfile
 from collections import Counter, defaultdict
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INTENTS_FILE = os.path.join(BASE_DIR, "data", "intents_brgylink_curated.json")
 KB_FILE = os.path.join(BASE_DIR, "knowledge_base.json")
 MODEL_FILE = os.path.join(BASE_DIR, "smart_classifier.pkl")
-MODEL_VERSION = 6
+MODEL_VERSION = 7
 FALLBACK = "out_of_scope"
 
 # --- Tuned thresholds ---
@@ -95,7 +97,14 @@ _EMERGENCY_RE = re.compile(
     r"unconsciousness|poisoning|binubugbog|binugbog|sinasaksak|may\s*baril|binabaril|"
     r"assault|sinakal|pinugutan|patay|pinatay|pumatay|self[\s\-]?harm|suicide|"
     r"papatayin|patayin|gustong\s*mamatay|ayaw\s*(ko\s*)?na\s*mabuhay|kill|nananaksak|"
-    r"nagdudugo|bleeding|hirap\s*huminga|difficulty\s*breathing)\b",
+    r"nagdudugo|bleeding|hirap\s*huminga|difficulty\s*breathing|"
+    r"(?:cannot|can\s*t|cant|unable\s*to)\s*breathe|"
+    r"(?:not|stopped|stops)\s*breathing|chok(?:e|es|ed|ing)|"
+    r"(?:cannot|can\s*t|cant)\s*catch\s*(?:my|their|his|her|our)?\s*breath|"
+    r"struggling\s*to\s*breathe|gasping\s*(?:for\s*)?air|hurt\s*myself|"
+    r"hindi\s*(?:na\s*)?makahinga|di\s*makahinga|"
+    r"nauubusan\s*(?:ng\s*)?hangin|saan\s*a\s*makaanges|ag\s*makainawa|"
+    r"end\s*my\s*life|wakasan\s*(?:ang\s*)?(?:aking\s*)?buhay)\b",
     re.IGNORECASE,
 )
 
@@ -134,9 +143,61 @@ _OUT_OF_SCOPE_RE = re.compile(
     r"school\s*enrollment|tuition|"
     r"basketball|nba|movie|joke|sing\s*(me\s*)?a\s*song|poem|"
     r"weather\s*in|president\s*of|capital\s*of|recipe|"
-    r"pizza|burger|game|cryptocurrency|bitcoin|stock\s*market|"
+    r"pizza|burger|game|football|calculus|cryptocurrency|bitcoin|stock\s*market|"
     r"renew\s*(my\s*)?passport|how\s*to\s*cook)\b",
     re.IGNORECASE,
+)
+
+# App-flow routing is deliberately narrow. These rules only clarify the
+# current BrgyLink registration flow; they run after the safety rules above
+# and do not disclose account-specific information.
+_SIGNUP_OTP_RE = re.compile(
+    r"(?=.*\b(?:otp|one\s*time\s*password|verification\s*code|email\s*code)\b)"
+    r"(?=.*\b(?:sign\s*up|signup|register|registration|mag-?register|rehistro|parehistro)\b)",
+    re.IGNORECASE,
+)
+
+_SIGNUP_RE = re.compile(
+    r"\b(sign\s*up|signup|register|registration|mag\s*register|"
+    r"rehistro|parehistro|agparehistro|magparehistro|panagparehistro)\b"
+)
+_CREATE_ACCOUNT_RE = re.compile(
+    r"\b(create|make|open|new|gumawa|gagawa|agaramid|manggawa)\b.{0,30}\b(?:resident\s*)?account\b|"
+    r"\baccount\b.{0,25}\b(create|make|open|new|gumawa)\b"
+)
+_VOTER_RE = re.compile(r"\b(voters?|vote|voting|botante|comelec|boto|eleksyon)\b")
+_CODE_RE = re.compile(r"\b(otp|verification\s*code|email\s*code|code)\b")
+_CODE_PROBLEM_RE = re.compile(
+    r"\b(expir\w*|incorrect|invalid|wrong|never|missing|resend|"
+    r"not\s*(?:receive\w*|arriv\w*)|did\s*not|didn\s*t|"
+    r"hindi|di\s*dumating|wala|naawat|awan|anggapo|mali|"
+    r"waiting|waited|does\s*not|doesn\s*t)\b"
+)
+_PASSWORD_RE = re.compile(r"\b(password|pass\s*word|pasword)\b")
+_PASSWORD_PROBLEM_RE = re.compile(
+    r"\b(forgot\w*|forget\w*|lost|lose|losing|reset|recover\w*|nakalimut\w*|nalipat\w*|"
+    r"alingwan\w*|wrong|incorrect|invalid|mali|change|palitan)\b"
+)
+_ACCOUNT_RE = re.compile(r"\b(account|login|log\s*in|sign\s*in|sumrek|makapasok)\b")
+_ACCOUNT_REVIEW_RE = re.compile(r"\b(pending|reject\w*|refus\w*|declin\w*|approv\w*|review|submitted|naisumite)\b")
+_OFFICIALS_RE = re.compile(
+    r"\b(kapitan|captain|punong\s*barangay|kagawad|opisyal|officials?|"
+    r"barangay\s*(?:chairman|chairperson|council|leaders?)|councillors?|councilors?|tanod|sk\s*chairman)\b"
+)
+_CIVIC_RE = re.compile(r"\b(sdg|civic\s*(?:tasks?|participation)|missions?|community\s*initiative)\b")
+_EVENT_RE = re.compile(r"\b(events?|community\s*activities)\b")
+_ID_RE = re.compile(r"\b(valid\s*id|government\s*(?:issued\s*)?id|passport|driver\w*\s*license)\b")
+_ID_PHOTO_RE = re.compile(
+    r"(?=.*\b(?:id|identification|passport|licen[cs]e)\b)"
+    r"(?=.*\b(?:photos?|pictures?|upload\w*|attach\w*|image|readable|blurry|photograph\w*)\b)"
+)
+# Never confuse a request for private credentials or somebody else's records
+# with help recovering the resident's own password. No records are accessed.
+_PRIVATE_DATA_RE = re.compile(
+    r"\b(?:admin|administrator)\b.{0,30}\b(?:password|credentials|token|secret)\b|"
+    r"\b(?:password|credentials|token|secret)\b.{0,30}\b(?:admin|administrator)\b|"
+    r"\b(?:other|another|all)\s+residents?\b.{0,40}\b(?:ids?|records?|details|data)\b|"
+    r"\b(?:neighbou?r\w*|someone|somebody|another|other)\b.{0,40}\b(?:password|credentials|private\s*records)\b"
 )
 
 # ---------------------------------------------------------------------------
@@ -186,8 +247,8 @@ KEYWORD_BOOSTS: list[tuple[re.Pattern, dict]] = [
     (re.compile(r"\b(basura|garbage|trash|hakot|panangala na basura|panag.?ala ti basura|kolekta)\b"), {"garbage": 0.50}),
 
     # Office hours / Location
-    (re.compile(r"\b(office hours|oras na opisina|oras ti opisina|tanggapan|bukas.*barangay|schedule\s*(ng|na|ti)\s*opisina)\b"), {"office_hours": 0.45}),
-    (re.compile(r"\b(where\s*(is|ang)\s*(the\s*)?office|nasaan\s*(ang\s*)?opisina|saan\s*(so|ti)\s*opisina|address|location\s*(of|ng|na)?\s*(the\s*)?(office|barangay)?)\b"), {"office_hours": 0.45}),
+    (re.compile(r"\b(office hours|opening times|oras na opisina|oras ti opisina|tanggapan|schedule\s*(ng|na|ti)\s*opisina)\b|\b(?:bukas|open)\b.{0,25}\b(?:opisina|office|barangay hall)\b"), {"office_hours": 0.45}),
+    (re.compile(r"\b(where\s*(?:is|can\s*i\s*find)\s*(?:the\s*)?(?:office|barangay\s*hall)|nasaan\s*(ang\s*)?opisina|saan\s*(so|ti)\s*opisina|address|location\s*(of|ng|na)?\s*(the\s*)?(office|barangay)?)\b"), {"office_hours": 0.45}),
 
     # Fees — must beat clearance when fee-related words present
     (re.compile(r"\b(fees?|bayad|bayar|magkano|panpiga|mano ti bayad|mano so bayad|presyo|singil|cost|price|how\s*much)\b"), {"fees": 0.50}),
@@ -258,7 +319,7 @@ def load_knowledge_base() -> dict:
     return index
 
 
-def get_kb_answer(intent: str, language: str) -> str:
+def get_kb_answer(intent: str, language: str, variant: str | None = None) -> str:
     """Get the answer for an intent from the knowledge base.
 
     Appends an unverified-data disclaimer only when content_type is
@@ -281,6 +342,10 @@ def get_kb_answer(intent: str, language: str) -> str:
         entry = kb.get("out_of_scope", {})
 
     answer_obj = entry.get("answer", {})
+    # Variants are still curated KB content, never generated factual answers.
+    candidate = entry.get("answer_variants", {}).get(variant) if variant else None
+    if is_valid_answer(candidate):
+        answer_obj = candidate
     text = answer_obj.get(language, answer_obj.get("english", ""))
 
     # Only barangay_fact entries can carry the unverified disclaimer.
@@ -302,7 +367,7 @@ def get_kb_answer(intent: str, language: str) -> str:
                 expiry_date = datetime.datetime.fromisoformat(entry["expires_at"].replace("Z", "+00:00"))
                 if datetime.datetime.now(datetime.timezone.utc) > expiry_date:
                     is_verified = False
-            except ValueError:
+            except (ValueError, TypeError, AttributeError):
                 is_verified = False
 
     if not is_verified:
@@ -345,7 +410,7 @@ def word_ngrams(tokens: list[str], ns=(1, 2)) -> Counter:
 
 
 def featurize(text: str) -> Counter:
-    norm = normalize(apply_aliases(text))
+    norm = normalize(apply_aliases(normalize(text)))
     tokens = norm.split()
     features = char_ngrams(norm)
     features.update(word_ngrams(tokens))
@@ -363,7 +428,7 @@ _LANG_RULES: dict[str, list[tuple[re.Pattern, float]]] = {
     "ilocano": [
         (re.compile(r"\b(dagiti|kadagiti|wenno|ket|tapno|ken|nga|met|pay|laeng|amin|ditoy|daytoy|kaniak|kenka|kadakayo|datayo|dakami|isuda|kasta)\b"), 1.4),
         (re.compile(r"\b(mabalin|agkiddaw|kasano|wen|saan|apay|sadino|kaano|kaanu|mano ti|anian|ania|anya|masapulko|masapul)\b"), 2.5),
-        (re.compile(r"\b(ilocano|ilokano|kabsat|kailian|agas|ubbing|kolkol|riri|uram|panagbiag|malungsot|agyamanak|agpakada|innakon|agsapa)\b"), 3.5),
+        (re.compile(r"\b(ilocano|ilokano|siasino|nalipatak|makaanges|ubing|kabsat|kailian|agas|ubbing|kolkol|riri|uram|panagbiag|malungsot|agyamanak|agpakada|innakon|agsapa)\b"), 3.5),
         (re.compile(r"\b(naimbag|aldaw|bigat|malem|rabii|dios ti agngina|makasungbatak|makaawat)\b"), 3.5),
         (re.compile(r"\b(mangited|mangaramid|pangngeddeng|panangsalaysay|lukatan|piliem|isumitem|panagkiddaw)\b"), 2.0),
         # iti/ti get reduced weight to avoid false positives on short text
@@ -374,7 +439,7 @@ _LANG_RULES: dict[str, list[tuple[re.Pattern, float]]] = {
         # High-confidence Pangasinan markers
         (re.compile(r"\b(saray|diad|onla|odino|pian|kabaleyan|natan)\b"), 2.5),
         (re.compile(r"\b(mano so|panon so|antoy|anto|panon|kapigan|kasapulan|amtaen|ugugaw|makapaingal|alitan|kolkolan|apoy|ponpon|mabiin|kailangan koy|panpiga|piga)\b"), 3.2),
-        (re.compile(r"\b(pangasinan|makatalos|anggad|nayarin|manggawa|man.?ingat|makaalis|balbaleg|maabig|kabuasan|ngarem|agew|labi|masantos)\b"), 3.5),
+        (re.compile(r"\b(pangasinan|anggapo|agko|siopa|ugaw|makainawa|makatalos|anggad|nayarin|manggawa|man.?ingat|makaalis|balbaleg|maabig|kabuasan|ngarem|agew|labi|masantos)\b"), 3.5),
         (re.compile(r"\b(say|inkuan|nanengneng|ipaliwawa|piliyen|mangikeddeng|nengnengen|silpin)\b"), 2.0),
         # Pangasinan pronoun 'ak' (first-person) — medium weight
         (re.compile(r"\bak\b"), 1.5),
@@ -384,7 +449,7 @@ _LANG_RULES: dict[str, list[tuple[re.Pattern, float]]] = {
     "tagalog": [
         (re.compile(r"\b(ang|ng|mga|sa|ay|ko|mo|po|opo|naman|lang|ba|dito|ito|yan|yun|natin|ninyo|amin|atin|nila|siya|sila)\b"), 0.8),
         (re.compile(r"\b(magandang|kumusta|kamusta|salamat|paalam|sige|walang anuman|pasensya|maraming salamat|ingat po)\b"), 2.0),
-        (re.compile(r"\b(paano|anong|ano|saan|kailan|sino|bakit|kailangan|gusto|mayroon|magkano|bayad|libre|puwede|maaari)\b"), 2.0),
+        (re.compile(r"\b(paano|anong|ano|saan|kailan|sino|bakit|hindi|yung|maling|kailangan|gusto|mayroon|magkano|bayad|libre|puwede|maaari)\b"), 2.0),
         (re.compile(r"\b(tagalog|filipino|pilipino|kumuha|makuha|humiling|ireport|magreklamo|kapitan|kagawad|tanod|nakatira)\b"), 3.0),
     ],
 }
@@ -441,7 +506,7 @@ def detect_language(message: str) -> str:
 # Language switch intent detection
 # ---------------------------------------------------------------------------
 _LANG_SWITCH = re.compile(
-    r"(sagot|sumagot|reply|response|speak|salita|wika|sagutin|usaren|pansalita|answer|isagot).{0,30}"
+    r"(sagot|sumagot|reply|response|respond|speak|salita|wika|sagutin|usaren|pansalita|answer|isagot).{0,30}"
     r"(tagalog|filipino|ilocano|ilokano|pangasinan|english|ingles)"
     r"|(tagalog|filipino|ilocano|ilokano|pangasinan|english|ingles).{0,30}"
     r"(ang|lang|only|please|lamang|na lang|so usaren|ti usarem)",
@@ -482,8 +547,9 @@ def language_switch(message: str) -> bool:
 # Training
 # ---------------------------------------------------------------------------
 def train() -> dict:
-    with open(INTENTS_FILE, encoding="utf-8") as f:
-        intents = json.load(f)["intents"]
+    with open(INTENTS_FILE, "rb") as f:
+        training_bytes = f.read()
+    intents = json.loads(training_bytes)["intents"]
 
     docs = [(item["tag"], pattern) for item in intents for pattern in item["patterns"]]
     freq = Counter()
@@ -510,20 +576,37 @@ def train() -> dict:
 
     model = {
         "version": MODEL_VERSION,
+        "training_sha256": hashlib.sha256(training_bytes).hexdigest(),
         "idf": idf,
         "centroids": dict(centroids),
     }
-    with open(MODEL_FILE, "wb") as f:
-        pickle.dump(model, f)
+    # An interrupted training run must not replace a working model with a
+    # partially written pickle. Save alongside the target and atomically swap.
+    fd, temporary_path = tempfile.mkstemp(prefix=".classifier-", dir=os.path.dirname(MODEL_FILE))
+    try:
+        with os.fdopen(fd, "wb") as f:
+            pickle.dump(model, f)
+        os.replace(temporary_path, MODEL_FILE)
+    finally:
+        if os.path.exists(temporary_path):
+            os.unlink(temporary_path)
     return model
 
 
 def load_model() -> dict:
     if not os.path.exists(MODEL_FILE):
         return train()
-    with open(MODEL_FILE, "rb") as f:
-        model = pickle.load(f)
-    if model.get("version") != MODEL_VERSION:
+    try:
+        with open(MODEL_FILE, "rb") as f:
+            model = pickle.load(f)
+    except (pickle.UnpicklingError, EOFError, ValueError, AttributeError):
+        return train()
+    with open(INTENTS_FILE, "rb") as f:
+        fingerprint = hashlib.sha256(f.read()).hexdigest()
+    if (not isinstance(model, dict) or model.get("version") != MODEL_VERSION
+            or model.get("training_sha256") != fingerprint
+            or not isinstance(model.get("idf"), dict)
+            or not isinstance(model.get("centroids"), dict) or not model["centroids"]):
         return train()
     return model
 
@@ -545,7 +628,7 @@ def compute_boost(value: str) -> dict[str, float]:
 
 
 def document_in(message: str) -> str | None:
-    value = normalize(apply_aliases(message))
+    value = normalize(apply_aliases(normalize(message)))
     # Don't match "cert" alone — too ambiguous
     return next((doc for key, doc in DOCUMENTS.items() if key != "cert" and key in value), None)
 
@@ -623,8 +706,6 @@ def handle_message(message: str, session: dict | None = None, model: dict | None
     if switch_lang:
         language = switch_lang
         session["preferred_language"] = language
-        resp = get_kb_answer("language_support", language)
-        return _build("language_support", 1.0, language, resp, session)
 
     # ===================================================================
     # SAFETY PRE-CLASSIFIER — always runs first, overrides everything
@@ -652,9 +733,48 @@ def handle_message(message: str, session: dict | None = None, model: dict | None
         return _build("legal_disclaimer", 1.0, language, resp, session)
 
     # 5. Obvious out-of-scope topics
-    if _OUT_OF_SCOPE_RE.search(value):
+    # Passport/licence *upload* guidance for signup is in scope, not advice
+    # about obtaining or renewing those national documents.
+    signup_id = bool((_SIGNUP_RE.search(value) or _CREATE_ACCOUNT_RE.search(value)) and _ID_RE.search(value))
+    national_document_request = re.search(
+        r"\b(renew|renewal|apply\s*for|obtain|get\s*(?:a|my))\b.{0,25}\b(passport|license)\b|"
+        r"\b(passport|license)\b.{0,25}\b(renew|renewal)\b", value
+    )
+    scope_value = _ID_RE.sub("", value) if signup_id and not national_document_request else value
+    if _PRIVATE_DATA_RE.search(value) or _OUT_OF_SCOPE_RE.search(scope_value):
         resp = get_kb_answer("out_of_scope", language)
         return _build("out_of_scope", 1.0, language, resp, session)
+
+    # Explicit app concepts resolve common short wording without lowering the
+    # classifier's uncertainty threshold. Recovery wins over signup timing.
+    if _CODE_RE.search(value) and _CODE_PROBLEM_RE.search(value):
+        return _build("account_help", 0.98, language, get_kb_answer("account_help", language, "otp"), session)
+    if _PASSWORD_RE.search(value) and (_PASSWORD_PROBLEM_RE.search(value) or re.search(r"\bagko\s*amta\b", value)):
+        return _build("account_help", 0.98, language, get_kb_answer("account_help", language, "password"), session)
+    signup_question = bool(_SIGNUP_RE.search(value) or _CREATE_ACCOUNT_RE.search(value))
+    if (_ACCOUNT_RE.search(value) or signup_question) and _ACCOUNT_REVIEW_RE.search(value):
+        return _build("account_help", 0.98, language, get_kb_answer("account_help", language, "review"), session)
+    if _ACCOUNT_RE.search(value) and not signup_question:
+        variant = "review" if _ACCOUNT_REVIEW_RE.search(value) else None
+        return _build("account_help", 0.98, language, get_kb_answer("account_help", language, variant), session)
+    if _EVENT_RE.search(value):
+        return _build("events", 0.98, language, get_kb_answer("events", language), session)
+    if _CIVIC_RE.search(value):
+        return _build("sdg_mission", 0.98, language, get_kb_answer("sdg_mission", language), session)
+    if _OFFICIALS_RE.search(value):
+        return _build("officials", 0.98, language, get_kb_answer("officials", language), session)
+    if _SIGNUP_RE.search(value) and _VOTER_RE.search(value):
+        return _build("voter_registration", 0.98, language, get_kb_answer("voter_registration", language), session)
+    if _SIGNUP_OTP_RE.search(value) and not _VOTER_RE.search(value):
+        resp = get_kb_answer("registration", language)
+        return _build("registration", 0.98, language, resp, session)
+    if signup_question and not _VOTER_RE.search(value):
+        variant = "id" if _ID_RE.search(value) else None
+        return _build("registration", 0.98, language, get_kb_answer("registration", language, variant), session)
+    if _ID_RE.search(value) and re.search(r"\b(?:\d{1,2}|minor|age)\b", value):
+        return _build("registration", 0.98, language, get_kb_answer("registration", language, "id"), session)
+    if _ID_PHOTO_RE.search(value):
+        return _build("registration", 0.98, language, get_kb_answer("registration", language, "id"), session)
 
     # ===================================================================
     # COMPOUND QUERY DETECTION
@@ -750,6 +870,10 @@ def handle_message(message: str, session: dict | None = None, model: dict | None
     # ===================================================================
     # ANSWER FROM KNOWLEDGE BASE
     # ===================================================================
+    if switch_lang and intent in {FALLBACK, "fallback", "language_support"}:
+        intent = "language_support"
+    elif intent == "fallback":
+        intent = FALLBACK
     resp = get_kb_answer(intent, language)
     return _build(intent, score, language, resp, session)
 

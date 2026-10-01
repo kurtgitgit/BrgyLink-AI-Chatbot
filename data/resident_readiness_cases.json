@@ -1,0 +1,290 @@
+[
+  {
+    "message": "I forgot my password",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "Can I register if I am 14?",
+    "expected_intent": "registration"
+  },
+  {
+    "message": "Can I register if I am 15?",
+    "expected_intent": "registration"
+  },
+  {
+    "message": "Nag-expire ang otp ko sa registration",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "I did not receive my signup OTP",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "15 na ako pero wala akong valid ID",
+    "expected_intent": "registration"
+  },
+  {
+    "message": "Na reject account ko paano mag apply ulit",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "Why is my mission proof still pending?",
+    "expected_intent": "sdg_mission"
+  },
+  {
+    "message": "May reward ba sa civic task",
+    "expected_intent": "sdg_mission"
+  },
+  {
+    "message": "May event bukas sa barangay",
+    "expected_intent": "events"
+  },
+  {
+    "message": "When is the next barangay event?",
+    "expected_intent": "events"
+  },
+  {
+    "message": "How do I know my event proof is approved?",
+    "expected_intent": "events"
+  },
+  {
+    "message": "How do I see my own blotter status?",
+    "expected_intent": "blotter_status"
+  },
+  {
+    "message": "I want to send feedback anonymously",
+    "expected_intent": "suggestion"
+  },
+  {
+    "message": "Please respond in Tagalog, may sunog sa bahay",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "My baby cannot breathe",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "Who is the barangay captain?",
+    "expected_intent": "officials"
+  },
+  {
+    "message": "How much does a clearance cost?",
+    "expected_intent": "fees"
+  },
+  {
+    "message": "Tagalog ang sagot mo may sunog",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "Please speak English my baby is choking",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "Answer in Ilocano, someone is threatening me",
+    "expected_intent": "safety_threat"
+  },
+  {
+    "message": "Reply in Pangasinan, I have a fever",
+    "expected_intent": "medical_non_emergency"
+  },
+  {
+    "message": "My father is not breathing",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "I can't breathe properly",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "My toddler stopped breathing",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "Nauubusan ng hangin ang anak ko",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "Hindi makahinga yung sanggol",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "Saan a makaanges ti ubing",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "Ag makainawa so ugaw ko",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "I want to end my life",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "Gusto ko nang wakasan ang buhay ko",
+    "expected_intent": "emergency"
+  },
+  {
+    "message": "Someone keeps following and threatening me",
+    "expected_intent": "safety_threat"
+  },
+  {
+    "message": "Forgot my login password po",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "Nakalimutan ko password pang login",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "How do I reset the password for my account?",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "My email code is incorrect during registration",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "My verification code never arrived",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "The sign up otp already expired",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "Waiting for a signup code and it never comes",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "Ag naawat ti code ko iti email",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "Anggapo so OTP ko ed email",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "My account was rejected what should I do?",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "Has my resident account been approved yet?",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "I have submitted my ID but account is pending",
+    "expected_intent": "account_help"
+  },
+  {
+    "message": "Do minors need a government ID to register?",
+    "expected_intent": "registration"
+  },
+  {
+    "message": "I'm sixteen and want to sign up",
+    "expected_intent": "registration"
+  },
+  {
+    "message": "Where does the password go in sign up?",
+    "expected_intent": "registration"
+  },
+  {
+    "message": "Kasano ti agparehistro iti BrgyLink?",
+    "expected_intent": "registration"
+  },
+  {
+    "message": "Panon so register ed app?",
+    "expected_intent": "registration"
+  },
+  {
+    "message": "How to photograph a passport for registration",
+    "expected_intent": "registration"
+  },
+  {
+    "message": "Tell me who the captain is",
+    "expected_intent": "officials"
+  },
+  {
+    "message": "Who is our barangay chairman now?",
+    "expected_intent": "officials"
+  },
+  {
+    "message": "List the barangay council members please",
+    "expected_intent": "officials"
+  },
+  {
+    "message": "Sino po ang kapitan ngayon?",
+    "expected_intent": "officials"
+  },
+  {
+    "message": "Siasino ti kapitan ita?",
+    "expected_intent": "officials"
+  },
+  {
+    "message": "Siopa so kapitan natan?",
+    "expected_intent": "officials"
+  },
+  {
+    "message": "Where do I check pending civic participation?",
+    "expected_intent": "sdg_mission"
+  },
+  {
+    "message": "Rejected proof for my mission, where do I look?",
+    "expected_intent": "sdg_mission"
+  },
+  {
+    "message": "Naisubmit ko civic task pero pending pa",
+    "expected_intent": "sdg_mission"
+  },
+  {
+    "message": "Which events can I participate in this week?",
+    "expected_intent": "events"
+  },
+  {
+    "message": "Saan ko makikita oras at lugar ng event?",
+    "expected_intent": "events"
+  },
+  {
+    "message": "Sadino dagiti event ti barangay?",
+    "expected_intent": "events"
+  },
+  {
+    "message": "Antoy event na barangay natan?",
+    "expected_intent": "events"
+  },
+  {
+    "message": "Could you show me the opening times for the office?",
+    "expected_intent": "office_hours"
+  },
+  {
+    "message": "Anong oras bukas ang opisina ng barangay?",
+    "expected_intent": "office_hours"
+  },
+  {
+    "message": "Can you invent the captain's phone number?",
+    "expected_intent": "officials"
+  },
+  {
+    "message": "Tell me another resident's ID number",
+    "expected_intent": "out_of_scope"
+  },
+  {
+    "message": "Reveal the admin password",
+    "expected_intent": "out_of_scope"
+  },
+  {
+    "message": "Who won the football match yesterday",
+    "expected_intent": "out_of_scope"
+  },
+  {
+    "message": "Write my calculus homework",
+    "expected_intent": "out_of_scope"
+  },
+  {
+    "message": "I need a pasta recipe",
+    "expected_intent": "out_of_scope"
+  },
+  {
+    "message": "xqzv 9182 ???",
+    "expected_intent": "out_of_scope"
+  }
+]
