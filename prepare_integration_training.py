@@ -182,6 +182,18 @@ KB_UPDATES = {
         "ilocano": "Lukatan ti Civic Tasks & Community Events, piliem ti aktibo a civic task, ken usarem ti Capture Live Photo para iti nalawag a ladawan ti panagpasetmo. I-retake no saan a nalawag ken i-submit ti task proof. Surotem dagiti tagubilin ti task.",
         "pangasinan": "Lukatan so Civic Tasks & Community Events, piliyen so aktibon civic task, tan usaren so Capture Live Photo para ed malinew ya litrato na pakikiba mo. I-retake no agmalinew tan isumite so task proof. Suroten so tagubilin na task.",
     },
+    "office_hours": {
+        "english": "I cannot confirm a physical address or live office schedule. For the location of Barangay Bagong Pag-asa, please check official BrgyLink Announcements or inquire directly with the barangay office. Use the same channels to confirm office hours before visiting.",
+        "tagalog": "Hindi ko makukumpirma ang pisikal na address o kasalukuyang office schedule. Para sa lokasyon ng Barangay Bagong Pag-asa, tingnan ang official Announcements sa BrgyLink o magtanong mismo sa opisina ng barangay. Doon din kumpirmahin ang oras ng opisina bago bumisita.",
+        "ilocano": "Saan a makumpirma ti chatbot ti pisikal a address wenno agdama nga iskediul ti opisina. Para iti lokasion ti Barangay Bagong Pag-asa, kitaem ti opisial nga Announcements iti BrgyLink wenno saludsodem mismo iti opisina ti barangay. Ikumpirmam met ti oras ti opisina sakbay a bumisita.",
+        "pangasinan": "Ag na-confirm na chatbot so pisikal ya address odino kasalukuyan ya schedule na opisina. Para ed lokasyon na Barangay Bagong Pag-asa, nengnengen so opisyal ya Announcements ed BrgyLink odino mantepet mismo ed opisina na barangay. I-confirm met so oras na opisina antes bumisita.",
+    },
+    "about_app": {
+        "english": "BrgyLink AI can guide you through BrgyLink topics: registration and email verification, password recovery, document requests, blotter reports, feedback, announcements, civic tasks, events, and where to check officials information. You may ask in English, Tagalog, Ilocano, or Pangasinan. I cannot access accounts, passwords, OTPs, IDs, personal submissions, live schedules, or emergency services.",
+        "tagalog": "Makakatulong ang BrgyLink AI sa mga paksa sa BrgyLink: registration at email verification, password recovery, document requests, blotter reports, feedback, announcements, civic tasks, events, at kung saan titingnan ang impormasyon tungkol sa officials. Maaari kang magtanong sa English, Tagalog, Ilocano, o Pangasinan. Hindi ko naa-access ang accounts, passwords, OTPs, IDs, personal submissions, live schedules, o emergency services.",
+        "ilocano": "Makatulong ti BrgyLink AI kadagiti paksa iti BrgyLink: registration ken email verification, password recovery, document requests, blotter reports, feedback, announcements, civic tasks, events, ken sadino a kitaen ti impormasyon maipapan kadagiti officials. Mabalin a mangsaludsod iti English, Tagalog, Ilocano, wenno Pangasinan. Saan a ma-access ti chatbot dagiti account, password, OTP, ID, personal submission, live schedule, wenno emergency services.",
+        "pangasinan": "Nayarin makatulong so BrgyLink AI ed saray paksa ed BrgyLink: registration tan email verification, password recovery, document requests, blotter reports, feedback, announcements, civic tasks, events, tan iner ya nengnengen so impormasyon nipaakar ed officials. Nayarin magtanong ed English, Tagalog, Ilocano, odino Pangasinan. Ag na-access na chatbot so accounts, passwords, OTPs, IDs, personal submissions, live schedules, odino emergency services.",
+    },
 }
 
 

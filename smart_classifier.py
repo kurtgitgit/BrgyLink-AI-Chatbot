@@ -184,6 +184,17 @@ _OFFICIALS_RE = re.compile(
     r"\b(kapitan|captain|punong\s*barangay|kagawad|opisyal|officials?|"
     r"barangay\s*(?:chairman|chairperson|council|leaders?)|councillors?|councilors?|tanod|sk\s*chairman)\b"
 )
+_BARANGAY_LOCATION_RE = re.compile(
+    r"\b(?:where\s*(?:is|are)|saan|nasaan|sadino|iner)\b.{0,30}"
+    r"\b(?:barangay|brgy)\b.{0,30}\bbagong\s*pag\s*asa\b|"
+    r"\bbagong\s*pag\s*asa\b.{0,30}\b(?:location|address|saan|nasaan|sadino|iner)\b"
+)
+_CAPABILITIES_RE = re.compile(
+    r"\b(?:what\s*(?:can|do)\s*(?:you|brgylink)|how\s*can\s*you\s*help|"
+    r"ano\s*(?:ang\s*)?(?:mga\s*)?(?:pwede|puwede|kaya)\s*(?:mong\s*)?gawin|"
+    r"anong\s*(?:mga\s*)?(?:tulong|serbisyo)\s*(?:ang\s*)?(?:kaya|pwede|puwede)|"
+    r"ania\s*(?:dagiti\s*)?(?:mabalin|tulong)|antoy\s*(?:saray\s*)?(?:tulong|sarag))\b"
+)
 _CIVIC_RE = re.compile(r"\b(sdg|civic\s*(?:tasks?|participation)|missions?|community\s*initiative)\b")
 _EVENT_RE = re.compile(r"\b(events?|community\s*activities)\b")
 _ID_RE = re.compile(r"\b(valid\s*id|government\s*(?:issued\s*)?id|passport|driver\w*\s*license)\b")
@@ -763,6 +774,10 @@ def handle_message(message: str, session: dict | None = None, model: dict | None
         return _build("sdg_mission", 0.98, language, get_kb_answer("sdg_mission", language), session)
     if _OFFICIALS_RE.search(value):
         return _build("officials", 0.98, language, get_kb_answer("officials", language), session)
+    if _BARANGAY_LOCATION_RE.search(value):
+        return _build("office_hours", 0.98, language, get_kb_answer("office_hours", language), session)
+    if _CAPABILITIES_RE.search(value):
+        return _build("about_app", 0.98, language, get_kb_answer("about_app", language), session)
     if _SIGNUP_RE.search(value) and _VOTER_RE.search(value):
         return _build("voter_registration", 0.98, language, get_kb_answer("voter_registration", language), session)
     if _SIGNUP_OTP_RE.search(value) and not _VOTER_RE.search(value):

@@ -643,13 +643,13 @@
         "Anong oras ang pagbubukas ng opisina?"
       ],
       "responses": [
-        "For the office hours and schedule of Barangay Bagong Pag-asa, please inquire directly at the barangay hall or check the Announcements section in BrgyLink for any posted schedule updates."
+        "I cannot confirm a physical address or live office schedule. For the location of Barangay Bagong Pag-asa, please check official BrgyLink Announcements or inquire directly with the barangay office. Use the same channels to confirm office hours before visiting."
       ],
       "multilingual_responses": {
-        "english": "For the office hours and schedule of Barangay Bagong Pag-asa, please inquire directly at the barangay hall or check the Announcements section in BrgyLink for any posted schedule updates.",
-        "tagalog": "Para sa oras ng opisina at schedule ng Barangay Bagong Pag-asa, magtanong po sa barangay hall o tingnan ang Announcements sa BrgyLink para sa mga update sa schedule.",
-        "ilocano": "Para iti oras ti opisina ken iskediul ti Barangay Bagong Pag-asa, saludsoden iti barangay hall wenno kitaen ti Announcements iti BrgyLink para kadagiti update ti iskediul.",
-        "pangasinan": "Para ed oras na opisina tan schedule na Barangay Bagong Pag-asa, mantepet ed barangay hall odino nengnengen so Announcements ed BrgyLink para ed saray update na schedule."
+        "english": "I cannot confirm a physical address or live office schedule. For the location of Barangay Bagong Pag-asa, please check official BrgyLink Announcements or inquire directly with the barangay office. Use the same channels to confirm office hours before visiting.",
+        "tagalog": "Hindi ko makukumpirma ang pisikal na address o kasalukuyang office schedule. Para sa lokasyon ng Barangay Bagong Pag-asa, tingnan ang official Announcements sa BrgyLink o magtanong mismo sa opisina ng barangay. Doon din kumpirmahin ang oras ng opisina bago bumisita.",
+        "ilocano": "Saan a makumpirma ti chatbot ti pisikal a address wenno agdama nga iskediul ti opisina. Para iti lokasion ti Barangay Bagong Pag-asa, kitaem ti opisial nga Announcements iti BrgyLink wenno saludsodem mismo iti opisina ti barangay. Ikumpirmam met ti oras ti opisina sakbay a bumisita.",
+        "pangasinan": "Ag na-confirm na chatbot so pisikal ya address odino kasalukuyan ya schedule na opisina. Para ed lokasyon na Barangay Bagong Pag-asa, nengnengen so opisyal ya Announcements ed BrgyLink odino mantepet mismo ed opisina na barangay. I-confirm met so oras na opisina antes bumisita."
       }
     },
     {
@@ -1414,13 +1414,13 @@
         "Akin ya maong ya usaren so BrgyLink?"
       ],
       "responses": [
-        "BrgyLink is the mobile application for Barangay Bagong Pag-asa, San Jacinto. It empowers residents with digital document requests, online blotter filing, community SDG civic participation, and instant barangay announcements."
+        "BrgyLink AI can guide you through BrgyLink topics: registration and email verification, password recovery, document requests, blotter reports, feedback, announcements, civic tasks, events, and where to check officials information. You may ask in English, Tagalog, Ilocano, or Pangasinan. I cannot access accounts, passwords, OTPs, IDs, personal submissions, live schedules, or emergency services."
       ],
       "multilingual_responses": {
-        "english": "BrgyLink is the mobile application for Barangay Bagong Pag-asa, San Jacinto. It empowers residents with digital document requests, online blotter filing, community SDG civic participation, and instant barangay announcements.",
-        "tagalog": "Ang BrgyLink ay ang all-in-one mobile platform ng Barangay Bagong Pag-asa, San Jacinto. Dinisenyo ito para sa mabilisang document requests, online blotter reporting, community SDG participation, at direktang anunsyo para sa bawat residente.",
-        "ilocano": "Ti BrgyLink ket ti all-in-one mobile app ti Barangay Bagong Pag-asa, San Jacinto. Naaramid daytoy para iti nalaka a panagkiddaw ti dokumento, online blotter reporting, komunidad SDG missions, ken anunsio para kadagiti residente.",
-        "pangasinan": "Say BrgyLink et say all-in-one mobile platform na Barangay Bagong Pag-asa, San Jacinto. Ginawa iya pian mainomay so panangikeddeng na dokumento, online blotter reporting, komunidad SDG participation, tan direktan anunsyo para ed balang residente."
+        "english": "BrgyLink AI can guide you through BrgyLink topics: registration and email verification, password recovery, document requests, blotter reports, feedback, announcements, civic tasks, events, and where to check officials information. You may ask in English, Tagalog, Ilocano, or Pangasinan. I cannot access accounts, passwords, OTPs, IDs, personal submissions, live schedules, or emergency services.",
+        "tagalog": "Makakatulong ang BrgyLink AI sa mga paksa sa BrgyLink: registration at email verification, password recovery, document requests, blotter reports, feedback, announcements, civic tasks, events, at kung saan titingnan ang impormasyon tungkol sa officials. Maaari kang magtanong sa English, Tagalog, Ilocano, o Pangasinan. Hindi ko naa-access ang accounts, passwords, OTPs, IDs, personal submissions, live schedules, o emergency services.",
+        "ilocano": "Makatulong ti BrgyLink AI kadagiti paksa iti BrgyLink: registration ken email verification, password recovery, document requests, blotter reports, feedback, announcements, civic tasks, events, ken sadino a kitaen ti impormasyon maipapan kadagiti officials. Mabalin a mangsaludsod iti English, Tagalog, Ilocano, wenno Pangasinan. Saan a ma-access ti chatbot dagiti account, password, OTP, ID, personal submission, live schedule, wenno emergency services.",
+        "pangasinan": "Nayarin makatulong so BrgyLink AI ed saray paksa ed BrgyLink: registration tan email verification, password recovery, document requests, blotter reports, feedback, announcements, civic tasks, events, tan iner ya nengnengen so impormasyon nipaakar ed officials. Nayarin magtanong ed English, Tagalog, Ilocano, odino Pangasinan. Ag na-access na chatbot so accounts, passwords, OTPs, IDs, personal submissions, live schedules, odino emergency services."
       }
     },
     {
